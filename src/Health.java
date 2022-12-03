@@ -45,10 +45,8 @@ public class Health {//战斗用数值，每天刷新一次
     }
 
     public void UpdateHealth() {
-        
     }
     public void Death()
     {
-
     }
 }

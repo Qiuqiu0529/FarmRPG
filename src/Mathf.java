@@ -1,8 +1,8 @@
 public class Mathf {
-    public static float clamp(float val, float min, float max) {
+    public static float Clamp(float val, float min, float max) {
         return Math.max(min, Math.min(max, val));
     }
-    public static int clamp(int val, int min, int max) {
+    public static int Clamp(int val, int min, int max) {
         return Math.max(min, Math.min(max, val));
     }
     

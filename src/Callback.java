@@ -1,3 +1,3 @@
 public interface Callback {
-    void call();
+    void Call();
 }

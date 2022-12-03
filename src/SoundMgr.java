@@ -1,4 +1,4 @@
-public class SoundMgr {
+public class SoundMgr {//Singleton
     private static volatile  SoundMgr instance;
     private SoundMgr() {
         if (instance != null) {
@@ -6,10 +6,10 @@ public class SoundMgr {
         }
     }
 
-    public static SoundMgr getInstance() {
+    public static SoundMgr GetInstance() {
         var result = instance;
         if (result == null) {
-            synchronized (MoneyPresenter.class) {
+            synchronized (SoundMgr.class) {
                 result = instance;
                 if (result == null) {
                     instance = result = new SoundMgr();
@@ -19,10 +19,22 @@ public class SoundMgr {
         return result;
     }
 
+    //#region Forest
+
 
     public void PlayForestBGM()
     {
         System.out.println("播放静谧的森林背景乐，小鸟啁啾，叶子摇摇" );
+    }
+
+    public void PlayForestWalkingSound()
+    {
+        System.out.println("播放在森林行走的声音，沙沙" );
+    }
+
+    public void PlayRestSound()
+    {
+        System.out.println("播放在休息时哼歌的声音，哼哼哼~" );
     }
 
     public void PlayBattleBGM()
@@ -66,14 +78,27 @@ public class SoundMgr {
 
     public void PlayVictorySound()
     {
-        System.out.println("播放玩家胜利的声音，撒花，彩条飞舞" );
+        System.out.println("播放玩家胜利的声音，啦啦啦" );
     }
+
+    public void PlayFailureSound()
+    {
+        System.out.println("播放玩家倒下的声音，啊" );
+    }
+
+    //#endregion
 
 
     public void PlayPlantBGM()
     {
         System.out.println("播放轻松的种田背景乐，啦啦啦哒哒哒" );
     }
+
+    public void PlayNormalBGM()
+    {
+        System.out.println("播放日常背景乐，噔铛噔，噔铛噔" );
+    }
+
 
     public void PlayCoinSound()
     {

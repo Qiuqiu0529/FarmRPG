@@ -35,7 +35,7 @@ public class Energy {
    
     public void UpdateEnergy()
     {
-       callback.call();
+       callback.Call();
     }
 
 
