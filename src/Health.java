@@ -16,13 +16,13 @@ public class Health {//战斗用数值，每天刷新一次
 
     public void AddHealth(float addAmount) {
         currentHealth += addAmount;
-        currentHealth = Mathf.clamp(currentHealth, minHealth, currentHealth);
+        currentHealth = Mathf.Clamp(currentHealth, minHealth, currentHealth);
         UpdateHealth();
     }
 
     public void MinusHealth(float minusAmount) {
         currentHealth -= minusAmount;
-        currentHealth = Mathf.clamp(currentHealth, minHealth, currentHealth);
+        currentHealth = Mathf.Clamp(currentHealth, minHealth, currentHealth);
         if(currentHealth<minHealth)
         {
             Death();
@@ -35,7 +35,7 @@ public class Health {//战斗用数值，每天刷新一次
 
     public void MultiplyHealth(float multiAmount) {
         currentHealth *= multiAmount;
-        currentHealth = Mathf.clamp(currentHealth, minHealth, currentHealth);
+        currentHealth = Mathf.Clamp(currentHealth, minHealth, currentHealth);
         UpdateHealth();
     }
 
