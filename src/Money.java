@@ -1,29 +1,29 @@
 public class Money {//MVP、callback
-    int moneyAmount=0;
-    Callback callback;
+    private float moneyAmount=0;
+    private Callback callback;
 
     public void SetOnChange(Callback back) {
         callback = back;
     }
 
-    public int Getmoney()
+    public float Getmoney()
     {
         return moneyAmount;
     }
     
-    public void AddMoney(int addAmount)
+    public void AddMoney(float addAmount)
     {
         moneyAmount+=addAmount;
         UpdateMoney();
     }
 
-    public void MinusMoney(int minusAmount)
+    public void MinusMoney(float minusAmount)
     {
         moneyAmount-=minusAmount;
         UpdateMoney();
     }
 
-    public void MultiplyMoney(int multiAmount)
+    public void MultiplyMoney(float multiAmount)
     {
         moneyAmount*=multiAmount;
         UpdateMoney();

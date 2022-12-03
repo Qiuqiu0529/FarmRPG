@@ -33,11 +33,11 @@ public class MoneyPresenter {//singleton、MVP、callback
         }
     };
 
-    public void SpendMoney(int minusAmount) {
+    public void SpendMoney(float minusAmount) {
         money.MinusMoney(minusAmount);
     }
 
-    public void EarnMoney(int addAmount) {
+    public void EarnMoney(float addAmount) {
         money.AddMoney(addAmount);
 
     }
@@ -46,6 +46,6 @@ public class MoneyPresenter {//singleton、MVP、callback
     {
         if (money == null)
             return;
-        System.out.println("玩家当前的金钱数量为：" + Integer.toString(money.Getmoney()));
+        System.out.println("玩家当前的金钱数量为：" + Float.toString(money.Getmoney()));
     }
 }
