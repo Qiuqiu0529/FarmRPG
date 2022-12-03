@@ -87,6 +87,11 @@ public class SoundMgr {//Singleton
         System.out.println("播放玩家倒下的声音，啊" );
     }
 
+    public void PlayEscapeSound()
+    {
+        System.out.println("播放玩家逃跑的声音，byebye" );
+    }
+
     //#endregion
 
 

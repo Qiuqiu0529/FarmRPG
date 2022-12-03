@@ -1,4 +1,7 @@
 package Mgr;
+import Player.MoneyPresenter;
+import Player.EnergyPresenter;
+
 public class GameMgr {
     private static volatile GameMgr instance;
 

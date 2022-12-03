@@ -17,30 +17,23 @@ public class Health {//战斗用数值，每天刷新一次
         return currentHealth;
     }
 
-    public void AddHealth(float addAmount) {
+    public float AddHealth(float addAmount) {
+        float temp = currentHealth;
         currentHealth += addAmount;
         currentHealth = Mathf.Clamp(currentHealth, minHealth, currentHealth);
         UpdateHealth();
+
+        return currentHealth-temp;
     }
 
-    public void MinusHealth(float minusAmount) {
+    public float MinusHealth(float minusAmount) {
+        float temp = currentHealth;
         currentHealth -= minusAmount;
         currentHealth = Mathf.Clamp(currentHealth, minHealth, currentHealth);
-        if(currentHealth<minHealth)
-        {
-            Death();
-        }
-        else
-        {
-            UpdateHealth();
-        }
+        UpdateHealth();
+        return temp-currentHealth;
     }
 
-    public void MultiplyHealth(float multiAmount) {
-        currentHealth *= multiAmount;
-        currentHealth = Mathf.Clamp(currentHealth, minHealth, currentHealth);
-        UpdateHealth();
-    }
 
     public void Restore() {
         currentHealth=maxHealth;
@@ -48,8 +41,5 @@ public class Health {//战斗用数值，每天刷新一次
     }
 
     public void UpdateHealth() {
-    }
-    public void Death()
-    {
     }
 }

@@ -5,7 +5,7 @@ import Mgr.GameMgr;
 
 public class MoneyPresenter {//singleton、MVP、callback
     Money money;
-    int debtTimeRestrcit=7;
+    int debtTimeRestrcit=7;//可以欠债的最多天数
 
     private static volatile MoneyPresenter instance;
 

@@ -1,5 +1,5 @@
 package Player;
-public class PlayerMoveState implements PlayerState{
+public class PlayerMoveState implements PlayerState{//非冒险（森林）模式移动
     Player player;
     public PlayerMoveState(Player player)
     {

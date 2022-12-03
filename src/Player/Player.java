@@ -45,8 +45,12 @@ public class Player {
 
     public void EnterIdle()
     {
-        playerVisual.PlayIdleAnim();
-        SoundMgr.GetInstance().PlayNormalBGM();
+       
+    }
+
+    public void EnterMoveUp()
+    {
+        
     }
 
 }

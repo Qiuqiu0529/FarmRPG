@@ -1,7 +1,5 @@
 package Actor;
 public interface IMovement {
-    public void MoveUp();
-    public void MoveDown();
-    public void MoveLeft();
-    public void MoveRight();
+    public boolean CanMove(int x,int y);
+    public void MoveUpdate(int x,int y);
 }

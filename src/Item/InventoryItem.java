@@ -1,5 +1,5 @@
 package Item;
-public class InventoryItem implements Cloneable{//prototype
+public class InventoryItem implements Cloneable{//prototype，代表背包里的物体
     public String itemID;
     public String itemName;
     public ItemClasses itemClass;
@@ -16,6 +16,7 @@ public class InventoryItem implements Cloneable{//prototype
     public int maxStack = 1;// 一类物品最多能叠的数量
 
     protected Inventory _targetInventory = null;
+    public Object prefab;//实际的物体
 
     public Inventory TargetInventory(String playerID) {
         if (targetInventoryName == null) {
@@ -48,5 +49,4 @@ public class InventoryItem implements Cloneable{//prototype
         }
         return cloneitem;
     }
-
 }

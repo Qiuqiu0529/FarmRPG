@@ -8,7 +8,6 @@ public class PlayerIdleState implements PlayerState{
     public void ExcuteState()
     {
         System.out.println("玩家进入默认待机状态");
-        player.EnterIdle();
     }
     public void ExitState()
     {

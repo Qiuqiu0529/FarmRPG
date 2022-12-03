@@ -47,14 +47,6 @@ public class Money {//MVP、callback
         UpdateMoney();
     }
 
-    public void MultiplyMoney(float multiAmount)
-    {
-        float temp= moneyAmount;
-        moneyAmount*=multiAmount;
-        earnMoneyThisDay+=moneyAmount-temp;
-        UpdateMoney();
-    }
-
     public void SetDebtTime(int amount)
     {
         debtTime=amount;
