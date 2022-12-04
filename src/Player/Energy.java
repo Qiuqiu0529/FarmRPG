@@ -45,6 +45,13 @@ public class Energy {
     public void Restore()
     {
         currentEnergy=maxEnergy;
+        UpdateEnergy();
+    }
+
+    public void BadRestore()
+    {
+        currentEnergy=maxEnergy/2;
+        UpdateEnergy();
     }
 
 }

@@ -1,45 +1,60 @@
 package Actor;
 
 public class Movement implements IMovement{
-    int posX=0;
-    int posY=0;
+    protected int posX=0;
+    protected int posY=0;
 
     static int maxposX=10;
     static int minposX=0;
 
     static int maxposY=10;
     static int minposY=0;
+
+    public static void SetMinPosX(int min)
+    {
+        minposX=min;
+    }
+    public static void SetMinPosY(int min)
+    {
+        minposY=min;
+    }
+    public static void SetMaxPosX(int max)
+    {
+        maxposX=max;
+    }
+    public static void SetMaxPosY(int max)
+    {
+        maxposY=max;
+    }
+
+    public void InitPose(int x,int y)
+    {
+        if(InBoundry(x, y))
+        {
+            posX=x;
+            posY=y;
+        }
+        else
+        {
+            posX=0;
+            posY=0;
+        }
+    }
+
+    public static boolean InBoundry(int x,int y)
+    {
+        if(0<=x&&x<maxposX&&0<=y&&y<maxposY)
+        {
+            return true;
+        }
+        return false;
+    }
     
     public boolean CanMove(int x,int y)
     {
         int tempx=x+posX;
         int tempy=y+posY;
-        if(0<=tempx&&tempx<maxposX&&0<=tempy&&tempy<maxposY)
-        {
-            return false;
-        }
-        return true;
-    }
-
-    public void MoveUp(int amount)
-    {
-        posY+=amount;
-    }
-
-    public void MoveDown(int amount)
-    {
-        posY-=amount;
-
-    }
-
-    public void MoveLeft(int amount)
-    {
-       posX-=amount;
-    }
-
-    public void MoveRight(int amount)
-    {
-       posX+=amount;
+        return InBoundry(tempx,tempy);
     }
 
     public void MoveUpdate(int x,int y)
@@ -47,5 +62,4 @@ public class Movement implements IMovement{
         posX+=x;
         posY+=y;
     }
-
 }

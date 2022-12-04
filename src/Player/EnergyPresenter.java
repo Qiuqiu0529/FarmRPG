@@ -66,6 +66,8 @@ public class EnergyPresenter {
         energy.Restore();
     }
 
-
-
+    public void BadReset()
+    {
+        energy.BadRestore();
+    }
 }
