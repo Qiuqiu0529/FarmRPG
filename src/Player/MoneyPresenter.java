@@ -60,8 +60,8 @@ public class MoneyPresenter {//singleton、MVP、callback
 
     public void CheckDebt()//每天更新
     {
-        System.out.println("今天总共获得金钱" + Float.toString(money.GetEarnMoneyThisDay()));
-        System.out.println("今天花费金钱" + Float.toString(money.GetSpendMoneyThisDay()));
+        System.out.println( Player.playername+"今天总共获得金钱" + Float.toString(money.GetEarnMoneyThisDay()));
+        System.out.println( Player.playername+"今天花费金钱" + Float.toString(money.GetSpendMoneyThisDay()));
         money.StartNewDay();
         UpdateView();
         if(money.Getmoney()<0)
@@ -75,7 +75,7 @@ public class MoneyPresenter {//singleton、MVP、callback
         int debttime=money.GetDebtTime();
         if(debttime>=0)//
         {
-            System.out.println("当前欠债天数为：" + Float.toString(debttime));
+            System.out.println( Player.playername+"当前欠债天数为：" + Float.toString(debttime));
             if(debttime>7)
             {
                 System.out.println("你欠款太多，买不起饭了，只能重回996生活赚钱还款，游戏结束");

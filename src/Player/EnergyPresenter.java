@@ -51,7 +51,7 @@ public class EnergyPresenter {
         if (energy == null)
             return;
         System.out.println(
-                "当前体力值为： " + Float.toString(energy.GetCurrentEnergy()) + " / " + Float.toString(energy.GetMaxEnergy()));
+            Player.playername+"当前体力值为： " + Float.toString(energy.GetCurrentEnergy()) + " / " + Float.toString(energy.GetMaxEnergy()));
     }
 
     public boolean HasEnoughEnergy(float demand) {

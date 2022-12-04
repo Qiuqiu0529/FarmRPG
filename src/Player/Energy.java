@@ -4,7 +4,7 @@ import Other.Mathf;
 import Other.Callback;
 
 public class Energy {
-    float minEnergy=0;//小于0直接进入下一天
+    float minEnergy=0;//等于0直接进入下一天
     float maxEnergy=30;
     float currentEnergy=30;//
     

@@ -4,7 +4,7 @@ public class PlayerVisual implements IVisual{
 
     public void PlayAnim(String anim)
     {
-        System.out.println("播放玩家动画："+anim );
+        System.out.println("播放" +Player.playername+"动画："+anim );
     }
 
     public void PlayIdleAnim()

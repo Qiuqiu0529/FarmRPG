@@ -7,10 +7,10 @@ public class PlayerMoveState implements PlayerState{//非冒险（森林）模�
     }
     public void ExcuteState()
     {
-        System.out.println("玩家进入移动状态");
+        System.out.println( Player.playername+"进入移动状态");
     }
     public void ExitState()
     {
-        System.out.println("玩家移动结束");
+        System.out.println( Player.playername+"移动结束");
     }
 }

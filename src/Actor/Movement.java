@@ -47,4 +47,5 @@ public class Movement implements IMovement{
         posX+=x;
         posY+=y;
     }
+
 }

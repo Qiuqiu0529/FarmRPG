@@ -7,7 +7,7 @@ public class PlayerMoveUpState implements PlayerState{//森林模式移动
     }
     public void ExcuteState()
     {
-        System.out.println("玩家向上移动");
+        System.out.println( Player.playername+"向上移动");
     }
     public void ExitState()
     {

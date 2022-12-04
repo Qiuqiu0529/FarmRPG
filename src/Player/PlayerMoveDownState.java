@@ -8,7 +8,7 @@ public class PlayerMoveDownState implements PlayerState{//森林模式移动
     }
     public void ExcuteState()
     {
-        System.out.println("玩家向下移动");
+        System.out.println( Player.playername+"向下移动");
     }
     public void ExitState()
     {

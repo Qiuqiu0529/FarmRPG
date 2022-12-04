@@ -31,8 +31,8 @@ public class ForestMgr {
         return result;
     }
 
-    public void GetTotalMonsterCount() {
-
+    public int GetBattleMonsterCount() {
+        return battlemonsters.size();
     }
 
     public void UpdatePos()
@@ -48,7 +48,7 @@ public class ForestMgr {
         battlemonsters.remove(monster);
         if(battlemonsters.size()==0)
         {
-
+            Victory();
         }
     }
 
@@ -60,6 +60,5 @@ public class ForestMgr {
     public void Escape()
     {
         battlemonsters.clear();
-
     }
 }

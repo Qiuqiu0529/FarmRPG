@@ -4,8 +4,8 @@ import Player.EnergyPresenter;
 
 public class ChoiceCosumeEnergy implements IChoice{
 
-    int needEnergy=2;
-    String description="";
+    protected int needEnergy=2;
+    protected String description="";
     public boolean CanChoose()
     {
        return EnergyPresenter.GetInstance().HasEnoughEnergy(needEnergy);
@@ -13,7 +13,7 @@ public class ChoiceCosumeEnergy implements IChoice{
 
     public void ChoiceInfo()
     {
-        System.out.println(description);
+        System.out.println(description+"（消耗精力"+Integer.toString(needEnergy)+"）");
     }
     public void Choose()
     {

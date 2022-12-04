@@ -8,10 +8,10 @@ public class PlayerSleepState implements PlayerState{//森林模式移动
     }
     public void ExcuteState()
     {
-        System.out.println("玩家进入睡眠状态");
+        System.out.println( Player.playername+"进入睡眠状态");
     }
     public void ExitState()
     {
-        EnergyPresenter.GetInstance().Reset();
+        
     }
 }

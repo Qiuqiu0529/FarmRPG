@@ -8,7 +8,7 @@ public class PlayerMoveRightState implements PlayerState{//森林模式移动
     }
     public void ExcuteState()
     {
-        System.out.println("玩家向右移动");
+        System.out.println( Player.playername+"向右移动");
     }
     public void ExitState()
     {
