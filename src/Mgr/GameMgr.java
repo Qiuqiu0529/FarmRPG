@@ -62,13 +62,14 @@ public class GameMgr {
         status = GameStatus.STOPPED;
     }
 
-    public void InitChoices()// 初始化最大的流程
+    public void InitChoices()// 初始化最大的流程,最大的一层选择，每个时间段的选择
     {
         choices=new ArrayList<>();
         realchoices=new ArrayList<>();
         DefaultChoice defaultChoice = new DefaultChoice();
         MoveToFarmLand choiceMoveToFarmLand = new MoveToFarmLand();
         MoveToForest choiceMoveToForest = new MoveToForest();
+
         choices.add(defaultChoice);
         choices.add(choiceMoveToFarmLand);
         choices.add(choiceMoveToForest);
@@ -81,6 +82,8 @@ public class GameMgr {
         day++;
         System.out.println("现在是" + tMap.get(timePeriod)+"，"+Player.playername+"选择");
         realchoices.clear();
+        System.out.println("————————————————————————");
+
         for (IChoice iChoice : choices) {
             if (iChoice.CanChoose()) {
                 realchoices.add(iChoice);
@@ -90,6 +93,8 @@ public class GameMgr {
             System.out.print("选择" + Integer.toString(i));
             realchoices.get(i).ChoiceInfo();
         }
+        System.out.println("————————————————————————");
+
         int choice = InputMgr.GetInstance().GetInputInt(0, realchoices.size());
         realchoices.get(choice).Choose();
     }

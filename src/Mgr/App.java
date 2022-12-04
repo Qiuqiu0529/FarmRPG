@@ -7,7 +7,5 @@ public class App {
         String playername=InputMgr.GetInstance().GetInputString();
         Player player=new Player(playername);
         GameMgr.GetInstance().ADay();
-        // MoneyPresenter.GetInstance().EarnMoney(20);
-        // MoneyPresenter.GetInstance().SpendMoney(50);
     }
 }

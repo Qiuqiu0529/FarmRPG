@@ -24,15 +24,18 @@ public class InputMgr {
         return result;
     }
 
-    public int GetInputInt(int min,int max)
+    public int GetInputInt(int min,int max)//待定
     {
-        int a=scanner.nextInt();
-        if(!(a<max&&a>=min))
+        Integer i=scanner.nextInt();
+        if(i instanceof Integer)
         {
-            System.out.println("不在选择范围内，请重选！");
-            a=GetInputInt(min,max);
+            if(i>=min&&i<max)
+            {
+                return i;
+            }
         }
-        return a;
+
+        return GetInputInt(min,max);
     }
 
     public String GetInputString()

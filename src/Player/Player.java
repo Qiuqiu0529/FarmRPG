@@ -99,6 +99,17 @@ public class Player {
 
     }
 
+    public void Idle()
+    {
+        SoundMgr.GetInstance().PlayNormalBGM();
+        playerVisual.PlayIdleAnim();
+    }
+
+    public void MoveToForest()
+    {
+        
+    }
+
     public void BadSleep()
     {
         EnergyPresenter.GetInstance().BadReset();
