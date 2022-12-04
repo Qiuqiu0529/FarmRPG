@@ -9,13 +9,12 @@ public class ForestMgr {
     public static List<IMonster> battlemonsters;// 一次战斗的所有怪物
     private static volatile ForestMgr instance;
 
-    public static int monsterCountRestrict=3;//一次战斗最多一个敌人
+    public static int monsterCountRestrict=3;//一次战斗最多几个敌人
 
     private ForestMgr() {
         if (instance != null) {
             throw new IllegalStateException("Already initialized.");
         }
-
     }
 
     public static ForestMgr GetInstance() {
@@ -33,6 +32,11 @@ public class ForestMgr {
 
     public int GetBattleMonsterCount() {
         return battlemonsters.size();
+    }
+
+    public void PlayerAdVenture()
+    {
+
     }
 
     public void UpdatePos()
