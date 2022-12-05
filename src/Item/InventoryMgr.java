@@ -1,8 +1,11 @@
 package Item;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class InventoryMgr {
     public static List<Inventory> registeredInventories;
+
     public static Inventory FindInventory(String inventoryName) {
         if (inventoryName == null) {
             return null;
@@ -12,7 +15,39 @@ public class InventoryMgr {
                 return inventory;
             }
         }
-
         return null;
     }
+
+    private static volatile InventoryMgr instance;
+
+    private InventoryMgr() {
+        if (instance != null) {
+            throw new IllegalStateException("Already initialized.");
+        } else {
+            InitAllInventory();
+        }
+    }
+
+    public static InventoryMgr GetInstance() {
+        var result = instance;
+        if (result == null) {
+            synchronized (InventoryMgr.class) {
+                result = instance;
+                if (result == null) {
+                    instance = result = new InventoryMgr();
+                }
+            }
+        }
+        return result;
+    }
+
+    public void InitAllInventory() {
+        registeredInventories = new ArrayList<>();
+    }
+
+    public void RegisterInventory(Inventory inventory) 
+    {
+        registeredInventories.add(inventory);
+    }
+
 }
