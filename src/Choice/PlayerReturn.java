@@ -11,5 +11,6 @@ public class PlayerReturn extends ChoiceCosumeEnergy{
     {
         super.Choose();
         System.out.println( Player.playername+"选择回家");
+        Player.getInstance().MoveInScene();
     }
 }

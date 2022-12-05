@@ -93,9 +93,17 @@ public class Player {//state/component/
         return state.getClass();
     }
 
+
+
+
     public void GoodSleep()
     {
         EnergyPresenter.GetInstance().Reset();
+    }
+
+    public void BadSleep()
+    {
+        EnergyPresenter.GetInstance().BadReset();
     }
 
     public void Idle()
@@ -119,6 +127,11 @@ public class Player {//state/component/
         SetPlayerState(playerIdleState);
     }
 
+    public void RestInForest()
+    {
+        SoundMgr.GetInstance().PlayRestSound();
+    }
+
     public void InitPlayerPosInForest()
     {
         playerMovement.InitPos();
@@ -132,8 +145,5 @@ public class Player {//state/component/
         SetPlayerState(playerIdleState);
     }
 
-    public void BadSleep()
-    {
-        EnergyPresenter.GetInstance().BadReset();
-    }
+    
 }
