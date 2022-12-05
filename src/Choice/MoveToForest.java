@@ -10,7 +10,7 @@ public class MoveToForest extends ChoiceCosumeEnergy{
         description="去森林冒险";
     }
 
-    public void Choose()
+    public void Choose() throws InterruptedException
     {
         super.Choose();
         Player.getInstance().MoveInScene();

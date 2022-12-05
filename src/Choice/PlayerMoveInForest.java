@@ -26,7 +26,7 @@ public class PlayerMoveInForest extends ChoiceCosumeEnergy{
         description="向"+dir+"移动";
     }
 
-    public void Choose()
+    public void Choose() throws InterruptedException
     {
         super.Choose();
         player.MoveInForest(dir, x, y);

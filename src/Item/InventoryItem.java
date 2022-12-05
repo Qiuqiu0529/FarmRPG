@@ -2,28 +2,29 @@ package Item;
 
 import java.time.temporal.TemporalUnit;
 
-public class InventoryItem implements Cloneable {// prototype，代表背包里的物体
+public class InventoryItem implements Cloneable {// prototype，代表背包里的物体，类比成一个个背包格子
     public String itemID;
     public String itemName;
     public ItemClasses itemClass;
     public String targetInventoryName = "MainInventory";
 
-    public boolean usable = false;
-    public boolean consumable = false;
-    public int consumequantity = 1;
-    public int quantity = 1;
-    public boolean equippable = false;
-    public String targetEquipmentInventoryName;
-    public boolean saleable = true;
+    public boolean usable = false;//可以被使用
+    public boolean consumable = false;//可以被消耗
+    public int consumequantity = 1;//一次消耗多少
+    public int quantity = 1;//数量
+    public boolean equippable = false;//可以被装备
+    public String targetEquipmentInventoryName;//目标装备槽（属性为equipment的背包）
+    public boolean saleable = true;//可以被贩卖
 
-    public float value;
+    public float value;//价值
+    public String description;//描述
 
-    public String description;
-    public int maxStack = 1;// 一类物品最多能叠的数量
+    public int maxStack = 1;// 一格物品最多能叠的数量，在考虑要不要一个格子能放无限多的同类物品orz
 
     protected Inventory _targetInventory = null;
     protected Inventory _targetEquipmentInventory = null;
-    public Object prefab;// 实际的物体
+
+    // public Object prefab;// 实际的物体,也许不会出现
 
     public Inventory TargetInventory() {
         if (targetInventoryName == null) {

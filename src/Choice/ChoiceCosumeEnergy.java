@@ -15,7 +15,8 @@ public class ChoiceCosumeEnergy implements IChoice{
     {
         System.out.println(description+"（消耗精力"+Integer.toString(needEnergy)+"）");
     }
-    public void Choose()
+ 
+    public void Choose() throws InterruptedException
     {
         EnergyPresenter.GetInstance().SpendEnergy(needEnergy);
     }

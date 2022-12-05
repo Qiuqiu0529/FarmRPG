@@ -94,8 +94,6 @@ public class Player {//state/component/
     }
 
 
-
-
     public void GoodSleep()
     {
         EnergyPresenter.GetInstance().Reset();
@@ -117,11 +115,12 @@ public class Player {//state/component/
         return playerMovement.CanMove(x, y);
     }
 
-    public void MoveInForest(String dir,int x,int y)
+    public void MoveInForest(String dir,int x,int y) throws InterruptedException
     {
         SetMove();
         playerVisual.PlayWalkAnim(dir);
         SoundMgr.GetInstance().PlayForestWalkingSound();
+        Thread.sleep(300);
         playerMovement.SetDir(dir);
         playerMovement.MoveUpdate(x, y);
         SetPlayerState(playerIdleState);
@@ -137,11 +136,12 @@ public class Player {//state/component/
         playerMovement.InitPos();
     }
 
-    public void MoveInScene()
+    public void MoveInScene() throws InterruptedException
     {
         SetMove();
         playerVisual.PlayMoveAnim();
         SoundMgr.GetInstance().PlayNormalMoveSound();
+        Thread.sleep(1000);
         SetPlayerState(playerIdleState);
     }
 

@@ -30,8 +30,9 @@ public class ChoiceMgr {
         return result;
     }
 
-    public int Choose(List<IChoice> choices)
+    public int Choose(List<IChoice> choices) throws InterruptedException
     {
+        Thread.sleep(300);
         realchoices.clear();
         System.out.println("————————————————————————");
        // System.out.println( choices.size());

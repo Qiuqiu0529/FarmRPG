@@ -10,7 +10,7 @@ public class PlayerRestInForest extends ChoiceCosumeEnergy{
         needEnergy=1;
         description="原地休整";
     }
-    public void Choose()
+    public void Choose() throws InterruptedException
     {
         super.Choose();
         System.out.println( Player.playername+"选择原地修整");

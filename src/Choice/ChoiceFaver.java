@@ -23,7 +23,7 @@ public class ChoiceFaver implements IChoice {
         System.out.println(description);
     }
 
-    public void Choose() {
+    public void Choose() throws InterruptedException{
         npc.ChangeFavor(changeAmount);
         System.out.println(chooseDescription);
     }

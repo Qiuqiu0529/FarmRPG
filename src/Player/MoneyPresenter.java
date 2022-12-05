@@ -69,6 +69,7 @@ public class MoneyPresenter {//singleton、MVP、callback
 
     public void CheckDebt()//每天更新
     {
+        System.out.println("————————————————————————");
         System.out.println( Player.playername+"今天总共获得金钱" + Float.toString(money.GetEarnMoneyThisDay()));
         System.out.println( Player.playername+"今天花费金钱" + Float.toString(money.GetSpendMoneyThisDay()));
         money.StartNewDay();
@@ -95,6 +96,7 @@ public class MoneyPresenter {//singleton、MVP、callback
                 System.out.println("请注意最多欠债天数为：" + Float.toString(debtTimeRestrcit));
             }
         }
+        System.out.println("————————————————————————");
 
     }
 }

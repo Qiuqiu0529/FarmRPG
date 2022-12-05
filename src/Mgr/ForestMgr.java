@@ -64,15 +64,16 @@ public class ForestMgr {
     }
 
 
-    public void StartAdventure()
+    public void StartAdventure() throws InterruptedException
     {
         SoundMgr.GetInstance().PlayForestBGM();
         Player.getInstance().InitPlayerPosInForest();
         ForestChoice();
     }
 
-    public void ForestChoice()
+    public void ForestChoice() throws InterruptedException
     {
+        System.out.println("在森林" +Player.playername+"决定");
         int i=ChoiceMgr.GetInstance().Choose(choices);
         if(i!=0)
         {

@@ -75,13 +75,13 @@ public class GameMgr {
         tMap.put(TimePeriod.Night, "晚上");
     }
 
-    public void DisplayChoice() {
-        day++;
+    public void DisplayChoice() throws InterruptedException {
         System.out.println("现在是" + tMap.get(timePeriod)+"，"+Player.playername+"选择");
         ChoiceMgr.GetInstance().Choose(choices);
     }
 
-    public void ADay() {
+    public void ADay() throws InterruptedException {
+        day++;
         System.out.println("第"+Integer.toString(day)+"天开始");
         SoundMgr.GetInstance().PlayNormalBGM();
         endadayearly=false;
@@ -108,22 +108,24 @@ public class GameMgr {
         }
     }
 
-    public void EndADay() {
+    public void EndADay() throws InterruptedException {
         MoneyPresenter.GetInstance().CheckDebt();
         if(IsGameRunning())
         {
             Player.getInstance().SetSleep();
+            Thread.sleep(300);
             ADay();
         }
     }
 
-    public void EndDayEarly()
+    public void EndDayEarly() throws InterruptedException
     {
         System.out.println("这一天提前结束");
         MoneyPresenter.GetInstance().CheckDebt();
         if(IsGameRunning())
         {
             Player.getInstance().SetComa();
+            Thread.sleep(500);
             ADay();
         }
     }

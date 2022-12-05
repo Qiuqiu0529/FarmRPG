@@ -11,7 +11,7 @@ public class DefaultChoice implements IChoice{
     {
         System.out.println("什么都不做（消耗精力0）");
     }
-    public void Choose()
+    public void Choose() throws InterruptedException
     {
         EnergyPresenter.GetInstance().SpendEnergy(0 );
         System.out.println("你选择什么都不做，悠闲地渡过了一段时光。");

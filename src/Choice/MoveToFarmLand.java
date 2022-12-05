@@ -1,5 +1,7 @@
 package Choice;
 
+import Player.Player;
+
 public class MoveToFarmLand extends ChoiceCosumeEnergy{
     public MoveToFarmLand()
     {
@@ -7,9 +9,10 @@ public class MoveToFarmLand extends ChoiceCosumeEnergy{
         description="去农田耕作";
     }
 
-    public void Choose()
+    public void Choose() throws InterruptedException
     {
         super.Choose();
+        Player.getInstance().MoveInScene();
     }
     
 }

@@ -7,7 +7,7 @@ public class PlayerReturn extends ChoiceCosumeEnergy{
         needEnergy=0;
         description="返回";
     }
-    public void Choose()
+    public void Choose() throws InterruptedException
     {
         super.Choose();
         System.out.println( Player.playername+"选择回家");
