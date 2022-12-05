@@ -40,6 +40,15 @@ public class MoneyPresenter {//singleton、MVP、callback
         }
     };
 
+    public boolean HasEnoughMoney(int amount)
+    {
+        if(money.Getmoney()>amount)
+        {
+            return true;
+        }
+        return false;
+    }
+
     public void SpendMoney(float minusAmount) {
         System.out.println("花费金钱：" + Float.toString(minusAmount));
         money.MinusMoney(minusAmount);

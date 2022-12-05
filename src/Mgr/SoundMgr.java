@@ -111,11 +111,4 @@ public class SoundMgr {//Singleton
         System.out.println("播放硬币撞击声，清脆的叮叮叮" );
     }
 
-  
-  
-
-   
-
-   
-
 }

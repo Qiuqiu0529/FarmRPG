@@ -13,7 +13,6 @@ import Choice.IChoice;
 public class GameMgr {
     private static volatile GameMgr instance;
     static List<IChoice> choices;
-    static List<IChoice> realchoices;
     static int day = 0;
 
     enum TimePeriod {
@@ -32,7 +31,6 @@ public class GameMgr {
             RunGame();
             InitChoices();
         }
-
     }
 
     public static GameMgr GetInstance() {
@@ -65,7 +63,6 @@ public class GameMgr {
     public void InitChoices()// 初始化最大的流程,最大的一层选择，每个时间段的选择
     {
         choices=new ArrayList<>();
-        realchoices=new ArrayList<>();
         DefaultChoice defaultChoice = new DefaultChoice();
         MoveToFarmLand choiceMoveToFarmLand = new MoveToFarmLand();
         MoveToForest choiceMoveToForest = new MoveToForest();
@@ -81,22 +78,7 @@ public class GameMgr {
     public void DisplayChoice() {
         day++;
         System.out.println("现在是" + tMap.get(timePeriod)+"，"+Player.playername+"选择");
-        realchoices.clear();
-        System.out.println("————————————————————————");
-
-        for (IChoice iChoice : choices) {
-            if (iChoice.CanChoose()) {
-                realchoices.add(iChoice);
-            }
-        }
-        for (int i = 0; i < realchoices.size(); ++i) {
-            System.out.print("选择" + Integer.toString(i));
-            realchoices.get(i).ChoiceInfo();
-        }
-        System.out.println("————————————————————————");
-
-        int choice = InputMgr.GetInstance().GetInputInt(0, realchoices.size());
-        realchoices.get(choice).Choose();
+        ChoiceMgr.GetInstance().Choose(choices);
     }
 
     public void ADay() {

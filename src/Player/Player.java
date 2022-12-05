@@ -3,7 +3,7 @@ package Player;
 import java.lang.reflect.Type;
 import Mgr.SoundMgr;
 
-public class Player {
+public class Player {//state/component/
     private static volatile Player instance;
     public String description = "一个厌倦了996生活想重归田园的程序员";
     public static String playername = "玩家";
@@ -107,7 +107,7 @@ public class Player {
 
     public void MoveToForest()
     {
-        
+
     }
 
     public void BadSleep()
