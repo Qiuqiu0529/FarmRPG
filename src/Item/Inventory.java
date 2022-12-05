@@ -2,8 +2,7 @@ package Item;
 
 import java.util.ArrayList;
 import java.util.List;
-
-public class Inventory {
+public class Inventory {//物品可以加入背包、移出背包、装备（或解除装备如果物体可装备）、被丢弃
     public String inventoryName;
 
     public static enum InventoryTypes {
