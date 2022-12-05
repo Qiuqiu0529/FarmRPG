@@ -30,16 +30,18 @@ public class ChoiceMgr {
         return result;
     }
 
-    public void Choose(List<IChoice> choices)
+    public int Choose(List<IChoice> choices)
     {
         realchoices.clear();
         System.out.println("————————————————————————");
+       // System.out.println( choices.size());
 
         for (IChoice iChoice : choices) {
             if (iChoice.CanChoose()) {
                 realchoices.add(iChoice);
             }
         }
+        
         for (int i = 0; i < realchoices.size(); ++i) {
             System.out.print("选择" + Integer.toString(i));
             realchoices.get(i).ChoiceInfo();
@@ -48,5 +50,6 @@ public class ChoiceMgr {
 
         int choice = InputMgr.GetInstance().GetInputInt(0, realchoices.size());
         realchoices.get(choice).Choose();
+        return choice;
     }
 }

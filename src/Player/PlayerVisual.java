@@ -21,23 +21,11 @@ public class PlayerVisual implements IVisual{
     {
         PlayAnim("睡眠");
     }
-
-    public void PlayMoveUpAnim()
+    public void PlayWalkAnim(String dir)
     {
-        PlayAnim("向上行走");
+        PlayAnim("向"+dir+"行走");
     }
-    public void PlayMoveDownAnim()
-    {
-        PlayAnim("向下行走");
-    }
-    public void PlayMoveLeftAnim()
-    {
-        PlayAnim("向左行走");
-    }
-    public void PlayMoveRightAnim()
-    {
-        PlayAnim("向右行走");
-    }
+    
     public void PlayRestAnim()
     {
         PlayAnim("休息");

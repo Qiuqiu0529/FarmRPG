@@ -2,32 +2,27 @@ package Player;
 import Actor.Movement;
 
 public class PlayerMovement extends Movement{
-    public void MoveUp()
+    String dir;
+    public void MoveUpdate(int x,int y)
     {
-        MoveUpdate(0, 1);
-        System.out.println(Player.playername+"向上移动一格");
+       super.MoveUpdate(x, y);
+       System.out.println(Player.playername+"向" + dir+"移动了一格");
+       UpdatePos();
     }
-    public void MoveDown()
+    public void SetDir(String dir)
     {
-        MoveUpdate(0, -1);
-        System.out.println(Player.playername+"向下移动一格");
-
-    }
-    public void MoveLeft()
-    {
-        MoveUpdate(-1, 0);
-        System.out.println(Player.playername+"向左移动一格");
-    }
-
-    public void MoveRight()
-    {
-        MoveUpdate(1, 0);
-        System.out.println(Player.playername+"向右移动一格");
+        this.dir=dir;
     }
 
     public void UpdatePos()
     {
         System.out.println(Player.playername+"当前位置 " + Integer.toString(posX)+"，"+Integer.toString(posY));
+    }
+
+    public void InitPos()
+    {
+        System.out.println("可移动地区大小为" + Integer.toString(Movement.GetMaxPosX())+" X "+Integer.toString(Movement.GetMaxPosY()));
+        UpdatePos();
     }
 
 }

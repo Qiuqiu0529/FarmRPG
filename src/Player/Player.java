@@ -96,26 +96,44 @@ public class Player {//state/component/
     public void GoodSleep()
     {
         EnergyPresenter.GetInstance().Reset();
-
     }
 
     public void Idle()
     {
-        SoundMgr.GetInstance().PlayNormalBGM();
         playerVisual.PlayIdleAnim();
     }
 
-    public void MoveToForest()
-    {
 
+    public boolean CanMove(int x,int y)
+    {
+        return playerMovement.CanMove(x, y);
+    }
+
+    public void MoveInForest(String dir,int x,int y)
+    {
+        SetMove();
+        playerVisual.PlayWalkAnim(dir);
+        SoundMgr.GetInstance().PlayForestWalkingSound();
+        playerMovement.SetDir(dir);
+        playerMovement.MoveUpdate(x, y);
+        SetPlayerState(playerIdleState);
+    }
+
+    public void InitPlayerPosInForest()
+    {
+        playerMovement.InitPos();
+    }
+
+    public void MoveInScene()
+    {
+        SetMove();
+        playerVisual.PlayMoveAnim();
+        SoundMgr.GetInstance().PlayNormalMoveSound();
+        SetPlayerState(playerIdleState);
     }
 
     public void BadSleep()
     {
         EnergyPresenter.GetInstance().BadReset();
     }
-        
-
-   
-
 }

@@ -4,8 +4,8 @@ import Player.EnergyPresenter;
 
 public class ChoiceCosumeEnergy implements IChoice{
 
-    protected int needEnergy=2;
-    protected String description="";
+    protected int needEnergy=2;//需要消耗的精力
+    protected String description="";//选项描述
     public boolean CanChoose()
     {
        return EnergyPresenter.GetInstance().HasEnoughEnergy(needEnergy);

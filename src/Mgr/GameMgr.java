@@ -83,6 +83,7 @@ public class GameMgr {
 
     public void ADay() {
         System.out.println("第"+Integer.toString(day)+"天开始");
+        SoundMgr.GetInstance().PlayNormalBGM();
         endadayearly=false;
         timePeriod = TimePeriod.Morning;
         Player.getInstance().SetIdle();

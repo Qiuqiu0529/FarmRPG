@@ -10,6 +10,15 @@ public class Movement implements IMovement{
     static int maxposY=10;
     static int minposY=0;
 
+    public static int GetMaxPosX()
+    {
+        return maxposX;
+    }
+    public static int GetMaxPosY()
+    {
+        return maxposY;
+    }
+
     public static void SetMinPosX(int min)
     {
         minposX=min;

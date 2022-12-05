@@ -1,4 +1,7 @@
 package Mgr;
+
+import Player.Player;
+
 public class SoundMgr {//Singleton
     private static volatile  SoundMgr instance;
     private SoundMgr() {
@@ -54,7 +57,7 @@ public class SoundMgr {//Singleton
 
     public void PlayPlayerDamageSound()
     {
-        System.out.println("播放玩家受伤的声音，好痛" );
+        System.out.println("播放"+Player.playername+"受伤的声音，好痛" );
     }
 
     public void PlayGunSound()
@@ -79,17 +82,17 @@ public class SoundMgr {//Singleton
 
     public void PlayVictorySound()
     {
-        System.out.println("播放玩家胜利的声音，啦啦啦" );
+        System.out.println("播放"+Player.playername+"胜利的声音，啦啦啦" );
     }
 
     public void PlayFailureSound()
     {
-        System.out.println("播放玩家倒下的声音，啊" );
+        System.out.println("播放"+Player.playername+"倒下的声音，啊" );
     }
 
     public void PlayEscapeSound()
     {
-        System.out.println("播放玩家逃跑的声音，byebye" );
+        System.out.println("播放"+Player.playername+"逃跑的声音，咻" );
     }
 
     //#endregion
@@ -103,6 +106,11 @@ public class SoundMgr {//Singleton
     public void PlayNormalBGM()
     {
         System.out.println("播放日常背景乐，噔铛噔，噔铛噔" );
+    }
+
+    public void PlayNormalMoveSound()
+    {
+        System.out.println("播放普通行走的声音，哒哒" );
     }
 
 

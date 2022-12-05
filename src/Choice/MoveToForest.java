@@ -13,7 +13,8 @@ public class MoveToForest extends ChoiceCosumeEnergy{
     public void Choose()
     {
         super.Choose();
+        Player.getInstance().MoveInScene();
         System.out.println(Player.playername+"来到了森林" );
-        ForestMgr.GetInstance().PlayerAdVenture();
+        ForestMgr.GetInstance().StartAdventure();
     }
 }
