@@ -262,6 +262,28 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
 
     }
 
+    public void GiveItem(InventoryItem item, int index) throws InterruptedException{
+        if (InventoryItem.IsNull(item)) {
+            return;
+        }
+
+        if (this.inventoryName == item.targetEquipmentInventoryName) {
+            if (item.UnEquip()) {
+                if(item.Give())
+                {
+                    DestroyItem(index);
+                }
+               
+            }
+        } else {
+            if(item.Give())
+            {
+                DestroyItem(index);
+            }
+        }
+    }
+
+
     public boolean DestroyItem(int i) {
         content.set(i, null);
 

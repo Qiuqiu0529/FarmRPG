@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import Choice.MoveToFarmLand;
 import Choice.MoveToForest;
+import Other.Global;
 import Choice.DefaultChoice;
 import Choice.IChoice;
 
@@ -15,11 +16,10 @@ public class GameMgr {
     static List<IChoice> choices;
     static int day = 0;
 
-    enum TimePeriod {
+    public enum TimePeriod {
         Morning, Afternoon, Night
     };
-    HashMap<TimePeriod,String> tMap=new HashMap<>();
-
+    
     TimePeriod timePeriod;
     boolean endadayearly;
 
@@ -70,13 +70,11 @@ public class GameMgr {
         choices.add(defaultChoice);
         choices.add(choiceMoveToFarmLand);
         choices.add(choiceMoveToForest);
-        tMap.put(TimePeriod.Morning, "上午");
-        tMap.put(TimePeriod.Afternoon, "下午");
-        tMap.put(TimePeriod.Night, "晚上");
+      
     }
 
     public void DisplayChoice() throws InterruptedException {
-        System.out.println("现在是" + tMap.get(timePeriod)+"，"+Player.playername+"选择");
+        System.out.println("现在是" + Global.tMap.get(timePeriod)+"，"+Player.playername+"选择");
         ChoiceMgr.GetInstance().Choose(choices);
     }
 

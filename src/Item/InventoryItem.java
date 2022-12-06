@@ -82,4 +82,8 @@ public class InventoryItem implements Cloneable {// prototype，代表背包里�
         return true;
     }// 取消装备
 
+    public boolean Give() throws InterruptedException{
+        return true;
+    }// 可以送给某人
+
 }
