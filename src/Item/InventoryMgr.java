@@ -43,6 +43,14 @@ public class InventoryMgr {
 
     public void InitAllInventory() {
         registeredInventories = new ArrayList<>();
+      
+    }
+
+    public void AddInventory()
+    {
+        Inventory main=new Inventory(null);
+        Inventory equipment=new Inventory("EquipmentInventory");
+       // System.out.println(registeredInventories.size());
     }
 
     public void RegisterInventory(Inventory inventory) 

@@ -2,7 +2,7 @@ package Item;
 
 import java.time.temporal.TemporalUnit;
 
-public class InventoryItem implements Cloneable {// prototype，代表背包里的物体，类比成一个个背包格子
+public class InventoryItem implements Cloneable {// prototype，代表背包里的物体
     public String itemID;
     public String itemName;
     public ItemClasses itemClass;
@@ -13,7 +13,7 @@ public class InventoryItem implements Cloneable {// prototype，代表背包里�
     public int consumequantity = 1;//一次消耗多少
     public int quantity = 1;//数量
     public boolean equippable = false;//可以被装备
-    public String targetEquipmentInventoryName;//目标装备槽（属性为equipment的背包）
+    public String targetEquipmentInventoryName="EquipmentInventory";//目标装备槽（属性为equipment的背包）
     public boolean saleable = true;//可以被贩卖
 
     public float value;//价值
@@ -66,19 +66,19 @@ public class InventoryItem implements Cloneable {// prototype，代表背包里�
         return cloneitem;
     }
 
-    public boolean Pick() {
+    public boolean Pick() throws InterruptedException{
         return true;
     }// 捡起，加入背包
 
-    public boolean Use() {
+    public boolean Use() throws InterruptedException{
         return true;
     }// 使用
 
-    public boolean Equip() {
+    public boolean Equip() throws InterruptedException{
         return true;
     }// 装备
 
-    public boolean UnEquip() {
+    public boolean UnEquip() throws InterruptedException{
         return true;
     }// 取消装备
 

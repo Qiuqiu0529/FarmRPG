@@ -10,7 +10,6 @@ public class PlayerReturn extends ChoiceCosumeEnergy{
     public void Choose() throws InterruptedException
     {
         super.Choose();
-        System.out.println( Player.playername+"选择回家");
         Player.getInstance().MoveInScene();
     }
 }
