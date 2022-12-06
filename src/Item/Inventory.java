@@ -2,8 +2,11 @@ package Item;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import Choice.IChoice;
+import Choice.LookInventoryItem;
 public class Inventory {//物品可以加入背包、移出背包、装备（或解除装备如果物体可装备）、被丢弃
-    public String inventoryName;
+    public String inventoryName="MainInventory";
 
     public static enum InventoryTypes {
         Main, Equipment
@@ -18,6 +21,12 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
     }
 
     public Inventory() {
+        Regesiter();
+    }
+
+    public Inventory(String name)
+    {
+        inventoryName=name;
         Regesiter();
     }
 
@@ -174,7 +183,7 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         return true;
     }
 
-    public boolean UseItem(InventoryItem item, int index) {
+    public boolean UseItem(InventoryItem item, int index) throws InterruptedException{
         if (InventoryItem.IsNull(item)) {
             return false;
         }
@@ -189,7 +198,7 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         return true;
     }
 
-    public boolean UseItem(String itemName) {
+    public boolean UseItem(String itemName) throws InterruptedException{
         List<Integer> list = InventoryContains(itemName);
         if (list.size() > 0) {
             UseItem(content.get(list.get(list.size() - 1)), list.get(list.size() - 1));
@@ -203,7 +212,7 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         content = new ArrayList<>(content.size());
     }
 
-    public void EquipItem(InventoryItem item, int index) {
+    public void EquipItem(InventoryItem item, int index) throws InterruptedException{
         if (inventoryType == Inventory.InventoryTypes.Main) {
             InventoryItem oldItem = null;
             if (InventoryItem.IsNull(item)) {
@@ -238,7 +247,7 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         }
     }
 
-    public void DropItem(InventoryItem item, int index) {
+    public void DropItem(InventoryItem item, int index) throws InterruptedException{
         if (InventoryItem.IsNull(item)) {
             return;
         }
@@ -266,7 +275,7 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         DestroyItem(index);
     }
 
-    public void UnEquipItem(InventoryItem item, int index) {
+    public void UnEquipItem(InventoryItem item, int index) throws InterruptedException{
         if (InventoryItem.IsNull(item)) {
             return;
         }
@@ -285,6 +294,16 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
 
     public static Inventory FindInventory(String targetEquipmentInventoryName) {
         return null;
+    }
+
+    public void LookItem()
+    {
+        List<IChoice> choices;
+        choices=new ArrayList<>();
+        for (InventoryItem inventoryItem : content) {
+            LookInventoryItem look=new LookInventoryItem(inventoryItem);
+        }
+
     }
 
 }
