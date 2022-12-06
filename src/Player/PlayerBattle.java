@@ -8,6 +8,7 @@ import Item.Buff.Buff;
 
 public class PlayerBattle {
     List<Buff> buffs;
+    PlayerHealth playerHealth=new PlayerHealth();
     int lucky=2;
     public PlayerBattle()
     {
@@ -31,6 +32,12 @@ public class PlayerBattle {
     {
         return Dice.Determine(lucky, 9);
     }//概率为容易
+
+
+    public void HealthRestore()
+    {
+
+    }
 
     
 

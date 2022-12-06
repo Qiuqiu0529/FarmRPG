@@ -10,6 +10,17 @@ public class Player {//state/component/
     public String description = "一个厌倦了996生活想重归田园的程序员";
     public static String playername = "玩家";
 
+
+    PlayerVisual playerVisual;
+    PlayerMovement playerMovement;
+    PlayerBattle playerBattle;//跟战斗有关的
+    PlayerState state;
+    PlayerComaState playerComaState;
+    PlayerMoveState playerMoveState;
+    PlayerSleepState playerSleepState;
+    PlayerIdleState playerIdleState;
+    PlayerInitState playerInitState;
+
     public Player() throws InterruptedException{
         if (instance != null) {
             throw new IllegalStateException("Already initialized.");
@@ -65,14 +76,7 @@ public class Player {//state/component/
         return result;
     }
 
-    PlayerVisual playerVisual;
-    PlayerMovement playerMovement;
-    PlayerState state;
-    PlayerComaState playerComaState;
-    PlayerMoveState playerMoveState;
-    PlayerSleepState playerSleepState;
-    PlayerIdleState playerIdleState;
-    PlayerInitState playerInitState;
+   
     
 
 
