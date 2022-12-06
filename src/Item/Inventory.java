@@ -107,13 +107,13 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         return list;
     }
 
-    public List<Integer> InventoryContains(ItemClasses itemClasses)// 查找一类物品
+    public List<Integer> InventoryContains(ItemTypes itemType)// 查找一类物品
     {
         List<Integer> list = new ArrayList<>();
 
         for (int i = 0; i < content.size(); i++) {
             if (!InventoryItem.IsNull(content.get(i))) {
-                if (content.get(i).itemClass == itemClasses) {
+                if (content.get(i).itemType == itemType) {
                     list.add(i);
                 }
             }
@@ -121,10 +121,23 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         return list;
     }
 
-    // public Iterator<InventoryItem> iterator(ItemClasses itemClasses)
-    // {
-    //     return new TreasureChestItemIterator(this, itemType);
-    // }
+    public InventoryItem GetItem(int i)
+    {
+        if (i < 0 || i >= content.size()) {
+            System.out.println("超过背包范围");
+            return null;
+        }
+        if (InventoryItem.IsNull(content.get(i))) {
+            System.out.println("物品不存在");
+            return null;
+        }
+        return content.get(i);
+    }
+
+    public Iterator<InventoryItem> iterator(ItemTypes itemType)//迭代法查找一类物品
+    {
+        return new InventoryIterator(this, itemType);
+    }
 
     public Integer GetQuantity(String searchedItemID) {
         List<Integer> list = InventoryContains(searchedItemID);
@@ -320,14 +333,13 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
     }
 
 
-    public void LookItem()
+    public void LookItem()//忘记要干啥了，待写
     {
-        List<IChoice> choices;
-        choices=new ArrayList<>();
-        for (InventoryItem inventoryItem : content) {
-            LookInventoryItem look=new LookInventoryItem(inventoryItem);
-        }
-
+        // List<IChoice> choices;
+        // choices=new ArrayList<>();
+        // for (InventoryItem inventoryItem : content) {
+        //     LookInventoryItem look=new LookInventoryItem(inventoryItem);
+        // }
     }
 
    

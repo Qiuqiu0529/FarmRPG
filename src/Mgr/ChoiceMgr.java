@@ -1,5 +1,4 @@
 package Mgr;
-import Choice.ChooseHairStyle;
 import Choice.IChoice;
 import Other.Global;
 import Player.ColorType;

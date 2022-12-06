@@ -3,7 +3,6 @@ package Mgr;
 import Player.MoneyPresenter;
 import Player.Player;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import Choice.MoveToFarmLand;
 import Choice.MoveToForest;

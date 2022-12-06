@@ -1,5 +1,4 @@
 package Player;
-import java.util.HashMap;
 
 import Actor.IVisual;
 public class PlayerVisual implements IVisual{
