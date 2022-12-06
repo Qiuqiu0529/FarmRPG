@@ -1,6 +1,8 @@
 package Player;
 
 import java.lang.reflect.Type;
+
+import Mgr.ChoiceMgr;
 import Mgr.SoundMgr;
 
 public class Player {//state/component/
@@ -8,7 +10,7 @@ public class Player {//state/component/
     public String description = "一个厌倦了996生活想重归田园的程序员";
     public static String playername = "玩家";
 
-    public Player() {
+    public Player() throws InterruptedException{
         if (instance != null) {
             throw new IllegalStateException("Already initialized.");
         } else {
@@ -16,7 +18,7 @@ public class Player {//state/component/
         }
     }
 
-    public Player(String nameString) {
+    public Player(String nameString) throws InterruptedException{
         if (instance != null) {
             throw new IllegalStateException("Already initialized.");
         } else {
@@ -25,8 +27,18 @@ public class Player {//state/component/
         }
     }
 
-    public void Init() {
-        playerVisual = new PlayerVisual();
+    public void Init() throws InterruptedException{
+        HairStyleType hairStyleType=ChoiceMgr.GetInstance().ChooseHair();
+        ColorType hType=ChoiceMgr.GetInstance().ChooseColor("头发");
+        ColorType eType=ChoiceMgr.GetInstance().ChooseColor("眼睛");
+        ConstellationType constellationType=ChoiceMgr.GetInstance().ChooseConstellation();
+
+        playerVisual = new PlayerVisual.PlayerVisualBuilder()
+        .withHairType(hairStyleType).withHairColor(hType)
+        .withEyesColor(eType).withConstellation(constellationType)
+        .build();
+
+        
         playerMovement=new PlayerMovement();
         playerIdleState=new PlayerIdleState(this);
         playerComaState=new PlayerComaState(this);
@@ -37,9 +49,10 @@ public class Player {//state/component/
 
         
         state = playerInitState;
+        instance=this;
     }
 
-    public static Player getInstance() {
+    public static Player getInstance() throws InterruptedException {
         var result = instance;
         if (result == null) {
             synchronized (MoneyPresenter.class) {

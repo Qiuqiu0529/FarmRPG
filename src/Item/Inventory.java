@@ -121,6 +121,11 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         return list;
     }
 
+    // public Iterator<InventoryItem> iterator(ItemClasses itemClasses)
+    // {
+    //     return new TreasureChestItemIterator(this, itemType);
+    // }
+
     public Integer GetQuantity(String searchedItemID) {
         List<Integer> list = InventoryContains(searchedItemID);
         int total = 0;
@@ -314,9 +319,6 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         }
     }
 
-    public static Inventory FindInventory(String targetEquipmentInventoryName) {
-        return null;
-    }
 
     public void LookItem()
     {
@@ -327,5 +329,7 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         }
 
     }
+
+   
 
 }

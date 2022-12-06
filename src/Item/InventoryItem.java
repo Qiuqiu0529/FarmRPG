@@ -9,7 +9,7 @@ public class InventoryItem implements Cloneable {// prototype，代表背包里�
     public String targetInventoryName = "MainInventory";
 
     public boolean usable = false;//可以被使用
-    public boolean consumable = false;//可以被消耗
+    public boolean consumable = false;//可以被消耗,可以被消耗就可以送
     public int consumequantity = 1;//一次消耗多少
     public int quantity = 1;//数量
     public boolean equippable = false;//可以被装备
@@ -23,6 +23,13 @@ public class InventoryItem implements Cloneable {// prototype，代表背包里�
 
     protected Inventory _targetInventory = null;
     protected Inventory _targetEquipmentInventory = null;
+
+    protected ItemExtention unitExtension = null;
+
+    public ItemExtention GetItemExtention(String extensionName)
+    {
+        return null;
+    }
 
     // public Object prefab;// 实际的物体,也许不会出现
 

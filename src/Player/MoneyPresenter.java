@@ -17,6 +17,7 @@ public class MoneyPresenter {//singleton、MVP、callback
         {
             money = new Money();
             money.SetOnChange(moneyChanged);
+            instance=this;
         }
     }
 
