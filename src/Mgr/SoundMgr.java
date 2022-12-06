@@ -8,6 +8,10 @@ public class SoundMgr {//Singleton
         if (instance != null) {
             throw new IllegalStateException("Already initialized.");
         }
+        else
+        {
+            instance=this;
+        }
     }
 
     public static SoundMgr GetInstance() {

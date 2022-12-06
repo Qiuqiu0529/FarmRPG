@@ -3,7 +3,6 @@ package Mgr;
 import Player.MoneyPresenter;
 import Player.Player;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import Choice.MoveToFarmLand;
 import Choice.MoveToForest;
@@ -30,6 +29,7 @@ public class GameMgr {
             
             RunGame();
             InitChoices();
+            instance=this;
         }
     }
 
@@ -63,13 +63,9 @@ public class GameMgr {
     public void InitChoices()// 初始化最大的流程,最大的一层选择，每个时间段的选择
     {
         choices=new ArrayList<>();
-        DefaultChoice defaultChoice = new DefaultChoice();
-        MoveToFarmLand choiceMoveToFarmLand = new MoveToFarmLand();
-        MoveToForest choiceMoveToForest = new MoveToForest();
-
-        choices.add(defaultChoice);
-        choices.add(choiceMoveToFarmLand);
-        choices.add(choiceMoveToForest);
+        choices.add(new DefaultChoice());
+        choices.add(new MoveToFarmLand());
+        choices.add(new MoveToForest());
       
     }
 

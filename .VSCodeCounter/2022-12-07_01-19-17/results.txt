@@ -1,0 +1,106 @@
+Date : 2022-12-07 01:19:17
+Directory : d:\CourseCode\Pattern\FarmRPG\FarmRPG\src
+Total : 71 files,  2216 codes, 18 comments, 502 blanks, all 2736 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Java     |         71 |      2,216 |         18 |        502 |      2,736 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++-------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                          | files      | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                             |         71 |      2,216 |         18 |        502 |      2,736 |
+| Actor                                                                         |          5 |        133 |          0 |         28 |        161 |
+| Choice                                                                        |         13 |        242 |          0 |         66 |        308 |
+| Item                                                                          |         19 |        607 |         10 |        136 |        753 |
+| Item\Buff                                                                     |          3 |         37 |          0 |         10 |         47 |
+| Item\Potion                                                                   |          8 |         81 |          1 |         25 |        107 |
+| Mgr                                                                           |          7 |        433 |          3 |         90 |        526 |
+| Monster                                                                       |          2 |         19 |          0 |          6 |         25 |
+| NPC                                                                           |          1 |          4 |          0 |          2 |          6 |
+| Other                                                                         |          4 |        110 |          0 |         27 |        137 |
+| Player                                                                        |         19 |        630 |          5 |        142 |        777 |
+| TXT                                                                           |          1 |         38 |          0 |          5 |         43 |
++-------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                      | language | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Actor\Defence.java                  | Java     |         24 |          0 |          5 |         29 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Actor\Health.java                   | Java     |         35 |          0 |         11 |         46 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Actor\IMovement.java                | Java     |          5 |          0 |          1 |          6 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Actor\IVisual.java                  | Java     |          4 |          0 |          1 |          5 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Actor\Movement.java                 | Java     |         65 |          0 |         10 |         75 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Choice\ChoiceCosumeEnergy.java      | Java     |         18 |          0 |          7 |         25 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Choice\ChoiceFaver.java             | Java     |         23 |          0 |          8 |         31 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Choice\ChooseColor.java             | Java     |         22 |          0 |          7 |         29 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Choice\ChooseConstellationType.java | Java     |         22 |          0 |          8 |         30 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Choice\ChooseHairStyle.java         | Java     |         22 |          0 |          6 |         28 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Choice\DefaultChoice.java           | Java     |         17 |          0 |          3 |         20 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Choice\IChoice.java                 | Java     |          6 |          0 |          2 |          8 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Choice\LookInventoryItem.java       | Java     |         21 |          0 |          3 |         24 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Choice\MoveToFarmLand.java          | Java     |         14 |          0 |          5 |         19 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Choice\MoveToForest.java            | Java     |         17 |          0 |          4 |         21 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Choice\PlayerMoveInForest.java      | Java     |         29 |          0 |          8 |         37 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Choice\PlayerRestInForest.java      | Java     |         17 |          0 |          3 |         20 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Choice\PlayerReturn.java            | Java     |         14 |          0 |          2 |         16 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Item\Buff\Buff.java                 | Java     |         14 |          0 |          4 |         18 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Item\Buff\EnergyBuff.java           | Java     |         18 |          0 |          5 |         23 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Item\Buff\IBuff.java                | Java     |          5 |          0 |          1 |          6 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Item\Dice.java                      | Java     |         28 |          0 |          5 |         33 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Item\Inventory.java                 | Java     |        288 |          7 |         53 |        348 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Item\InventoryItem.java             | Java     |         75 |          1 |         19 |         95 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Item\InventoryIterator.java         | Java     |         37 |          0 |          6 |         43 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Item\InventoryMgr.java              | Java     |         49 |          1 |         12 |         62 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Item\ItemExtention.java             | Java     |          3 |          0 |          3 |          6 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Item\ItemTypes.java                 | Java     |          4 |          0 |          1 |          5 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Item\Iterator.java                  | Java     |          5 |          0 |          2 |          7 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Item\Potion\CriticalHitPotion.java  | Java     |          5 |          0 |          2 |          7 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Item\Potion\EnergyPotion.java       | Java     |          5 |          0 |          2 |          7 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Item\Potion\HealingPotion.java      | Java     |          5 |          0 |          2 |          7 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Item\Potion\Potion.java             | Java     |          5 |          0 |          2 |          7 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Item\Potion\PotionAdapter.java      | Java     |         17 |          0 |          8 |         25 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Item\Potion\PotionFactory.java      | Java     |         34 |          0 |          5 |         39 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Item\Potion\PotionType.java         | Java     |          5 |          1 |          2 |          8 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Item\Potion\StrengthPotion.java     | Java     |          5 |          0 |          2 |          7 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Mgr\App.java                        | Java     |         14 |          0 |          3 |         17 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Mgr\ChoiceMgr.java                  | Java     |         74 |          1 |         15 |         90 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Mgr\ForestMgr.java                  | Java     |         90 |          0 |         17 |        107 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Mgr\GameMgr.java                    | Java     |        109 |          0 |         19 |        128 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Mgr\GameStatus.java                 | Java     |          4 |          0 |          0 |          4 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Mgr\InputMgr.java                   | Java     |         44 |          0 |          9 |         53 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Mgr\SoundMgr.java                   | Java     |         98 |          2 |         27 |        127 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Monster\IMonster.java               | Java     |          7 |          0 |          2 |          9 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Monster\MonsterMovement.java        | Java     |         12 |          0 |          4 |         16 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\NPC\NPC.java                        | Java     |          4 |          0 |          2 |          6 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Other\Callback.java                 | Java     |          4 |          0 |          1 |          5 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Other\Global.java                   | Java     |         88 |          0 |         21 |        109 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Other\Mathf.java                    | Java     |          9 |          0 |          3 |         12 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Other\Task.java                     | Java     |          9 |          0 |          2 |         11 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Player\ColorType.java               | Java     |          4 |          0 |          2 |          6 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Player\ConstellationType.java       | Java     |          4 |          0 |          2 |          6 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Player\Energy.java                  | Java     |         46 |          0 |         12 |         58 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Player\EnergyPresenter.java         | Java     |         62 |          0 |         13 |         75 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Player\HairStyleType.java           | Java     |          4 |          0 |          2 |          6 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Player\Money.java                   | Java     |         57 |          0 |         14 |         71 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Player\MoneyPresenter.java          | Java     |         90 |          0 |         14 |        104 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Player\Player.java                  | Java     |        130 |          0 |         33 |        163 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Player\PlayerBattle.java            | Java     |         24 |          5 |         10 |         39 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Player\PlayerBattleState.java       | Java     |         16 |          0 |          1 |         17 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Player\PlayerComaState.java         | Java     |         17 |          0 |          1 |         18 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Player\PlayerHealth.java            | Java     |         13 |          0 |          5 |         18 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Player\PlayerIdleState.java         | Java     |         17 |          0 |          1 |         18 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Player\PlayerInitState.java         | Java     |         12 |          0 |          2 |         14 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Player\PlayerMoveState.java         | Java     |         16 |          0 |          1 |         17 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Player\PlayerMovement.java          | Java     |         24 |          0 |          5 |         29 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Player\PlayerSleepState.java        | Java     |         17 |          0 |          2 |         19 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Player\PlayerState.java             | Java     |          5 |          0 |          1 |          6 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Player\PlayerVisual.java            | Java     |         72 |          0 |         21 |         93 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\TXT\TXTLoader.java                  | Java     |         38 |          0 |          5 |         43 |
+| Total                                                                         |          |      2,216 |         18 |        502 |      2,736 |
++-------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

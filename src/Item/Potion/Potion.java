@@ -1,5 +1,7 @@
 package Item.Potion;
 
-public interface Potion {
+import Item.ItemExtention;
+
+public interface Potion extends ItemExtention{
     public void Drink() throws InterruptedException;
 }

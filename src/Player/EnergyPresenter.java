@@ -12,6 +12,7 @@ public class EnergyPresenter {
         } else {
             energy = new Energy();
             energy.SetOnChange(energyChanged);
+            instance=this;
         }
     }
 

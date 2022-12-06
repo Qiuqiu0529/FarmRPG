@@ -18,7 +18,7 @@ public class ForestMgr {
 
     public static int monsterCountRestrict=3;//一次战斗最多几个敌人
 
-    private ForestMgr() {
+    private ForestMgr() throws InterruptedException{
         if (instance != null) {
             throw new IllegalStateException("Already initialized.");
         }
@@ -27,7 +27,7 @@ public class ForestMgr {
         }
     }
 
-    public static ForestMgr GetInstance() {
+    public static ForestMgr GetInstance() throws InterruptedException{
         var result = instance;
         if (result == null) {
             synchronized (ForestMgr.class) {
@@ -40,23 +40,19 @@ public class ForestMgr {
         return result;
     }
 
-    public void Init()
+    public void Init() throws InterruptedException
     {
         allmonsters=new ArrayList<>();
         battlemonsters=new ArrayList<>();
         choices=new ArrayList<>();
-        PlayerReturn playerReturn=new PlayerReturn();
-        PlayerRestInForest playerRestInForest=new PlayerRestInForest(Player.getInstance());
-        PlayerMoveInForest playerMoveUpForest=new PlayerMoveInForest(Player.getInstance(), "上",0, 1);
-        PlayerMoveInForest playerMoveDownForest=new PlayerMoveInForest(Player.getInstance(), "下",0, -1);
-        PlayerMoveInForest playerMoveLeftForest=new PlayerMoveInForest(Player.getInstance(), "左",-1, 0);
-        PlayerMoveInForest playerMoveRightForest=new PlayerMoveInForest(Player.getInstance(), "右",1, 0);
-        choices.add(playerReturn);
-        choices.add(playerRestInForest);
-        choices.add(playerMoveUpForest);
-        choices.add(playerMoveDownForest);
-        choices.add(playerMoveLeftForest);
-        choices.add(playerMoveRightForest);
+
+        choices.add(new PlayerReturn());
+        choices.add(new PlayerRestInForest(Player.getInstance()));
+        choices.add(new PlayerMoveInForest(Player.getInstance(), "上",0, 1));
+        choices.add(new PlayerMoveInForest(Player.getInstance(), "下",0, -1));
+        choices.add(new PlayerMoveInForest(Player.getInstance(), "左",-1, 0));
+        choices.add(new PlayerMoveInForest(Player.getInstance(), "右",1, 0));
+        instance=this;
     }
 
     public int GetBattleMonsterCount() {

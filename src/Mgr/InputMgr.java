@@ -8,6 +8,11 @@ public class InputMgr {
         if (instance != null) {
             throw new IllegalStateException("Already initialized.");
         }
+        else
+        {
+            instance=this;
+        }
+        
     }
     Scanner scanner = new Scanner(System.in,"gbk");
 

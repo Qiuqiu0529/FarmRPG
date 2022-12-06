@@ -6,6 +6,10 @@ public class Health {//战斗用数值，每天刷新一次
     protected float minHealth = 0;
     protected float maxHealth=100 ;
     protected float currentHealth=100;
+    public Health()
+    {
+
+    }
 
     public Health(float max)
     {
@@ -31,6 +35,10 @@ public class Health {//战斗用数值，每天刷新一次
         currentHealth -= minusAmount;
         currentHealth = Mathf.Clamp(currentHealth, minHealth, currentHealth);
         UpdateHealth();
+        if(currentHealth<=0)
+        {
+            Die();
+        }
         return temp-currentHealth;
     }
 
@@ -41,5 +49,9 @@ public class Health {//战斗用数值，每天刷新一次
     }
 
     public void UpdateHealth() {
+    }
+
+    public void Die()
+    {
     }
 }
