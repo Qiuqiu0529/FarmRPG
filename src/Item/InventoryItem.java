@@ -1,11 +1,9 @@
 package Item;
 
-import java.time.temporal.TemporalUnit;
-
 public class InventoryItem implements Cloneable {// prototype，代表背包里的物体
     public String itemID;
     public String itemName;
-    public ItemClasses itemClass;
+    public ItemTypes itemType;
     public String targetInventoryName = "MainInventory";
 
     public boolean usable = false;//可以被使用
