@@ -1,7 +1,15 @@
 package Player;
+import java.util.HashMap;
+
 import Actor.IVisual;
 public class PlayerVisual implements IVisual{
+    HairStyleType hairColor;
+    ColorType eyesColor;
+    ColorType gender;
+    ColorType skin;
 
+   
+   
     public void PlayAnim(String anim)
     {
         System.out.println("播放" +Player.playername+"动画："+anim );
