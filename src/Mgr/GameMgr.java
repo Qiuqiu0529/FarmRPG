@@ -118,12 +118,15 @@ public class GameMgr {
     {
         System.out.println("这一天提前结束");
         MoneyPresenter.GetInstance().CheckDebt();
-        if(IsGameRunning())
-        {
+        if (IsGameRunning()) {
             Player.getInstance().SetComa();
             Thread.sleep(500);
             ADay();
         }
+    }
+
+    public int GetDay() {
+        return day;
     }
 
 }

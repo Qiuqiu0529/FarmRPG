@@ -3,7 +3,7 @@ package NPC;
 import Choice.IChoice;
 
 public interface NPC {
-    public boolean ChangeFavor(int amount);//state is changed or not
+    public void ChangeFavor(int amount);//state is changed or not
 
     public int GetFavor();
 

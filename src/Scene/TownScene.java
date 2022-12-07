@@ -13,8 +13,7 @@ import Player.Player;
 
 public class TownScene {
     private static volatile TownScene instance;
-    static List<IChoice> choices;
-    Scene scene;
+    List<IChoice> choices;
 
     private TownScene() throws InterruptedException{
         if (instance != null) {
@@ -25,7 +24,7 @@ public class TownScene {
         }
     }
 
-    public static TownScene GetInstance() throws InterruptedException{
+    public static TownScene GetInstance() throws InterruptedException {
         var result = instance;
         if (result == null) {
             synchronized (TownScene.class) {
@@ -35,21 +34,35 @@ public class TownScene {
                 }
             }
         }
+
         return result;
     }
-
+    
     public void Init() throws InterruptedException
     {
-        choices=new ArrayList<>();
+        choices = new ArrayList<>();
+        instance = this;
+    }
+    
+    public void MakeChoices() throws InterruptedException
+    {
+        ClearChoices();
         choices.add(new PlayerReturn());
         choices.add(new PlayerWalkInTown(Player.getInstance()));
-        choices.add(new TownToScene(Player.getInstance(), Florist.GetInstance()));
-        instance=this;
+        SceneProxy.GetInstance().SetScene(Florist.GetInstance());
+        choices.add(new TownToScene(Player.getInstance(), SceneProxy.GetInstance()));
+    }
+
+    public void ClearChoices() {
+        if (!choices.isEmpty()) {
+            choices.clear();
+        }
     }
 
     public void StartVisit() throws InterruptedException
     {
         SoundMgr.GetInstance().PlayTownBGM();
+        MakeChoices();
         TownChoice();
     }
 
@@ -59,6 +72,9 @@ public class TownScene {
         int i=ChoiceMgr.GetInstance().Choose(choices);
         if(i!=0)
         {
+            if (i > 1) {
+                MakeChoices();
+            }
             TownChoice();
         }
     }
