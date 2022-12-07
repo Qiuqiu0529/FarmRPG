@@ -12,7 +12,6 @@ import java.util.List;
 
 public class Florist extends Scene {
     private static volatile Florist instance;
-    List<IChoice> choices;
     
     private Florist() throws InterruptedException{
         if (instance != null) {

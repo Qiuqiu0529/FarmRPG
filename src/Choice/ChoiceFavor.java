@@ -17,6 +17,7 @@ public class ChoiceFavor implements IChoice {
         this.npc = npc;
         this.changeAmount = changeAmount;
         this.description = description;
+        this.chooseDescription = chooseDescription;
     }
 
     public void ChoiceInfo() {
