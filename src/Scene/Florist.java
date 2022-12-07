@@ -34,10 +34,6 @@ public class Florist extends Scene {
         return result;
     }
     
-    public iScene GetScene() throws InterruptedException{
-        return GetInstance();
-    }
-    
     public void Init() throws InterruptedException
     {
         choices = new ArrayList<>();
@@ -52,7 +48,7 @@ public class Florist extends Scene {
         super.MakeChoices();
         ClearChoices();
         choices.add(new PlayerReturn());
-        for (int i = 0; i <= 2+favorNum; i++) {
+        for (int i = 0; i <= 2 + favorNum; i++) {
             choices.add(hostNpc.GetChoice(i));
         }
     }

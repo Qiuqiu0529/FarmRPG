@@ -17,6 +17,6 @@ public class TownToScene extends ChoiceCosumeEnergy{
     {
         super.Choose();
         System.out.println(Player.playername + "来到了"+scene.GetDescription());
-        scene.GetScene().StartVisit();
+        scene.StartVisit();
     }
 }

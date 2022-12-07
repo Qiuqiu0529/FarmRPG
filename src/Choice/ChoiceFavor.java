@@ -27,7 +27,7 @@ public class ChoiceFavor implements IChoice {
     public void Choose() throws InterruptedException{
         npc.ChangeFavor(changeAmount);
         System.out.println(chooseDescription);
-        System.out.println(npc.GetName()+"对你的好感增加了"+changeAmount+"。当前好感度："+npc.GetFavor()+'\n');
+        System.out.println(npc.GetName()+"对你的好感增加了"+changeAmount+"。当前好感度："+npc.GetFavor()+npc.GetState());
     }
 
 }

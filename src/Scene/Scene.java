@@ -13,7 +13,11 @@ public abstract class Scene implements iScene{
     String description = "";
     String background = "";
     List<IChoice> choices;
-    int favorNum=0;
+    int favorNum = 0;
+    
+    public enum FavorStatus {
+        general, frendly, hospitality, love  //0-30, 30-60, 60-90, 90--
+    };
 
     public void ClearChoices() {
         if (!choices.isEmpty()) {
@@ -27,15 +31,16 @@ public abstract class Scene implements iScene{
 
     public void MakeChoices() {
         String state = hostNpc.GetState();
-        if (state.equals("friendly")) {
+        if (state.equals(FavorStatus.frendly.name())) {
             favorNum = 1;
         }
-        else if (state.equals("hospitality")) {
+        else if (state.equals(FavorStatus.hospitality.name())) {
             favorNum = 2;
         }
-        else if (state.equals("love")) {
+        else if (state.equals(FavorStatus.love.name())) {
             favorNum = 3;
         }
+        
     }
 
     public void StartVisit() throws InterruptedException
@@ -51,7 +56,9 @@ public abstract class Scene implements iScene{
         int i = ChoiceMgr.GetInstance().Choose(choices);
         if(i!=0)
         {
-            if (!oldState.equals(hostNpc.GetState())) MakeChoices();
+            if (!oldState.equals(hostNpc.GetState())) {
+                MakeChoices();
+            }
             SceneChoice();
         }
     }

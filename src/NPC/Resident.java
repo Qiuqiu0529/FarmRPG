@@ -13,7 +13,7 @@ public abstract class Resident implements NPC {
         general, frendly, hospitality, love  //0-30, 30-60, 60-90, 90--
     };
 
-    public boolean ChangeFavor(int amount) {
+    public void ChangeFavor(int amount) {
         if (favors + amount < 0) {
             favors = 0;
         } else if (favors + amount > 100) {
@@ -22,12 +22,10 @@ public abstract class Resident implements NPC {
         else{
             favors += amount;
         }
-        boolean changed = ChangeStatus();
-        return (changed);
+        ChangeStatus();
     }
 
-    public boolean ChangeStatus() {
-        FavorStatus oldStatus = favorStatus;
+    public void ChangeStatus() {
         if (favors < 30) {
             favorStatus = FavorStatus.general;
         } else if (favors < 60) {
@@ -37,11 +35,6 @@ public abstract class Resident implements NPC {
         } else {
             favorStatus = FavorStatus.love;
         }
-
-        if (oldStatus != favorStatus)
-            return true;
-        else
-            return false;
     }
     
     public int GetFavor() {
