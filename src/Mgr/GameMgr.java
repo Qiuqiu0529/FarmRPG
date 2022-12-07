@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import Choice.MoveToFarmLand;
 import Choice.MoveToForest;
+import Choice.MoveToTown;
 import Other.Global;
 import Choice.DefaultChoice;
 import Choice.IChoice;
@@ -66,6 +67,7 @@ public class GameMgr {
         choices.add(new DefaultChoice());
         choices.add(new MoveToFarmLand());
         choices.add(new MoveToForest());
+        choices.add(new MoveToTown());
       
     }
 

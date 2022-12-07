@@ -120,7 +120,13 @@ public class SoundMgr {//Singleton
 
     public void PlayCoinSound()
     {
-        System.out.println("播放硬币撞击声，清脆的叮叮叮" );
+        System.out.println("播放硬币撞击声，清脆的叮叮叮");
+    }
+    
+    //Scene
+    public void PlayTownBGM()
+    {
+        System.out.println("播放热闹欢快的小镇背景乐：人们的喧闹声，街边商店里传出的音乐" );
     }
 
 }

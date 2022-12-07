@@ -2,7 +2,7 @@ package Choice;
 
 import NPC.NPC;
 
-public class ChoiceFaver implements IChoice {
+public class ChoiceFavor implements IChoice {
 
     protected NPC npc;
     protected int changeAmount;// 好感度增减
@@ -13,10 +13,11 @@ public class ChoiceFaver implements IChoice {
         return true;
     }
 
-    public ChoiceFaver(NPC npc, int changeAmount, String description) {
+    public ChoiceFavor(NPC npc, int changeAmount, String description, String chooseDescription) {
         this.npc = npc;
         this.changeAmount = changeAmount;
         this.description = description;
+        this.chooseDescription = chooseDescription;
     }
 
     public void ChoiceInfo() {
@@ -26,6 +27,7 @@ public class ChoiceFaver implements IChoice {
     public void Choose() throws InterruptedException{
         npc.ChangeFavor(changeAmount);
         System.out.println(chooseDescription);
+        System.out.println(npc.GetName()+"对你的好感增加了"+changeAmount+"。当前好感度："+npc.GetFavor()+'\n');
     }
 
 }
