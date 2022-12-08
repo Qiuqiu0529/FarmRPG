@@ -49,7 +49,8 @@ public class TownScene {
         ClearChoices();
         choices.add(new PlayerReturn());
         choices.add(new PlayerWalkInTown(Player.getInstance()));
-        SceneProxy.GetInstance().SetScene(Florist.GetInstance());
+        choices.add(new TownToScene(Player.getInstance(), Florist.GetInstance()));
+        SceneProxy.GetInstance().SetScene(Cafe.GetInstance());
         choices.add(new TownToScene(Player.getInstance(), SceneProxy.GetInstance()));
     }
 
@@ -68,6 +69,7 @@ public class TownScene {
 
     public void TownChoice() throws InterruptedException
     {
+        Thread.sleep(1000);
         System.out.println(Player.playername+"在小镇上，打算：");
         int i=ChoiceMgr.GetInstance().Choose(choices);
         if(i!=0)

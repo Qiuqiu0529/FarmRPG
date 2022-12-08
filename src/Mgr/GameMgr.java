@@ -128,5 +128,7 @@ public class GameMgr {
     public int GetDay() {
         return day;
     }
-
+    public int GetTimePeriod() {
+        return timePeriod.ordinal();
+    }
 }

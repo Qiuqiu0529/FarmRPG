@@ -12,6 +12,7 @@ import java.util.List;
 
 public class Florist extends Scene {
     private static volatile Florist instance;
+    int generalChoices = 3;
     
     private Florist() throws InterruptedException{
         if (instance != null) {
@@ -38,18 +39,20 @@ public class Florist extends Scene {
     {
         choices = new ArrayList<>();
         hostNpc = Alice.GetInstance();
-        MakeChoices();
         description = "街边的花店";
-        background = "在花店，你遇到了见习插花师Alice。你想：";
+        background = "在花店，"+Player.playername+"遇到了见习插花师Alice。你想：";
         instance = this;
     }
 
-    public void MakeChoices() {
-        super.MakeChoices();
-        ClearChoices();
+    public void MakeGenerlaChoices() {
         choices.add(new PlayerReturn());
-        for (int i = 0; i <= 2 + favorNum; i++) {
+        for (int i = 0; i < generalChoices; i++) {
             choices.add(hostNpc.GetChoice(i));
+        }
+    }
+    public void MakeHiddenChoices(int num) {
+        for (int i = 0; i < num; i++) {
+            choices.add(hostNpc.GetChoice(i+generalChoices));
         }
     }
     
