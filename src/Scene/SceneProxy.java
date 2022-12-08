@@ -4,7 +4,7 @@ import Mgr.GameMgr;
 
 public class SceneProxy implements iScene {
     public iScene scene;
-    private int oneday=0;
+    private int date=0;
     private volatile int count=0;
     private static volatile SceneProxy instance;
 
@@ -29,17 +29,12 @@ public class SceneProxy implements iScene {
         return result;
     }
 
+    public void SetDay() {
+        this.date=GameMgr.GetInstance().GetDay()+1;
+    }
+
     public void SetScene(iScene scene) {
         this.scene = scene;
-        int today=GameMgr.GetInstance().GetDay();
-        if (oneday == today)
-        {
-            count++;
-        }
-        else {
-            count = 0;
-            oneday = today;
-        }
     }
 
     public iScene GetScene() throws InterruptedException {
@@ -51,10 +46,13 @@ public class SceneProxy implements iScene {
     }
 
     public void StartVisit() throws InterruptedException {
-        if (count >= 1) {
-            System.out.println("你今天已经来过这里了，明天再来吧！");
+        int today = GameMgr.GetInstance().GetDay();
+        Thread.sleep(1000);
+        if (today!=date|| GameMgr.GetInstance().GetTimePeriod()!=1) {
+            System.out.println("你在咖啡馆里坐了许久，却没有等来熟悉的人。");
         }
-        else{
+        else {
+            date = 0;
             scene.StartVisit();
         }
     }
