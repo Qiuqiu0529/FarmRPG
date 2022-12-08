@@ -13,6 +13,8 @@ public class MoveToFarmLand extends ChoiceCosumeEnergy{
     {
         super.Choose();
         Player.getInstance().MoveInScene();
+        System.out.println(Player.playername+"开始种植");
+
     }
     
 }
