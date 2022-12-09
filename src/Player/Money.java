@@ -4,7 +4,7 @@ public class Money {//MVP、callback
     private float moneyAmount=0;
     private Callback callback;
     int debtTime=0;//欠债时长、几天
-
+    int debtTimeRestrcit=7;//可以欠债的最多天数
     float spendMoneyThisDay=0;
     float earnMoneyThisDay=0;
 
@@ -50,6 +50,10 @@ public class Money {//MVP、callback
     public void SetDebtTime(int amount)
     {
         debtTime=amount;
+    }
+    public int GetMaxDebtTime()
+    {
+        return debtTimeRestrcit;
     }
 
     public void AddDebtTime()

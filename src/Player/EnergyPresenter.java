@@ -5,6 +5,7 @@ import Other.Callback;
 public class EnergyPresenter {
     Energy energy;
     private static volatile EnergyPresenter instance;
+    EnergyView energyView;
 
     private EnergyPresenter() {
         if (instance != null) {
@@ -37,22 +38,21 @@ public class EnergyPresenter {
     };
 
     public void SpendEnergy(float minusAmount) {
-        System.out.println("消耗体力：" + Float.toString(minusAmount));
+        System.out.println("消耗精力：" + Float.toString(minusAmount));
         energy.MinusEnergy(minusAmount);
 
     }
 
     public void EarnEnergy(float addAmount) {
-        System.out.println("增加体力：" + Float.toString(addAmount));
+        System.out.println("增加精力：" + Float.toString(addAmount));
         energy.AddEnergy(addAmount);
     }
 
-    public void UpdateView()// 更新体力值UI，表现为控制台输出
+    public void UpdateView()// 更新精力值UI，表现为控制台输出
     {
         if (energy == null)
             return;
-        System.out.println(
-            Player.playername+"当前体力值为： " + Float.toString(energy.GetCurrentEnergy()) + " / " + Float.toString(energy.GetMaxEnergy()));
+        energyView.DisPlayMoney(energy);
     }
 
     public boolean HasEnoughEnergy(float demand) {

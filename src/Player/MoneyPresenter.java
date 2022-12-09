@@ -5,7 +5,8 @@ import Mgr.GameMgr;
 
 public class MoneyPresenter {//singleton、MVP、callback
     Money money;
-    int debtTimeRestrcit=7;//可以欠债的最多天数
+    
+    MoneyView moneyView;
 
     private static volatile MoneyPresenter instance;
 
@@ -17,6 +18,7 @@ public class MoneyPresenter {//singleton、MVP、callback
         {
             money = new Money();
             money.SetOnChange(moneyChanged);
+            moneyView=new MoneyView();
             instance=this;
         }
     }
@@ -65,7 +67,7 @@ public class MoneyPresenter {//singleton、MVP、callback
     {
         if (money == null)
             return;
-        System.out.println("当前金钱数量为：" + Float.toString(money.Getmoney()));
+        moneyView.DisPlayMoney(money);
     }
 
     public void CheckDebt()//每天更新
@@ -87,14 +89,14 @@ public class MoneyPresenter {//singleton、MVP、callback
         if(debttime>=0)//
         {
             System.out.println( Player.playername+"当前欠债天数为：" + Float.toString(debttime));
-            if(debttime>7)
+            if(debttime>money.GetMaxDebtTime())
             {
                 System.out.println("你欠款太多，买不起饭了，只能重回996生活赚钱还款，游戏结束");
                 GameMgr.GetInstance().StopGame();
             }
             else
             {
-                System.out.println("请注意最多欠债天数为：" + Float.toString(debtTimeRestrcit));
+                System.out.println("请注意最多欠债天数为：" + Float.toString(money.GetMaxDebtTime()));
             }
         }
         System.out.println("————————————————————————");
