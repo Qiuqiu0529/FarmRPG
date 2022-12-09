@@ -2,13 +2,13 @@ package Item.Potion;
 import Item.InventoryItem;
 import Item.ItemExtention;
 
-public class PotionAdapter  extends InventoryItem implements Potion{
+public class PotionAdapter  extends InventoryItem implements IPotion{
 
     public void Drink() throws InterruptedException {
 
     }
 
-    public boolean Use() throws InterruptedException{
+    public final boolean Use() throws InterruptedException{
         Drink();
         return true;
     }//让 Adapter 覆盖 Adaptee 的某些行为，因为 Adapter 是 Adaptee 的子类。

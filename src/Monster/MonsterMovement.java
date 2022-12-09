@@ -11,5 +11,12 @@ public class MonsterMovement extends Movement{
         }
 
     }
+
+    public void InitPos()//怪物初始位置随机
+    {
+      
+    }
+
+
     
 }
