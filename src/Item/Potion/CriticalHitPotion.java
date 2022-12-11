@@ -1,6 +1,6 @@
 package Item.Potion;
 
-public class CriticalHitPotion extends PotionAdapter {
+public class CriticalHitPotion implements IPotion {
     public void Drink() throws InterruptedException {
 
     }
