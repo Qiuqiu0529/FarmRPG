@@ -2,7 +2,7 @@ package Choice;
 
 import Player.Player;
 
-public class PlayerWalkInTown extends ChoiceCosumeEnergy{
+public class PlayerWalkInTown extends ChoiceConsumeEnergy{
     Player player;
     public PlayerWalkInTown(Player player)
     {

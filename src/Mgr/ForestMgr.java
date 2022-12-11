@@ -1,5 +1,6 @@
 package Mgr;
 
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,32 +66,30 @@ public class ForestMgr {
         SoundMgr.GetInstance().PlayForestBGM();
         for (Integer occupy : occupyGrid) {
             occupy=0;
-        }//格子只能被monsterCountRestrict个怪物占据，玩家可以进入有怪物的格子开始战斗m
+        }//格子只能被monsterCountRestrict个怪物占据，玩家可以进入有怪物的格子开始战斗
         Player.getInstance().InitPlayerPosInForest();
+        //生成怪物
         ForestChoice();
     }
-    public boolean CanOccupy(int x,int y)
+  
+    public boolean OccupyGrid(int x,int y,int changex,int changey)
     {
-        // if(occupyGrid.get(x*10+y))
-        // {
-        //     return false;
-        // }
-        return true;
-    }
-
-    public void Occupy(int x,int y)
-    {
-        // occupyGrid.set(x*10+y, true);
-    }
-
-    public boolean OccupyGrid(int x,int y)
-    {
-        if(CanOccupy(x, y))
+        int temp=occupyGrid.get((x+changex)*10+y+changey);
+        if( temp< monsterCountRestrict)
         {
-
+            occupyGrid.set((x+changex)*10+y+changey,temp+1);
+            UnOccupy(x, y);
+            return true;
         }
-        return true;
+        return false;
     }
+
+    public void UnOccupy(int x,int y)
+    {
+        int temppre=occupyGrid.get(x*10+y);
+        occupyGrid.set(x*10+y,temppre-1);
+    }
+
 
     public void ForestChoice() throws InterruptedException
     {

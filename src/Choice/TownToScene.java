@@ -3,7 +3,7 @@ package Choice;
 import Player.Player;
 import Scene.iScene;
 
-public class TownToScene extends ChoiceCosumeEnergy{
+public class TownToScene extends ChoiceConsumeEnergy{
     Player player;
     iScene scene;
     public TownToScene(Player player,iScene scene)

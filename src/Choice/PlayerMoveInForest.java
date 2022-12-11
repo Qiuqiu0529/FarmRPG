@@ -2,7 +2,7 @@ package Choice;
 
 import Player.Player;
 
-public class PlayerMoveInForest extends ChoiceCosumeEnergy{
+public class PlayerMoveInForest extends ChoiceConsumeEnergy{
     Player player;
     int x=0,y=0;
     String dir;

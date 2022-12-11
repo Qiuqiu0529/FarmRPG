@@ -1,6 +1,6 @@
 package Choice;
 import Player.Player;
-public class PlayerReturn extends ChoiceCosumeEnergy{
+public class PlayerReturn extends ChoiceConsumeEnergy{
  
     public PlayerReturn()
     {

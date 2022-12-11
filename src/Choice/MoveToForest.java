@@ -3,7 +3,7 @@ package Choice;
 import Mgr.ForestMgr;
 import Player.Player;
 
-public class MoveToForest extends ChoiceCosumeEnergy{
+public class MoveToForest extends ChoiceConsumeEnergy{
     public MoveToForest()
     {
         needEnergy=5;

@@ -2,7 +2,7 @@ package Choice;
 
 import Player.Player;
 
-public class MoveToFarmLand extends ChoiceCosumeEnergy{
+public class MoveToFarmLand extends ChoiceConsumeEnergy{
     public MoveToFarmLand()
     {
         needEnergy=3;

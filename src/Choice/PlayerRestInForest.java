@@ -2,7 +2,7 @@ package Choice;
 
 import Player.Player;
 
-public class PlayerRestInForest extends ChoiceCosumeEnergy{
+public class PlayerRestInForest extends ChoiceConsumeEnergy{
     Player player;
     public PlayerRestInForest(Player player)
     {
