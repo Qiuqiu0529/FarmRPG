@@ -15,8 +15,8 @@ public class ForestMgr {
     public static List<IMonster> battlemonsters;// 一次战斗的所有怪物
     private static volatile ForestMgr instance;
     static List<IChoice> choices;
-
-    public static int monsterCountRestrict=3;//一次战斗最多几个敌人
+    static List<Integer> occupyGrid=new ArrayList<>(100);//森林为100格子
+    public static int monsterCountRestrict=1;//一次战斗最多几个敌人
 
     private ForestMgr() throws InterruptedException{
         if (instance != null) {
@@ -63,8 +63,33 @@ public class ForestMgr {
     public void StartAdventure() throws InterruptedException
     {
         SoundMgr.GetInstance().PlayForestBGM();
+        for (Integer occupy : occupyGrid) {
+            occupy=0;
+        }//格子只能被monsterCountRestrict个怪物占据，玩家可以进入有怪物的格子开始战斗m
         Player.getInstance().InitPlayerPosInForest();
         ForestChoice();
+    }
+    public boolean CanOccupy(int x,int y)
+    {
+        // if(occupyGrid.get(x*10+y))
+        // {
+        //     return false;
+        // }
+        return true;
+    }
+
+    public void Occupy(int x,int y)
+    {
+        // occupyGrid.set(x*10+y, true);
+    }
+
+    public boolean OccupyGrid(int x,int y)
+    {
+        if(CanOccupy(x, y))
+        {
+
+        }
+        return true;
     }
 
     public void ForestChoice() throws InterruptedException

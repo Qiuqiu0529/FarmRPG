@@ -1,6 +1,6 @@
 package Actor;
 
-public class Movement implements IMovement{
+public abstract class Movement implements IMovement{
     protected int posX=0;
     protected int posY=0;
 
@@ -36,21 +36,21 @@ public class Movement implements IMovement{
         maxposY=max;
     }
 
-    public void InitPose(int x,int y)
-    {
-        if(InBoundry(x, y))
-        {
-            posX=x;
-            posY=y;
-        }
-        else
-        {
-            posX=0;
-            posY=0;
-        }
-    }
+    // public void InitPose(int x,int y)
+    // {
+    //     if(InBoundry(x, y))
+    //     {
+    //         posX=x;
+    //         posY=y;
+    //     }
+    //     else
+    //     {
+    //         posX=0;
+    //         posY=0;
+    //     }
+    // }
 
-    public static boolean InBoundry(int x,int y)
+    protected static boolean InBoundry(int x,int y)
     {
         if(0<=x&&x<maxposX&&0<=y&&y<maxposY)
         {
@@ -71,4 +71,6 @@ public class Movement implements IMovement{
         posX+=x;
         posY+=y;
     }
+
+    protected abstract void InitPos();
 }

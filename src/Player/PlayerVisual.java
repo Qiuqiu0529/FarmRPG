@@ -16,10 +16,10 @@ public class PlayerVisual implements IVisual{
     }
 
     public static class PlayerVisualBuilder {
-        HairStyleType hairStyle;
-        ColorType eyesColor;
-        ColorType hairColor;
-        ConstellationType constellation;
+        HairStyleType hairStyle=HairStyleType.LongHair;
+        ColorType eyesColor=ColorType.Black;
+        ColorType hairColor=ColorType.Black;
+        ConstellationType constellation=ConstellationType.Libra;
     
         public PlayerVisualBuilder() {
         }
