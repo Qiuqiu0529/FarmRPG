@@ -28,6 +28,7 @@ public class Global {
     public static HashMap<GameMgr.TimePeriod,String> tMap=new HashMap<>();
     public static HashMap<ConstellationType,String> starMap=new HashMap<>();
 
+
     public static List<IChoice> hairstylechoices=new ArrayList<>();
     public static List<IChoice> colorchoices=new ArrayList<>();
     public static List<IChoice> constellationchoices=new ArrayList<>();

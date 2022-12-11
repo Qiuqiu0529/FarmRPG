@@ -129,4 +129,8 @@ public class SoundMgr {//Singleton
         System.out.println("播放热闹欢快的小镇背景乐：人们的喧闹声，街边商店里传出的音乐" );
     }
 
+    // Farm
+    public void PlayFarmBGM(){
+        System.out.println("播放舒适的种植音乐：昆虫的叫声和柔和的风声");
+    }
 }
