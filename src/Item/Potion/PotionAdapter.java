@@ -2,21 +2,17 @@ package Item.Potion;
 import Item.InventoryItem;
 import Item.ItemExtention;
 
-public class PotionAdapter  extends InventoryItem implements IPotion{
-
-    public void Drink() throws InterruptedException {
-
-    }
-
+public class PotionAdapter  extends InventoryItem {
+    IPotion potion;
     public final boolean Use() throws InterruptedException{
-        Drink();
+        potion.Drink();
         return true;
-    }//让 Adapter 覆盖 Adaptee 的某些行为，因为 Adapter 是 Adaptee 的子类。
+    }//背包里的药水adapter，实际的药水adaptertee。
 
     public ItemExtention getUnitExtension(String extensionName) {
 
         if (extensionName.equals("Potion")) {
-          return this;
+          return potion;
         }
         return super.GetItemExtention(extensionName);
       }
