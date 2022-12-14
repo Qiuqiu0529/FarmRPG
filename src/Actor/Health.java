@@ -1,7 +1,7 @@
 package Actor;
 import Other.Mathf;
 
-public class Health {//战斗用数值，每天刷新一次
+public class Health implements IHealth{//战斗用数值，每天刷新一次
     
     protected float minHealth = 0;
     protected float maxHealth=100 ;

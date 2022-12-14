@@ -36,19 +36,6 @@ public abstract class Movement implements IMovement{
         maxposY=max;
     }
 
-    // public void InitPose(int x,int y)
-    // {
-    //     if(InBoundry(x, y))
-    //     {
-    //         posX=x;
-    //         posY=y;
-    //     }
-    //     else
-    //     {
-    //         posX=0;
-    //         posY=0;
-    //     }
-    // }
 
     protected static boolean InBoundry(int x,int y)
     {

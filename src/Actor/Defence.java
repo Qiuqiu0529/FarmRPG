@@ -1,5 +1,5 @@
 package Actor;
-public class Defence {
+public class Defence implements IDefence{
     float baseDefence=0;
     float buffDefence=0;
     float currentDefence=0;
@@ -24,5 +24,4 @@ public class Defence {
         }
         return attackAmount;
     }
-
 }

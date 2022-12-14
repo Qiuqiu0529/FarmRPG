@@ -335,8 +335,7 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
 
     public void LookItem()//忘记要干啥了，待写
     {
-        // List<IChoice> choices;
-        // choices=new ArrayList<>();
+        // List<IChoice> choices=new ArrayList<>();
         // for (InventoryItem inventoryItem : content) {
         //     LookInventoryItem look=new LookInventoryItem(inventoryItem);
         // }

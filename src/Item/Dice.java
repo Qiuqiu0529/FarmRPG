@@ -10,7 +10,7 @@ public class Dice {
         return dice+diceone;
     }
 
-    public static boolean Determine(int add,int threadhold)//类极乐迪斯科判定
+    public static boolean Determine(float add,float threadhold)//类极乐迪斯科判定
     {
         int i=RollTwoDice();
         if(i<2)

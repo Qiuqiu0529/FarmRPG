@@ -2,7 +2,7 @@ package Item.Potion;
 import Item.InventoryItem;
 import Item.ItemExtention;
 
-public class PotionAdapter  extends InventoryItem {
+public class PotionAdapter  extends InventoryItem {//商店卖的商品
     IPotion potion;
     public final boolean Use() throws InterruptedException{
         potion.Drink();

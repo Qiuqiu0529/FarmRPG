@@ -4,13 +4,10 @@ import java.util.EnumMap;
 import java.util.Map;
 
 public class PotionFactory {//Flyweight
+    
     private final Map<PotionType, IPotion> potions;
 
-    public PotionFactory() {
-        potions = new EnumMap<>(PotionType.class);
-    }
-
-    IPotion createPotion(PotionType type) {
+    IPotion createPotion(PotionType type) {//待改
         var potion = potions.get(type);
         if (potion == null) {
             switch (type) {
@@ -19,12 +16,6 @@ public class PotionFactory {//Flyweight
                     break;
                 case ENERGY:
                     potion = new EnergyPotion();
-                    break;
-                case CRITICALHIT:
-                    potion = new CriticalHitPotion();
-                    break;
-                case STRENGTH:
-                    potion = new StrengthPotion();
                     break;
                 default:
                     break;
@@ -36,7 +27,7 @@ public class PotionFactory {//Flyweight
         return potion;
     }
 
-    public IPotion GetInstance(PotionType type)
+    public IPotion GetInstance(PotionType type)//药水的instance
     {
         var potion = potions.get(type);
         if (potion == null)
@@ -45,4 +36,30 @@ public class PotionFactory {//Flyweight
         }
         return potion;
     }
+
+
+    private static volatile PotionFactory instance;
+
+    public PotionFactory() {
+        if (instance != null) {
+            throw new IllegalStateException("Already initialized.");
+        } else {
+            potions = new EnumMap<>(PotionType.class);
+            instance=this;
+        }
+    }
+
+    public static PotionFactory GetInstance() {
+        var result = instance;
+        if (result == null) {
+            synchronized (PotionFactory.class) {
+                result = instance;
+                if (result == null) {
+                    instance = result = new PotionFactory();
+                }
+            }
+        }
+        return result;
+    }
+
 }
