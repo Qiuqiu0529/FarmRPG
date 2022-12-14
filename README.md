@@ -25,7 +25,7 @@
 
 ## hsr预期增加：
 - Decorator（怪物有时可以有武器，武器是装饰
-- object-pool
+- object-pool（怪物池
 - observer
 - typeobjectpattern
   
