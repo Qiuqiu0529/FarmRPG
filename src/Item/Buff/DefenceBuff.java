@@ -3,7 +3,6 @@ package Item.Buff;
 import Actor.Defence;
 
 public class DefenceBuff extends Buff{//防御力持续一段时间增加
-    int adddefence=3;
     boolean first=true;
     Defence defence;
     public DefenceBuff(int contitime) {
@@ -12,16 +11,19 @@ public class DefenceBuff extends Buff{//防御力持续一段时间增加
     public DefenceBuff(int contitime,int addAmount)
     {
         super(contitime);
-        adddefence=addAmount;
+        amount=addAmount;
     }
-
+    public void SetDefence (Defence defence)
+    {
+        this.defence=defence;
+    }
 
     public void AddBuff() throws InterruptedException
     {
         super.AddBuff();
         if(first)
         {
-            defence.ChangeBuffDefence(adddefence);
+            defence.ChangeBuffDefence(amount);
             first=false;
         }
         if(continueTime<=0)
@@ -31,7 +33,7 @@ public class DefenceBuff extends Buff{//防御力持续一段时间增加
     }
 
     public void CancleBuff() throws InterruptedException{
-        defence.ChangeBuffDefence(-adddefence);
+        defence.ChangeBuffDefence(-amount);
     }
     
 }

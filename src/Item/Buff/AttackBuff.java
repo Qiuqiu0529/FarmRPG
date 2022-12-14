@@ -1,22 +1,29 @@
 package Item.Buff;
 
+import Actor.Attack;
+
 public class AttackBuff extends Buff {// 防御力持续一段时间增加
 
-    int addattack = 3;
     boolean first = true;
+    Attack attack;
 
     public AttackBuff(int contitime) {
         super(contitime);
     }
+    public void SetAttack(Attack attack)
+    {
+       this.attack=attack;
+    }
 
     public AttackBuff(int contitime, int addAmount) {
         super(contitime);
-        addattack=addAmount;
+        amount=addAmount;
     }
 
     public void AddBuff() throws InterruptedException {
         super.AddBuff();
         if (first) {
+            attack.ChangeBuffAttack(amount);
             first = false;
         }
         if (continueTime <= 0) {
@@ -25,7 +32,7 @@ public class AttackBuff extends Buff {// 防御力持续一段时间增加
     }
 
     public void CancleBuff() throws InterruptedException {
-
+        attack.ChangeBuffAttack(-amount);
     }
 
 }

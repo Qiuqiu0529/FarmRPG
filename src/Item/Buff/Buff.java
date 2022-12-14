@@ -2,6 +2,7 @@ package Item.Buff;
 
 public class Buff implements IBuff{
     public int continueTime=3;
+    public int amount=3;
     public Buff(int contitime)
     {
         continueTime=contitime;

@@ -3,7 +3,6 @@ package Item.Buff;
 import Actor.Health;
 
 public class HealthBuff extends Buff{
-    int addhealth=10;
     Health health;
     public HealthBuff(int contitime) {
         super(contitime);
@@ -11,7 +10,7 @@ public class HealthBuff extends Buff{
     public HealthBuff(int contitime,int addAmount)
     {
         super(contitime);
-        addhealth=addAmount;
+        amount=addAmount;
     }
 
     public void SetHealth(Health health)
@@ -22,7 +21,7 @@ public class HealthBuff extends Buff{
     public void AddBuff() throws InterruptedException
     {
         super.AddBuff();
-        health.AddHealth(addhealth);
+        health.AddHealth(amount);
     }
     
 }

@@ -76,9 +76,6 @@ public class Player {//state/component/
         return result;
     }
 
-   
-    
-
 
     public void SetPlayerState(PlayerState newState) {
         state.ExitState();

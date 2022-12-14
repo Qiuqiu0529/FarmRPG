@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Item.Dice;
+import Item.Buff.AttackBuff;
 import Item.Buff.Buff;
 import Item.Buff.EnergyBuff;
 import Item.Buff.HealthBuff;
@@ -44,14 +45,13 @@ public class PlayerBattle {
         return result;
     }
     
-
-
     public void OneRoundUp() throws InterruptedException //加buff，后执行攻击
     {
         for (Buff buff : buffs) {
             buff.AddBuff();
         }
         buffs.removeIf(s -> s.continueTime==0);//用完就丢
+        
     }
 
     public boolean CanEscape()//类极乐迪斯科判定
@@ -59,11 +59,6 @@ public class PlayerBattle {
         return Dice.Determine(lucky, 9);
     }//概率为容易
 
-
-    public void HealthRestore()
-    {
-
-    }
 
     public void AddHealthBuff(HealthBuff healthBuff)
     {
@@ -74,6 +69,11 @@ public class PlayerBattle {
     public void AddEnergyBuff(EnergyBuff energyBuff)
     {
         buffs.add(energyBuff);
+    }
+
+    public void AddAttackBuff(AttackBuff attackBuff)
+    {
+
     }
 
 } 
