@@ -27,7 +27,6 @@
 - Decorator（怪物有时可以有武器，武器是装饰
 - object-pool
 - observer
-- object-pool
 - typeobjectpattern
   
 **还可能增加（意思是我写不动了，你们可以看看哪个好加，还可以看看开头链接里别的设计模式哪些能套：**
