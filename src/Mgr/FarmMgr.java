@@ -1,15 +1,9 @@
 package Mgr;
-import java.util.ArrayList;
 import java.util.List;
 
 import Choice.IChoice;
-import Choice.PlayerMoveInForest;
-import Choice.PlayerRestInForest;
-import Choice.PlayerReturn;
-import Farm.Plant;
-import Farm.Seed;
+import Farm.Flower;
 import Farm.Vegetable;
-import Player.Player;
 
 public class FarmMgr {
 
@@ -20,13 +14,36 @@ public class FarmMgr {
     public static List<IChoice> choices;
 
     // 花
-    public static List<Plant> flowers;
+    public static List<Flower> flowers;
 
     // 蔬菜
     public static List<Vegetable> vegetables;
 
-    public FarmMgr getInstance(){
-        return instance;
+    public static FarmMgr GetInstance() throws InterruptedException
+    {
+        var result=instance;
+        if(result==null){
+            synchronized (FarmMgr.class){
+                result=instance;
+                if(result==null){
+                    instance=result=new FarmMgr();
+                }
+            }
+        }
+        return result;
+
+    }
+
+    public void StartFarm() throws InterruptedException
+    {
+        SoundMgr.GetInstance().PlayFarmBGM();
+
+    }
+
+    private void FarmStore() throws InterruptedException{
+        System.out.println("欢迎来到农场！请购买需要的种子");
+        // 输出选项以及购买逻辑处理
+
     }
 
 
