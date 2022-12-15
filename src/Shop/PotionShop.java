@@ -26,7 +26,7 @@ public class PotionShop extends ShopBase{
     {
         shopname="药水店";
         super.InitGoods();
-        
+
         PotionAdapter heal=new PotionAdapter();
         heal.itemID=Global.healingPotion;
         heal.itemName="一次性治愈药水";
@@ -35,6 +35,18 @@ public class PotionShop extends ShopBase{
         heal.SetPotion(PotionFactory.GetInstance().GetInstance(PotionType.HEALING));
         BuyInventoryItem buyheal=new BuyInventoryItem(heal);
         goods.add(buyheal);
+
+        PotionAdapter healcontinue=new PotionAdapter();
+        healcontinue.itemID=Global.continueHealing;
+        healcontinue.itemName="持续治愈药水";
+        healcontinue.description="持续作用三回合，一次回复10点生命值。这次用不完下次再用。";
+        healcontinue.value=70;
+        healcontinue.SetPotion(PotionFactory.GetInstance().GetInstance(PotionType.CONTINUEHEALING));
+        BuyInventoryItem buycontinueheal=new BuyInventoryItem(healcontinue);
+        buycontinueheal.SetThread(10);//购买概率偏低，默认为1，总是可以购买
+        goods.add(buycontinueheal);
+        
+
 
 
 
