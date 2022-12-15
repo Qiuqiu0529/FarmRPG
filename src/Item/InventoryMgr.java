@@ -26,6 +26,7 @@ public class InventoryMgr {
         } else {
             instance=this;
             InitAllInventory();
+
         }
     }
 
