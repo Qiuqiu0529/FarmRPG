@@ -19,6 +19,7 @@ public class PlayerBattle {
     //选择装备，选择装备，oneroundup，攻击
     //选择逃跑，掷骰子，概率逃跑
 
+
     private static volatile PlayerBattle instance;
 
     private PlayerBattle() {
@@ -72,7 +73,6 @@ public class PlayerBattle {
 
     public void AddAttackBuff(AttackBuff attackBuff)
     {
-        //attackBuff.SetAttack();
 
     }
 
