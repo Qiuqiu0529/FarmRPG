@@ -14,14 +14,14 @@ public class Shop {
 
     public void buyFlowerSeeds(int seedNum){
         // 抽象工厂生产种子后，放入背包中
-        FlowerSeed flowerseed=factory.createFlowerSeed();
+        FlowerSeed flowerseed=factory.createFlowerSeed(1);
         Inventory backpack= InventoryMgr.FindInventory("Main");
         backpack.AddItem(flowerseed,seedNum);
     }
 
     public void buyVegetableSeeds(int seedNum){
         // 抽象工厂生产种子后，放入背包中
-        VegetableSeed vegetableSeed=factory.createVegetableSeed();
+        VegetableSeed vegetableSeed=factory.createVegetableSeed(1);
         Inventory backpack=InventoryMgr.FindInventory("Main");
         backpack.AddItem(vegetableSeed,seedNum);
     }
