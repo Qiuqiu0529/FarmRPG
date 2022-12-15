@@ -25,9 +25,8 @@ public class PotionShop extends ShopBase{
     public void InitGoods()
     {
         shopname="药水店";
-        goods.add(new DefaultChoice("什么都不买",
-        Player.playername+"离开了"+shopname));
-
+        super.InitGoods();
+        
         PotionAdapter heal=new PotionAdapter();
         heal.itemID=Global.healingPotion;
         heal.itemName="一次性治愈药水";

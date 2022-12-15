@@ -1,12 +1,15 @@
 package Choice;
 
+import Item.Dice;
 import Item.InventoryItem;
 import Mgr.InputMgr;
 import Mgr.SoundMgr;
 import Player.MoneyPresenter;
+import Player.Player;
 
 public class BuyInventoryItem extends ChoiceConsumeMoney {
     InventoryItem item;
+    int thread=1;//能够买的概率，加点抽卡感觉
 
     public BuyInventoryItem(InventoryItem inventoryItem) {
         item = inventoryItem;
@@ -14,7 +17,7 @@ public class BuyInventoryItem extends ChoiceConsumeMoney {
     }
 
     public boolean CanChoose() {
-        return true;
+        return Dice.Determine(Player.lucky, thread);//thread类极乐迪斯科
     }
 
     public void ChoiceInfo() {

@@ -3,8 +3,10 @@ package Shop;
 import java.util.ArrayList;
 import java.util.List;
 
+import Choice.DefaultChoice;
 import Choice.IChoice;
 import Mgr.ChoiceMgr;
+import Player.Player;
 
 public class ShopBase implements IShop{
     public List<IChoice> goods=new ArrayList<>();
@@ -25,6 +27,7 @@ public class ShopBase implements IShop{
     }
     public void InitGoods()
     {
-
+        goods.add(new DefaultChoice("什么都不买",
+        Player.playername+"离开了"+shopname));
     }
 }

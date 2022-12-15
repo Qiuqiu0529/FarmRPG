@@ -18,7 +18,6 @@ public class PlayerBattle {
     Health playerHealth=new PlayerHealth();
     AttackWithWeapon playerAttack=new AttackWithWeapon(5);
     Defence playerDefence=new Defence(2);
-    int lucky=2;
 
     //攻击、道具、装备、逃跑
     //战斗流程，选择攻击，oneroundup，攻击  
@@ -61,7 +60,7 @@ public class PlayerBattle {
 
     public boolean CanEscape()//类极乐迪斯科判定
     {
-        return Dice.Determine(lucky, 9);
+        return Dice.Determine(Player.lucky, 9);
     }//概率为容易
 
 
