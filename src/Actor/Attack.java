@@ -5,6 +5,12 @@ public class Attack implements IAttack{
     float buffAttack=0;
     float currentAttack=0;
 
+    public Attack(float baseatt)
+    {
+        baseAttack=baseatt;
+        currentAttack=baseatt;
+    }
+
     public void ChangeBuffAttack(float change)
     {
         buffAttack+=change;
