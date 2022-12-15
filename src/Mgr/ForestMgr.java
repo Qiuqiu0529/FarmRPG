@@ -15,19 +15,19 @@ public class ForestMgr {
     public static List<IMonster> battlemonsters;// 一次战斗的所有怪物
     private static volatile ForestMgr instance;
     static List<IChoice> choices;
-    static List<Integer> occupyGrid=new ArrayList<>(100);//森林为100格子
-    public static int monsterCountRestrict=1;//一次战斗最多几个敌人
+    static List<Integer> occupyGrid = new ArrayList<>(100);// 森林为100格子
+    public static int monsterCountRestrict = 1;// 一次战斗最多几个敌人
 
-    private ForestMgr() throws InterruptedException{
+    private ForestMgr() throws InterruptedException {
         if (instance != null) {
             throw new IllegalStateException("Already initialized.");
-        }
-        else{
+        } else {
+            instance = this;
             Init();
         }
     }
 
-    public static ForestMgr GetInstance() throws InterruptedException{
+    public static ForestMgr GetInstance() throws InterruptedException {
         var result = instance;
         if (result == null) {
             synchronized (ForestMgr.class) {
@@ -40,90 +40,75 @@ public class ForestMgr {
         return result;
     }
 
-    public void Init() throws InterruptedException
-    {
-        allmonsters=new ArrayList<>();
-        battlemonsters=new ArrayList<>();
-        choices=new ArrayList<>();
+    public void Init() throws InterruptedException {
+        allmonsters = new ArrayList<>();
+        battlemonsters = new ArrayList<>();
+        choices = new ArrayList<>();
 
         choices.add(new PlayerReturn());
         choices.add(new PlayerRestInForest(Player.getInstance()));
-        choices.add(new PlayerMoveInForest(Player.getInstance(), "上",0, 1));
-        choices.add(new PlayerMoveInForest(Player.getInstance(), "下",0, -1));
-        choices.add(new PlayerMoveInForest(Player.getInstance(), "左",-1, 0));
-        choices.add(new PlayerMoveInForest(Player.getInstance(), "右",1, 0));
-        instance=this;
+        choices.add(new PlayerMoveInForest(Player.getInstance(), "上", 0, 1));
+        choices.add(new PlayerMoveInForest(Player.getInstance(), "下", 0, -1));
+        choices.add(new PlayerMoveInForest(Player.getInstance(), "左", -1, 0));
+        choices.add(new PlayerMoveInForest(Player.getInstance(), "右", 1, 0));
     }
 
     public int GetBattleMonsterCount() {
         return battlemonsters.size();
     }
 
-
-    public void StartAdventure() throws InterruptedException
-    {
+    public void StartAdventure() throws InterruptedException {
         SoundMgr.GetInstance().PlayForestBGM();
         for (Integer occupy : occupyGrid) {
-            occupy=0;
-        }//格子只能被monsterCountRestrict个怪物占据，玩家可以进入有怪物的格子开始战斗
+            occupy = 0;
+        } // 格子只能被monsterCountRestrict个怪物占据，玩家可以进入有怪物的格子开始战斗
         Player.getInstance().InitPlayerPosInForest();
-        //生成怪物
+        // 生成怪物
         ForestChoice();
     }
-  
-    public boolean OccupyGrid(int x,int y,int changex,int changey)
-    {
-        int temp=occupyGrid.get((x+changex)*10+y+changey);
-        if( temp< monsterCountRestrict)
-        {
-            occupyGrid.set((x+changex)*10+y+changey,temp+1);
+
+    public boolean OccupyGrid(int x, int y, int changex, int changey) {
+        int temp = occupyGrid.get((x + changex) * 10 + y + changey);
+        if (temp < monsterCountRestrict) {
+            occupyGrid.set((x + changex) * 10 + y + changey, temp + 1);
             UnOccupy(x, y);
             return true;
         }
         return false;
     }
 
-    public void UnOccupy(int x,int y)
-    {
-        int temppre=occupyGrid.get(x*10+y);
-        occupyGrid.set(x*10+y,temppre-1);
+    public void UnOccupy(int x, int y) {
+        int temppre = occupyGrid.get(x * 10 + y);
+        occupyGrid.set(x * 10 + y, temppre - 1);
     }
 
-
-    public void ForestChoice() throws InterruptedException
-    {
-        System.out.println("在森林" +Player.playername+"决定");
-        int i=ChoiceMgr.GetInstance().Choose(choices);
-        if(i!=0)
-        {
+    public void ForestChoice() throws InterruptedException {
+        System.out.println("在森林" + Player.playername + "决定");
+        int i = ChoiceMgr.GetInstance().Choose(choices);
+        if (i != 0) {
             ForestChoice();
         }
     }
 
-    public void UpdatePos()
-    {
+    public void UpdatePos() {
         for (IMonster monster : allmonsters) {
             monster.MonsterMove();
         }
     }
 
-    public void KillMoster(IMonster monster)
-    {
+    public void KillMoster(IMonster monster) {
         allmonsters.remove(monster);
         battlemonsters.remove(monster);
-        if(battlemonsters.size()==0)
-        {
+        if (battlemonsters.size() == 0) {
             Victory();
         }
     }
 
-    public void Victory()
-    {
+    public void Victory() {
         SoundMgr.GetInstance().PlayVictorySound();
     }
 
-    public void Escape()
-    {
+    public void Escape() {
         battlemonsters.clear();
     }
 }

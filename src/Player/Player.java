@@ -39,6 +39,7 @@ public class Player {//state/component/
     }
 
     public void Init() throws InterruptedException{
+        instance=this;
         HairStyleType hairStyleType=ChoiceMgr.GetInstance().ChooseHair();
         ColorType hType=ChoiceMgr.GetInstance().ChooseColor("头发");
         ColorType eType=ChoiceMgr.GetInstance().ChooseColor("眼睛");
@@ -60,7 +61,6 @@ public class Player {//state/component/
 
         
         state = playerInitState;
-        instance=this;
     }
 
     public static Player getInstance() throws InterruptedException {

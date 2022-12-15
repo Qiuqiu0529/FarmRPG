@@ -19,6 +19,16 @@ public class FarmMgr {
     // 蔬菜
     public static List<Vegetable> vegetables;
 
+    private FarmMgr() throws InterruptedException{
+        if (instance != null) {
+            throw new IllegalStateException("Already initialized.");
+        }
+        else{
+            instance=this;
+        }
+    }
+
+
     public static FarmMgr GetInstance() throws InterruptedException
     {
         var result=instance;

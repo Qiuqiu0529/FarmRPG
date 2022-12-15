@@ -24,6 +24,7 @@ public class InventoryMgr {
         if (instance != null) {
             throw new IllegalStateException("Already initialized.");
         } else {
+            instance=this;
             InitAllInventory();
         }
     }

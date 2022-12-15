@@ -44,8 +44,8 @@ public class PotionFactory {//Flyweight
         if (instance != null) {
             throw new IllegalStateException("Already initialized.");
         } else {
-            potions = new EnumMap<>(PotionType.class);
             instance=this;
+            potions = new EnumMap<>(PotionType.class);
         }
     }
 

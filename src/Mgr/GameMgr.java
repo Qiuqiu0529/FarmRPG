@@ -28,9 +28,9 @@ public class GameMgr {
             throw new IllegalStateException("Already initialized.");
         } else {
             
+            instance=this;
             RunGame();
             InitChoices();
-            instance=this;
         }
     }
 
