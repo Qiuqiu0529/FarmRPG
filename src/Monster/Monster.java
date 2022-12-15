@@ -1,6 +1,7 @@
 package Monster;
 
-public class SimpleMonster implements IMonster{
+public class Monster //implements IBattleMember
+{
     public void MoveUpdate()
     {
 

@@ -48,15 +48,13 @@ public abstract class Movement implements IMovement{
     
     public boolean CanMove(int x,int y)
     {
-        int tempx=x+posX;
-        int tempy=y+posY;
-        return InBoundry(tempx,tempy);
+        return InBoundry(x+posX,y+posY);
     }
 
-    public void MoveUpdate(int x,int y)
+    public void MoveUpdate(int changex,int changey)
     {
-        posX+=x;
-        posY+=y;
+        posX+=changex;
+        posY+=changey;
     }
 
     protected abstract void InitPos();

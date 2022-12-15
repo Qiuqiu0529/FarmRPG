@@ -1,6 +1,5 @@
 package Mgr;
 
-import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -104,7 +103,7 @@ public class ForestMgr {
     public void UpdatePos()
     {
         for (IMonster monster : allmonsters) {
-            monster.MoveUpdate();
+            monster.MonsterMove();
         }
     }
 

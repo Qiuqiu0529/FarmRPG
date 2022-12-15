@@ -14,6 +14,7 @@ import Player.HairStyleType;
 import Mgr.GameMgr;
 
 public class Global {
+
     public static String healingPotion="210";
     public static String strengthPotion="211";
     public static String energyPotion="212";

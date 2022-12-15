@@ -2,7 +2,7 @@ package Item.Buff;
 
 import Actor.Attack;
 
-public class AttackBuff extends Buff {// 防御力持续一段时间增加
+public class AttackBuff extends Buff {//攻击力持续一段时间增加
 
     boolean first = true;
     Attack attack;

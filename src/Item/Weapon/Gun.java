@@ -9,14 +9,13 @@ public class Gun implements Iweapon{
         this.bulletAmountEachTime=bulletAmountEachTime;
         bulletPool=new BulletPool(data);
     }
-    public void WeaponAttack(float actorAdd)
+    public void WeaponAttack(float actorAdd)//一个回合多次攻击
     {
         for(int i=0;i<bulletAmountEachTime;++i)
         {
+            float amount=bulletPool.GetPoolObj().BulletAttackAmount();
+            
             
         }
-
     }
-  
-
 }
