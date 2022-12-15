@@ -12,6 +12,7 @@ public class EnergyPresenter {
             throw new IllegalStateException("Already initialized.");
         } else {
             energy = new Energy();
+            energyView=new EnergyView();
             energy.SetOnChange(energyChanged);
             instance=this;
         }
@@ -52,7 +53,7 @@ public class EnergyPresenter {
     {
         if (energy == null)
             return;
-        energyView.DisPlayMoney(energy);
+        energyView.DisPlayEnergy(energy);
     }
 
     public boolean HasEnoughEnergy(float demand) {
