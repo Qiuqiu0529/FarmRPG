@@ -1,11 +1,13 @@
 package Shop;
 
 import Choice.BuyInventoryItem;
+import Choice.DefaultChoice;
 import Item.Potion.PotionAdapter;
 import Item.Potion.PotionFactory;
 import Item.Potion.PotionType;
 import Mgr.SoundMgr;
 import Other.Global;
+import Player.Player;
 
 public class PotionShop extends ShopBase{
     public PotionShop()
@@ -23,6 +25,9 @@ public class PotionShop extends ShopBase{
     public void InitGoods()
     {
         shopname="药水店";
+        goods.add(new DefaultChoice("什么都不买",
+        Player.playername+"离开了"+shopname));
+
         PotionAdapter heal=new PotionAdapter();
         heal.itemID=Global.healingPotion;
         heal.itemName="一次性治愈药水";
@@ -31,6 +36,11 @@ public class PotionShop extends ShopBase{
         heal.SetPotion(PotionFactory.GetInstance().GetInstance(PotionType.HEALING));
         BuyInventoryItem buyheal=new BuyInventoryItem(heal);
         goods.add(buyheal);
+
+
+
+
+
 
 
 
