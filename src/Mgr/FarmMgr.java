@@ -1,9 +1,13 @@
 package Mgr;
+import java.util.ArrayList;
 import java.util.List;
 
+import Choice.EnterFarmShop;
 import Choice.IChoice;
+import Choice.PlayerReturn;
 import Farm.Flower;
 import Farm.Vegetable;
+import Player.Player;
 
 public class FarmMgr {
 
@@ -25,9 +29,9 @@ public class FarmMgr {
         }
         else{
             instance=this;
+            Init();
         }
     }
-
 
     public static FarmMgr GetInstance() throws InterruptedException
     {
@@ -44,10 +48,17 @@ public class FarmMgr {
 
     }
 
+    public void Init() throws InterruptedException
+    {
+        choices=new ArrayList<>();
+        choices.add(new PlayerReturn());
+        choices.add(new EnterFarmShop());
+    }
+
     public void StartFarm() throws InterruptedException
     {
         SoundMgr.GetInstance().PlayFarmBGM();
-
+        FarmChoice();
     }
 
     private void FarmStore() throws InterruptedException{
@@ -56,5 +67,13 @@ public class FarmMgr {
 
     }
 
-
+    private void FarmChoice() throws InterruptedException
+    {
+        System.out.println("在农场里" + Player.playername+"决定");
+        int i=ChoiceMgr.GetInstance().Choose(choices);
+        if(i!=0)
+        {
+            FarmChoice();
+        }
+    }
 }
