@@ -3,11 +3,6 @@ public class Defence implements IDefence{
     float baseDefence=0;
     float buffDefence=0;
     float currentDefence=0;
-    public Defence(float basede)
-    {
-        baseDefence=basede;
-        currentDefence=basede;
-    }
 
     public void ChangeBuffDefence(float change)
     {

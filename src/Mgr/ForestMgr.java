@@ -10,7 +10,7 @@ import Choice.PlayerReturn;
 import Monster.IMonster;
 import Player.Player;
 
-public class ForestMgr implements IPlayerMoveObserver{
+public class ForestMgr {
     public static List<IMonster> allmonsters;// 当前森林里所有的怪物
     public static List<IMonster> battlemonsters;// 一次战斗的所有怪物
     private static volatile ForestMgr instance;
@@ -42,17 +42,17 @@ public class ForestMgr implements IPlayerMoveObserver{
 
     public void Init() throws InterruptedException
     {
-        instance=this;
         allmonsters=new ArrayList<>();
         battlemonsters=new ArrayList<>();
         choices=new ArrayList<>();
-        Player.getInstance().SetMoveObservers(this);
+
         choices.add(new PlayerReturn());
         choices.add(new PlayerRestInForest(Player.getInstance()));
         choices.add(new PlayerMoveInForest(Player.getInstance(), "上",0, 1));
         choices.add(new PlayerMoveInForest(Player.getInstance(), "下",0, -1));
         choices.add(new PlayerMoveInForest(Player.getInstance(), "左",-1, 0));
         choices.add(new PlayerMoveInForest(Player.getInstance(), "右",1, 0));
+        instance=this;
     }
 
     public int GetBattleMonsterCount() {
@@ -65,7 +65,7 @@ public class ForestMgr implements IPlayerMoveObserver{
         SoundMgr.GetInstance().PlayForestBGM();
         for (Integer occupy : occupyGrid) {
             occupy=0;
-        }//格子只能被monsterCountRestrict个怪物占据
+        }//格子只能被monsterCountRestrict个怪物占据，玩家可以进入有怪物的格子开始战斗
         Player.getInstance().InitPlayerPosInForest();
         //生成怪物
         ForestChoice();
@@ -96,11 +96,11 @@ public class ForestMgr implements IPlayerMoveObserver{
         int i=ChoiceMgr.GetInstance().Choose(choices);
         if(i!=0)
         {
-            //触发事件
             ForestChoice();
         }
     }
-    public void UpdatePos(int posx,int posy)
+
+    public void UpdatePos()
     {
         for (IMonster monster : allmonsters) {
             monster.MonsterMove();

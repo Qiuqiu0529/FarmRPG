@@ -7,15 +7,15 @@ public class PotionFactory {//Flyweight
     
     private final Map<PotionType, IPotion> potions;
 
-    IPotion createPotion(PotionType type) {
+    IPotion createPotion(PotionType type) {//待改
         var potion = potions.get(type);
         if (potion == null) {
             switch (type) {
                 case HEALING:
-                    potion = new HealingPotion(1,10);
+                    potion = new HealingPotion();
                     break;
                 case ENERGY:
-                    potion = new EnergyPotion(1,5);
+                    potion = new EnergyPotion();
                     break;
                 default:
                     break;
