@@ -41,17 +41,18 @@ public class Player {//state/component/
 
     public void Init() throws InterruptedException{
         instance=this;
-        HairStyleType hairStyleType=ChoiceMgr.GetInstance().ChooseHair();
-        ColorType hType=ChoiceMgr.GetInstance().ChooseColor("头发");
-        ColorType eType=ChoiceMgr.GetInstance().ChooseColor("眼睛");
-        ConstellationType constellationType=ChoiceMgr.GetInstance().ChooseConstellation();
+        // HairStyleType hairStyleType=ChoiceMgr.GetInstance().ChooseHair();
+        // ColorType hType=ChoiceMgr.GetInstance().ChooseColor("头发");
+        // ColorType eType=ChoiceMgr.GetInstance().ChooseColor("眼睛");
+        // ConstellationType constellationType=ChoiceMgr.GetInstance().ChooseConstellation();
 
-        playerVisual = new PlayerVisual.PlayerVisualBuilder()
-        .withHairType(hairStyleType).withHairColor(hType)
-        .withEyesColor(eType).withConstellation(constellationType)
-        .build();
+        // playerVisual = new PlayerVisual.PlayerVisualBuilder()
+        // .withHairType(hairStyleType).withHairColor(hType)
+        // .withEyesColor(eType).withConstellation(constellationType)
+        // .build();
 
-        
+        playerVisual=new PlayerVisual();
+
         playerMovement=new PlayerMovement();
         playerIdleState=new PlayerIdleState(this);
         playerComaState=new PlayerComaState(this);

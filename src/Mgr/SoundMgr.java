@@ -133,4 +133,9 @@ public class SoundMgr {//Singleton
     public void PlayFarmBGM(){
         System.out.println("播放舒适的种植音乐：昆虫的叫声和柔和的风声");
     }
+
+    public void PlayPotionShop()
+    {
+        System.out.println("播放神秘的音乐，咕嘟嘟、咚咚咚");
+    }
 }

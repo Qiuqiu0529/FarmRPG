@@ -3,16 +3,23 @@ package Player;
 import java.util.ArrayList;
 import java.util.List;
 
+import Actor.AttackWithWeapon;
+import Actor.Defence;
+import Actor.Health;
 import Item.Dice;
 import Item.Buff.AttackBuff;
 import Item.Buff.Buff;
+import Item.Buff.DefenceBuff;
 import Item.Buff.EnergyBuff;
 import Item.Buff.HealthBuff;
 
 public class PlayerBattle {
-    List<Buff> buffs;
-    PlayerHealth playerHealth=new PlayerHealth();
+    List<Buff> buffs=new ArrayList<>();
+    Health playerHealth=new PlayerHealth();
+    AttackWithWeapon playerAttack=new AttackWithWeapon(5);
+    Defence playerDefence=new Defence(2);
     int lucky=2;
+
     //攻击、道具、装备、逃跑
     //战斗流程，选择攻击，oneroundup，攻击  
     //选择道具，选择道具、oneroundup
@@ -26,9 +33,7 @@ public class PlayerBattle {
         if (instance != null) {
             throw new IllegalStateException("Already initialized.");
         } else {
-           
             instance=this;
-            buffs=new ArrayList<>();
         }
     }
 
@@ -73,6 +78,14 @@ public class PlayerBattle {
 
     public void AddAttackBuff(AttackBuff attackBuff)
     {
+        attackBuff.SetAttack(playerAttack.GetAttack());
+        buffs.add(attackBuff);
+    }
+
+    public void AddDefenceBuff(DefenceBuff defenceBuff)
+    {
+        defenceBuff.SetDefence(playerDefence);
+        buffs.add(defenceBuff);
 
     }
 

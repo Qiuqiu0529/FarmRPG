@@ -3,13 +3,16 @@ package Scene;
 import java.util.ArrayList;
 import java.util.List;
 
+import Choice.EnterShop;
 import Choice.IChoice;
 import Mgr.ChoiceMgr;
+import Mgr.ShopMgr;
 import Mgr.SoundMgr;
 import Choice.PlayerReturn;
 import Choice.PlayerWalkInTown;
 import Choice.TownToScene;
 import Player.Player;
+import Shop.ShopType;
 
 public class TownScene {
     private static volatile TownScene instance;
@@ -52,6 +55,7 @@ public class TownScene {
         choices.add(new TownToScene(Player.getInstance(), Florist.GetInstance()));
         SceneProxy.GetInstance().SetScene(Cafe.GetInstance());
         choices.add(new TownToScene(Player.getInstance(), SceneProxy.GetInstance()));
+        choices.add(new EnterShop(ShopMgr.GetInstance().GetInstance(ShopType.POTION)));
     }
 
     public void ClearChoices() {

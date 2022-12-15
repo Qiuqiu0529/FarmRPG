@@ -12,7 +12,7 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         Main, Equipment
     }// 装备和消耗品
 
-    public List<InventoryItem> content;
+    public List<InventoryItem> content=new ArrayList<>();
 
     public InventoryTypes inventoryType = InventoryTypes.Main;
 
@@ -53,6 +53,7 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
             }
         } // 已在里面，加数量
 
+
         while (quantity > 0) {
             if (quantity > itemToAdd.maxStack) {
                 AddItem(itemToAdd, itemToAdd.maxStack);
@@ -76,7 +77,9 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
             }
             i++;
         }
-        return false;
+        content.add(itemToAdd.clone());
+        content.get(i).quantity = quantity;
+        return true;
     }
 
     public boolean AddItemAt(InventoryItem itemToAdd, int quantity, int destinationIndex) {
@@ -91,6 +94,18 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         content.set(destinationIndex, itemToAdd.clone());
         content.get(destinationIndex).quantity = tempQuantity;
         return true;
+    }
+
+    public void DebugInventory()
+    {
+        System.out.println("DebugInventory");
+        System.out.println("背包物品种类");
+        System.out.println(content.size());
+        for (int i = 0; i < content.size(); i++) {
+            if (!InventoryItem.IsNull(content.get(i))) {
+                System.out.println(content.get(i).itemName+Integer.toString(content.get(i).quantity));
+            }
+        }
     }
 
     public List<Integer> InventoryContains(String searchedItemID)// 查找具体物品

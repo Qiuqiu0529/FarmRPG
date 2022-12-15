@@ -64,7 +64,8 @@ public class GameMgr {
     public void InitChoices()// 初始化最大的流程,最大的一层选择，每个时间段的选择
     {
         choices=new ArrayList<>();
-        choices.add(new DefaultChoice());
+        choices.add(new DefaultChoice("什么都不做（消耗精力0）",
+        "你选择什么都不做，悠闲地渡过了一段时光。"));
         choices.add(new MoveToFarmLand());
         choices.add(new MoveToForest());
         choices.add(new MoveToTown());

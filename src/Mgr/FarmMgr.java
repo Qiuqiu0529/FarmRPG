@@ -2,7 +2,7 @@ package Mgr;
 import java.util.ArrayList;
 import java.util.List;
 
-import Choice.EnterFarmShop;
+//import Choice.EnterFarmShop;
 import Choice.IChoice;
 import Choice.PlayerReturn;
 import Farm.Flower;
@@ -52,7 +52,7 @@ public class FarmMgr {
     {
         choices=new ArrayList<>();
         choices.add(new PlayerReturn());
-        choices.add(new EnterFarmShop());
+        //choices.add(new EnterFarmShop());
     }
 
     public void StartFarm() throws InterruptedException

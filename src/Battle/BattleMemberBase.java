@@ -1,5 +1,10 @@
 package Battle;
 
+import Actor.Defence;
+import Actor.IAttack;
+import Actor.IDefence;
+import Actor.IHealth;
+
 public class BattleMemberBase implements IBattleMember{
     protected IBattleMediator iBattleMediator;
 

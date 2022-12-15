@@ -6,10 +6,11 @@ import java.util.List;
 public class InventoryMgr {
     public static List<Inventory> registeredInventories;
 
-    public static Inventory FindInventory(String inventoryName) {
+    public Inventory FindInventory(String inventoryName) {
         if (inventoryName == null) {
             return null;
         }
+        //System.out.println(inventoryName);
         for (Inventory inventory : registeredInventories) {
             if ((inventory.inventoryName == inventoryName)) {
                 return inventory;
@@ -49,7 +50,7 @@ public class InventoryMgr {
 
     public void AddInventory()
     {
-        Inventory main=new Inventory(null);
+        Inventory main=new Inventory();
         Inventory equipment=new Inventory("EquipmentInventory");
        // System.out.println(registeredInventories.size());
     }

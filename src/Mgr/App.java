@@ -1,6 +1,7 @@
 package Mgr;
 import Item.InventoryMgr;
 import Other.Global;
+import Player.MoneyPresenter;
 import Player.Player;
 
 public class App {
@@ -10,6 +11,7 @@ public class App {
         System.out.println("请输入玩家姓名：" );
         String playername=InputMgr.GetInstance().GetInputString();
         Player player=new Player(playername);
+        MoneyPresenter.GetInstance().EarnMoney(200);
         InventoryMgr.GetInstance().AddInventory();
         GameMgr.GetInstance().ADay();
     }

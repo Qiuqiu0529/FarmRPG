@@ -18,11 +18,11 @@ public class Global {
     public static String healingPotion="210";
     public static String strengthPotion="211";
     public static String energyPotion="212";
-    public static String criticalHitPotion="213";
-    public static String  continueHealing="214";
+    public static String defencePotion="213";
+    public static String continueHealing="214";
     public static String continueStrength="215";
     public static String continueEnergy="216";
-    public static String continueCritical="217";
+    public static String continueDefence="217";
 
     public static HashMap<HairStyleType,String> hairmap=new HashMap<>();
     public static HashMap<ColorType,String> cMap=new HashMap<>();
