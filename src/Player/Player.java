@@ -3,6 +3,8 @@ package Player;
 import java.lang.reflect.Type;
 
 import Mgr.ChoiceMgr;
+import Mgr.ForestMgr;
+import Mgr.IPlayerMoveObserver;
 import Mgr.SoundMgr;
 
 public class Player {//state/component/
@@ -138,6 +140,11 @@ public class Player {//state/component/
         playerMovement.SetDir(dir);
         playerMovement.MoveUpdate(x, y);
         SetPlayerState(playerIdleState);
+    }
+
+    public void SetMoveObservers(IPlayerMoveObserver observer)
+    {
+        playerMovement.AddObserver(observer);
     }
 
     public void RestInForest()
