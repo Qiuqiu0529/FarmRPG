@@ -17,6 +17,15 @@
 - extension-objects inventoryitem的拓展（这样应该算是吧
 - Façade 一个函数调多个接口，例gamemgr
 - Iterator，查看inventory里一类物品
+- object-pool（子弹池、怪物池
+- Lazy loading
+- Multion
+- parameter-object
+- separated-interface
+- subclass-sandbox
+- template-method 
+- typeobject
+- Decorator（攻击有时可以有武器，武器是装饰
 
 ## hyl
 - strategy（其实choice方法就是strategy）
@@ -24,10 +33,9 @@
 - template (不同场景用同一套模板生成对话)
 
 ## hsr预期增加：
-- Decorator（怪物有时可以有武器，武器是装饰
-- object-pool（怪物池
+
 - observer
-- typeobjectpattern
+- mediator
   
 **还可能增加（意思是我写不动了，你们可以看看哪个好加，还可以看看开头链接里别的设计模式哪些能套：**
 - Dirty flag(按道理来讲存读档可以用，我不太会写存储
