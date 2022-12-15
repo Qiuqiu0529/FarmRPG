@@ -12,6 +12,5 @@ public class App {
         Player player=new Player(playername);
         InventoryMgr.GetInstance().AddInventory();
         GameMgr.GetInstance().ADay();
-        
     }
 }

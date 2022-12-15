@@ -44,7 +44,6 @@ public class InventoryMgr {
 
     public void InitAllInventory() {
         registeredInventories = new ArrayList<>();
-      
     }
 
     public void AddInventory()

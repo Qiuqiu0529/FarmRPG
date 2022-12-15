@@ -9,6 +9,12 @@ public class Defence implements IDefence{
         buffDefence+=change;
         currentDefence=baseDefence+buffDefence;
     }
+    
+    public Defence(float basede)
+    {
+        baseDefence=basede;
+        currentDefence=basede;
+    }
 
     public float GetCurrentDefence()
     {

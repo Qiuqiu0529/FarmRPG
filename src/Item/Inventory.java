@@ -70,7 +70,7 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         int i = 0;
         while (i < content.size()) {
             if (InventoryItem.IsNull(content.get(i))) {
-                content.set(i, itemToAdd.clone());
+                content.set(i, itemToAdd.clone());//加入背包的是clone
                 content.get(i).quantity = quantity;
                 return true;
             }

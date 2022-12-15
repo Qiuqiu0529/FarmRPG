@@ -3,6 +3,7 @@ package Player;
 import java.lang.reflect.Type;
 
 import Mgr.ChoiceMgr;
+import Mgr.IPlayerMoveObserver;
 import Mgr.SoundMgr;
 
 public class Player {//state/component/
@@ -127,6 +128,11 @@ public class Player {//state/component/
     public boolean CanMove(int x,int y)
     {
         return playerMovement.CanMove(x, y);
+    }
+
+    public void SetMoveObservers(IPlayerMoveObserver observer)
+    {
+        playerMovement.AddObserver(observer);
     }
 
     public void MoveInForest(String dir,int x,int y) throws InterruptedException
