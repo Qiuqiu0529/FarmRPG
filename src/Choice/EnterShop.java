@@ -2,24 +2,17 @@ package Choice;
 
 import Shop.ShopBase;
 
-public class EnterShop implements IChoice{
+public class EnterShop extends ChoiceConsumeEnergy{
     ShopBase shop;
 
     public EnterShop(ShopBase shop)
     {
+        description="进入"+shop.shopname;
         this.shop=shop;
-    }
-    public boolean CanChoose()
-    {
-        return true;
-    }
-
-    public void ChoiceInfo()
-    {
-        System.out.println("进入"+shop.shopname);
     }
     public void Choose() throws InterruptedException
     {
+        super.Choose();
         shop.VisitShop();
     }
 
