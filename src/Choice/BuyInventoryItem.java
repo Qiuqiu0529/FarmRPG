@@ -9,7 +9,7 @@ import Player.Player;
 
 public class BuyInventoryItem extends ChoiceConsumeMoney {
     InventoryItem item;
-    int thread=1;//能够买的概率，加点抽卡感觉
+    int thread = 1;// 能够买的概率，加点抽卡感觉
 
     public BuyInventoryItem(InventoryItem inventoryItem) {
         item = inventoryItem;
@@ -17,7 +17,11 @@ public class BuyInventoryItem extends ChoiceConsumeMoney {
     }
 
     public boolean CanChoose() {
-        return Dice.Determine(Player.lucky, thread);//thread类极乐迪斯科
+        return Dice.Determine(Player.lucky, thread);// thread类极乐迪斯科
+    }
+
+    public void SetThread(int thread) {
+        this.thread = thread;
     }
 
     public void ChoiceInfo() {
@@ -31,8 +35,7 @@ public class BuyInventoryItem extends ChoiceConsumeMoney {
             MoneyPresenter.GetInstance().SpendMoney(amount * needMoney);
             item.TargetInventory().AddItem(item, amount);
             SoundMgr.GetInstance().PlayCoinSound();
-        }else
-        {
+        } else {
             System.out.println("金钱不足，购买失败。");
         }
         item.TargetInventory().DebugInventory();
