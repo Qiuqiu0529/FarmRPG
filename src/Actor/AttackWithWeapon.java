@@ -1,16 +1,16 @@
 package Actor;
 
-import Item.Weapon.Iweapon;
 import Item.Weapon.NullWeapon;
+import Item.Weapon.WeaponBase;
 
 public class AttackWithWeapon implements IAttack {// 使用武器装饰攻击
     Attack decorated;
-    Iweapon wIweapon;
+    WeaponBase weapon;
 
     public AttackWithWeapon(float base)
     {
         decorated=new Attack(base);
-        wIweapon=new NullWeapon();
+        weapon=new NullWeapon();
     }
 
     public void ChangeBuffAttack(float change) {
@@ -25,13 +25,18 @@ public class AttackWithWeapon implements IAttack {// 使用武器装饰攻击
         return decorated.GetCurrentAttack();
     }
 
-    public AttackWithWeapon(Attack decor, Iweapon weapon) {
+    public AttackWithWeapon(Attack decor, WeaponBase weapon) {
         decorated = decor;
-        wIweapon = weapon;
+        this.weapon = weapon;
+    }
+
+    public void SetWeapon(WeaponBase weapon)
+    {
+        this.weapon=weapon;
     }
 
     public void GiveAttack() {
-        wIweapon.WeaponAttack(decorated.GetCurrentAttack());// 攻击为基础+武器
+        weapon.WeaponAttack(decorated.GetCurrentAttack());// 攻击为基础+武器
     }
 
 }

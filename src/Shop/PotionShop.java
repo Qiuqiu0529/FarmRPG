@@ -43,7 +43,7 @@ public class PotionShop extends ShopBase{
         healcontinue.itemName="持续治愈药水";
         healcontinue.description="持续作用三回合，一次回复10点生命值。这次用不完下次再用。";
         healcontinue.value=70;
-        heal.itemType=ItemTypes.Potion;
+        healcontinue.itemType=ItemTypes.Potion;
         healcontinue.SetPotion(PotionFactory.GetInstance().GetInstance(PotionType.CONTINUEHEALING));
         BuyInventoryItem buycontinueheal=new BuyInventoryItem(healcontinue);
         buycontinueheal.SetThread(10);//购买概率偏低，默认为1，总是可以购买

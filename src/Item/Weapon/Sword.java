@@ -4,29 +4,28 @@ import java.util.Random;
 
 import Item.Dice;
 
-public class Sword implements Iweapon{
-    WeaponAttackData swordData;
-
+public class Sword extends WeaponBase{
+    
     public Sword(WeaponAttackData data)
     {
-        swordData=data;
+        weapondata=data;
     }
 
     public void WeaponAttack(float actorAdd)//一个回合一次攻击
     {
-        boolean cretical=Dice.Determine(0, swordData.maxthread);
+        boolean cretical=Dice.Determine(0, weapondata.maxthread);
         float amount=0;
         if(cretical)
         { 
-            amount=swordData.maxAttackAmount;
+            amount=weapondata.maxAttackAmount;
             System.out.println("暴击，伤害值为"+Float.toString(amount));
         }
         else
         {
-            boolean normal=Dice.Determine(0, swordData.minthread);
+            boolean normal=Dice.Determine(0, weapondata.minthread);
             if(normal)
             {
-                amount=new Random().nextInt(swordData.minAttackAmount, swordData.maxAttackAmount);
+                amount=new Random().nextInt(weapondata.minAttackAmount, weapondata.maxAttackAmount);
                 System.out.println("打中了，伤害值为"+Float.toString(amount));
             }
             else

@@ -1,13 +1,14 @@
 package Item.Weapon;
 
-public class Gun implements Iweapon{
+public class Gun extends WeaponBase{
     BulletPool bulletPool;
     int bulletAmountEachTime=2;
 
     public Gun(WeaponAttackData data,int bulletAmountEachTime)
     {
+        weapondata=data;
         this.bulletAmountEachTime=bulletAmountEachTime;
-        bulletPool=new BulletPool(data);
+        bulletPool=new BulletPool(weapondata);
     }
     public void WeaponAttack(float actorAdd)//一个回合多次攻击
     {
