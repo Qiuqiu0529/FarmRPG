@@ -53,6 +53,7 @@ public class FarmMgr {
         choices=new ArrayList<>();
         choices.add(new PlayerReturn());
         //choices.add(new EnterFarmShop());
+
     }
 
     public void StartFarm() throws InterruptedException

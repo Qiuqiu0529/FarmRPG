@@ -3,6 +3,7 @@ package Mgr;
 import java.util.EnumMap;
 import java.util.Map;
 
+import Shop.FarmShop;
 import Shop.PotionShop;
 import Shop.ShopBase;
 import Shop.ShopType;
@@ -48,6 +49,8 @@ public class ShopMgr {
             switch (type) {
                 case POTION:
                     shop = new PotionShop();
+                case SEED:
+                    shop = new FarmShop();
                 default:
                     break;
             }
