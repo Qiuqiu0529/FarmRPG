@@ -1,4 +1,5 @@
 package Player;
+import java.util.ArrayList;
 import java.util.List;
 
 import Actor.Movement;
@@ -6,7 +7,7 @@ import Mgr.IPlayerMoveObserver;
 
 public class PlayerMovement extends Movement{
     String dir;
-    List<IPlayerMoveObserver> observers;
+    List<IPlayerMoveObserver> observers=new ArrayList<>();
 
     public void AddObserver(IPlayerMoveObserver observer)
     {
