@@ -3,8 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 //import Choice.EnterFarmShop;
-import Choice.IChoice;
-import Choice.PlayerReturn;
+import Choice.*;
 import Farm.Flower;
 import Farm.Vegetable;
 import Player.Player;
@@ -29,6 +28,8 @@ public class FarmMgr {
         }
         else{
             instance=this;
+            flowers = new ArrayList<>();
+            vegetables = new ArrayList<>();
             Init();
         }
     }
@@ -52,8 +53,9 @@ public class FarmMgr {
     {
         choices=new ArrayList<>();
         choices.add(new PlayerReturn());
-        //choices.add(new EnterFarmShop());
-
+        choices.add(new Plant());
+        choices.add(new GainCrops());
+        choices.add(new GetCropInfo());
     }
 
     public void StartFarm() throws InterruptedException
@@ -75,6 +77,22 @@ public class FarmMgr {
         if(i!=0)
         {
             FarmChoice();
+        }
+    }
+
+    public void PlantsGrow()
+    {
+        if(flowers.size() > 0)
+            System.out.println("鲜花正在生长");
+        for(int i = 0;i<flowers.size();i++)
+        {
+            flowers.get(i).grow();
+        }
+        if(vegetables.size() >0)
+            System.out.println("蔬菜正在生长");
+        for(int i =0;i<vegetables.size();i++)
+        {
+            vegetables.get(i).grow();
         }
     }
 }

@@ -3,6 +3,7 @@ package Shop;
 import Choice.BuyInventoryItem;
 import Farm.SeedAdapter;
 import Farm.SeedShop;
+import Item.ItemTypes;
 import Other.Global;
 
 public class FarmShop extends ShopBase{
@@ -13,6 +14,7 @@ public class FarmShop extends ShopBase{
 
         SeedAdapter f = new SeedAdapter();
         f.itemID = Global.flowerSeed;
+        f.itemType = ItemTypes.Seed;
         f.itemName = "鲜花种子";
         f.description = "可以用来种花";
         f.value = 3;
@@ -22,6 +24,7 @@ public class FarmShop extends ShopBase{
 
         SeedAdapter v = new SeedAdapter();
         v.itemID = Global.vegetableSeed;
+        v.itemType = ItemTypes.Seed;
         v.itemName = "蔬菜种子";
         v.description = "可以用来种蔬菜";
         v.value = 5;

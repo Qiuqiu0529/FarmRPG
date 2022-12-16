@@ -49,8 +49,10 @@ public class ShopMgr {
             switch (type) {
                 case POTION:
                     shop = new PotionShop();
+                    break;
                 case SEED:
                     shop = new FarmShop();
+                    break;
                 default:
                     break;
             }

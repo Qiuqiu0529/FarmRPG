@@ -111,6 +111,7 @@ public class GameMgr {
         {
             Player.getInstance().SetSleep();
             Thread.sleep(300);
+            FarmMgr.GetInstance().PlantsGrow();
             ADay();
         }
     }
@@ -122,6 +123,7 @@ public class GameMgr {
         if (IsGameRunning()) {
             Player.getInstance().SetComa();
             Thread.sleep(500);
+            FarmMgr.GetInstance().PlantsGrow();
             ADay();
         }
     }
