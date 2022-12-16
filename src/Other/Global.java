@@ -15,6 +15,11 @@ import Mgr.GameMgr;
 
 public class Global {
 
+    public static String flowerSeed = "110";
+    public static String vegetableSeed = "111";
+    public static String flower = "112";
+    public static String vegetable = "113";
+
     public static String healingPotion="210";
     public static String strengthPotion="211";
     public static String energyPotion="212";

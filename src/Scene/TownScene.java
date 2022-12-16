@@ -56,6 +56,7 @@ public class TownScene {
         SceneProxy.GetInstance().SetScene(Cafe.GetInstance());
         choices.add(new TownToScene(Player.getInstance(), SceneProxy.GetInstance()));
         choices.add(new EnterShop(ShopMgr.GetInstance().GetInstance(ShopType.POTION)));
+        choices.add(new EnterShop(ShopMgr.GetInstance().GetInstance(ShopType.SEED)));
     }
 
     public void ClearChoices() {
