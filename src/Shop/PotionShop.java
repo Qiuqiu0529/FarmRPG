@@ -2,6 +2,7 @@ package Shop;
 
 import Choice.BuyInventoryItem;
 import Choice.DefaultChoice;
+import Item.ItemTypes;
 import Item.Potion.PotionAdapter;
 import Item.Potion.PotionFactory;
 import Item.Potion.PotionType;
@@ -17,7 +18,7 @@ public class PotionShop extends ShopBase{
 
     public void VisitShop() throws InterruptedException
     {
-        SoundMgr.GetInstance().PlayPotionShop();
+        SoundMgr.GetInstance().PlayPotionShopBGM();
         System.out.println("欢迎来到"+shopname);
         super.DisplayGoods();
     }
@@ -32,6 +33,7 @@ public class PotionShop extends ShopBase{
         heal.itemName="一次性治愈药水";
         heal.description="只能使用一回合，一次性回复10点生命值。";
         heal.value=20;
+        heal.itemType=ItemTypes.Potion;
         heal.SetPotion(PotionFactory.GetInstance().GetInstance(PotionType.HEALING));
         BuyInventoryItem buyheal=new BuyInventoryItem(heal);
         goods.add(buyheal);
@@ -41,6 +43,7 @@ public class PotionShop extends ShopBase{
         healcontinue.itemName="持续治愈药水";
         healcontinue.description="持续作用三回合，一次回复10点生命值。这次用不完下次再用。";
         healcontinue.value=70;
+        heal.itemType=ItemTypes.Potion;
         healcontinue.SetPotion(PotionFactory.GetInstance().GetInstance(PotionType.CONTINUEHEALING));
         BuyInventoryItem buycontinueheal=new BuyInventoryItem(healcontinue);
         buycontinueheal.SetThread(10);//购买概率偏低，默认为1，总是可以购买
