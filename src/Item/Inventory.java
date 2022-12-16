@@ -5,6 +5,7 @@ import java.util.List;
 
 import Choice.IChoice;
 import Choice.LookInventoryItem;
+import Choice.UseInventoryItem;
 public class Inventory {//物品可以加入背包、移出背包、装备（或解除装备如果物体可装备）、被丢弃
     public String inventoryName="MainInventory";
 
@@ -136,6 +137,24 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         return list;
     }
 
+
+    public List<IChoice> ChooseInventoryUse(ItemTypes itemType)// 查找一类物品
+    {
+        List<IChoice> uselist = new ArrayList<>();
+
+        for (int i = 0; i < content.size(); i++) {
+            if (!InventoryItem.IsNull(content.get(i))) {
+                if (content.get(i).itemType == itemType) {
+                    UseInventoryItem useInventoryItem=new UseInventoryItem(content.get(i));
+                    uselist.add( useInventoryItem);
+                }
+            }
+        }
+        return uselist;
+    }
+
+
+
     public InventoryItem GetItem(int i)
     {
         if (i < 0 || i >= content.size()) {
@@ -163,6 +182,12 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         return total;
     }
 
+    public Integer GetItemIndex(InventoryItem item)
+    {
+        int i=content.indexOf(item);
+        return i;
+    }
+
     protected boolean RemoveItemFromArray(int i) {
         if (i < content.size()) {
             content.set(i, null);
@@ -170,6 +195,7 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         }
         return false;
     }
+
 
     public boolean RemoveItem(int i, int quantity) {
         if (i < 0 || i >= content.size()) {
