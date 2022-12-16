@@ -11,7 +11,7 @@ public class WeaponShop extends ShopBase{
     public void VisitShop() throws InterruptedException
     {
         SoundMgr.GetInstance().PlayWeaponShopBGM();
-        System.out.println("欢迎来到"+shopname);
+        System.out.println("欢迎光临，这里是"+shopname);
         super.DisplayGoods();
     }
 
@@ -20,7 +20,9 @@ public class WeaponShop extends ShopBase{
         shopname="武器店";
         super.InitGoods();
 
-        
+
+
+
 
 
     }

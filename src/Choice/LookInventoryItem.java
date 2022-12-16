@@ -10,7 +10,7 @@ public class LookInventoryItem implements IChoice{
     }
     public boolean CanChoose()
     {
-       return InventoryItem.IsNull(item);
+       return !InventoryItem.IsNull(item);
     }
     public void ChoiceInfo()
     {

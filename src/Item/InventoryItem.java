@@ -17,7 +17,7 @@ public class InventoryItem implements Cloneable {// prototype，代表背包里�
     public float value=0;//价值
     public String description="";//描述
 
-    public int maxStack = 99;// 一格物品最多能叠的数量，在考虑要不要一个格子能放无限多的同类物品orz
+    public int maxStack = 999;// 一格物品最多能叠的数量，在考虑要不要一个格子能放无限多的同类物品orz
 
     protected Inventory _targetInventory = null;
     protected Inventory _targetEquipmentInventory = null;

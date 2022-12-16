@@ -50,7 +50,5 @@ public class PotionShop extends ShopBase{
         goods.add(buycontinueheal);
         
 
-
-
     }
 }
