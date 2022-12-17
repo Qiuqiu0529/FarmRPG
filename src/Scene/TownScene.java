@@ -55,6 +55,8 @@ public class TownScene {
         choices.add(new TownToScene(Player.getInstance(), Florist.GetInstance()));
         SceneProxy.GetInstance().SetScene(Cafe.GetInstance());
         choices.add(new TownToScene(Player.getInstance(), SceneProxy.GetInstance()));
+        
+        choices.add(new EnterShop(ShopMgr.GetInstance().GetInstance(ShopType.WEAPON)));
         choices.add(new EnterShop(ShopMgr.GetInstance().GetInstance(ShopType.POTION)));
         choices.add(new EnterShop(ShopMgr.GetInstance().GetInstance(ShopType.SEED)));
     }

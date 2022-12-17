@@ -48,9 +48,11 @@ public class Player {//state/component/
         // playerVisual = new PlayerVisual.PlayerVisualBuilder()
         // .withHairType(hairStyleType).withHairColor(hType)
         // .withEyesColor(eType).withConstellation(constellationType)
-        // .build();
+        // .build();//正式运行解除这一段注释
 
-        playerVisual=new PlayerVisual();
+        System.out.println("为方便测试，build playervisual的代码暂注释，详见Player.Init()" );//正式运行注释这行
+
+        playerVisual=new PlayerVisual();//正式运行注释这行
 
         playerMovement=new PlayerMovement();
         playerIdleState=new PlayerIdleState(this);
@@ -151,7 +153,7 @@ public class Player {//state/component/
         playerMovement.UpdatePos();
         SetPlayerState(playerIdleState);
     }
-
+    
     public void RestInForest()
     {
         SoundMgr.GetInstance().PlayRestSound();
@@ -160,6 +162,7 @@ public class Player {//state/component/
     public void InitPlayerPosInForest() throws InterruptedException
     {
         playerMovement.InitPos();
+        
     }
 
     public void MoveInScene() throws InterruptedException

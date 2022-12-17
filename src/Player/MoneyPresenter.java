@@ -58,13 +58,7 @@ public class MoneyPresenter {//singleton、MVP、callback
        
     }
 
-    public void LoseMoney(float minusAmount) {
-        System.out.println("花费金钱：" + Float.toString(minusAmount));
-        money.MinusMoney(minusAmount);
-       
-    }
-
-    public void EarnMoney(float lossrate) {
+    public void LoseMoney(float lossrate) {
         int amount=(int) (money.Getmoney()*lossrate);
         if(amount>300)
         {
@@ -72,6 +66,12 @@ public class MoneyPresenter {//singleton、MVP、callback
         }
         System.out.println("损失金钱：" + Integer.toString(amount));
         money.MinusMoney(amount);
+       
+    }
+
+    public void EarnMoney(float addamount) {
+        System.out.println("获得金钱：" + Float.toString(addamount));
+        money.AddMoney(addamount);
     }
 
     public void UpdateView()// 更新金钱值UI，表现为控制台输出

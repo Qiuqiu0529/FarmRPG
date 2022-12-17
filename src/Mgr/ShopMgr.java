@@ -7,6 +7,7 @@ import Shop.FarmShop;
 import Shop.PotionShop;
 import Shop.ShopBase;
 import Shop.ShopType;
+import Shop.WeaponShop;
 
 public class ShopMgr {
     private final Map<ShopType, ShopBase> shops;
@@ -52,6 +53,9 @@ public class ShopMgr {
                     break;
                 case SEED:
                     shop = new FarmShop();
+                    break;
+                case WEAPON:
+                    shop = new WeaponShop();
                     break;
                 default:
                     break;

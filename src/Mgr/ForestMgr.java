@@ -20,7 +20,7 @@ public class ForestMgr implements IPlayerMoveObserver{
     public static List<Monster> battlemonsters= new ArrayList<>();// 一次战斗的所有怪物
     private static volatile ForestMgr instance;
     static List<IChoice> choices= new ArrayList<>();
-    static List<Integer> occupyGrid = new ArrayList<>(100);// 森林为100格子
+    static List<Integer> occupyGrid= new ArrayList<>();// 森林为100格子
     public static int monsterCountRestrict = 1;// 一次战斗最多几个敌人
     Battle battle=new Battle();
 
@@ -53,6 +53,10 @@ public class ForestMgr implements IPlayerMoveObserver{
         choices.add(new PlayerMoveInForest(Player.getInstance(), "下", 0, -1));
         choices.add(new PlayerMoveInForest(Player.getInstance(), "左", -1, 0));
         choices.add(new PlayerMoveInForest(Player.getInstance(), "右", 1, 0));
+        for(int i=0;i<100;++i)
+        {
+            occupyGrid.add(0);
+        } 
         monsterPool=new MonsterPool(15);//15只
         Player.getInstance().SetMoveObservers(this);
     }
@@ -69,7 +73,7 @@ public class ForestMgr implements IPlayerMoveObserver{
         allmonsters.clear();
         battlemonsters.clear();
 
-        for(int i=0;i<100;++i)
+        for(int i=0;i<occupyGrid.size();++i)
         {
             occupyGrid.set(i, 0);
         } 
@@ -106,6 +110,10 @@ public class ForestMgr implements IPlayerMoveObserver{
         System.out.println("在森林" + Player.playername + "决定");
         int i = ChoiceMgr.GetInstance().Choose(choices);
         if (i != 0&&!GameMgr.GetInstance().endadayearly) {
+            if(i==1)
+            {
+                RandomEvent();
+            }
             ForestChoice();
         }
     }
@@ -123,6 +131,15 @@ public class ForestMgr implements IPlayerMoveObserver{
         {
             StartBattle();
         }
+        else
+        {
+            RandomEvent();
+        }
+    }
+
+    public void RandomEvent()  throws InterruptedException
+    {
+
     }
 
     public void StartBattle() throws InterruptedException
