@@ -46,6 +46,11 @@ public class BattleMemberBase implements IBattleMember{
         buffs.removeIf(s -> s.continueTime==0);//用完就丢
     }
 
+    public void Fall()//倒下
+    {
+        iBattleMediator.RemoveMember(this);
+    }
+
     public void SetHealth(Health health)
     {
         this.health=health;

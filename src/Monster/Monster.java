@@ -2,29 +2,37 @@ package Monster;
 
 import Battle.BattleMemberBase;
 
-public class Monster extends BattleMemberBase implements IMonster//implements IBattleMember
+public class Monster extends BattleMemberBase implements IMonster// implements IBattleMember
 {
     MonsterMovement monsterMovement;
+    int bonusmoney = 10;
 
-    public void SetMoveSpeed(int xSpeed,int ySpeed)
-    {
-        monsterMovement=new MonsterMovement(xSpeed,ySpeed);
+    public void SetBonusMoney(int bonus) {
+        this.bonusmoney = bonus;
     }
 
-    public void MonsterMove() throws InterruptedException
-    {
+    public void SetMoveSpeed(int xSpeed, int ySpeed) {
+        monsterMovement = new MonsterMovement(xSpeed, ySpeed);
+    }
+
+    public void MonsterMove() throws InterruptedException {
         monsterMovement.Move();
     }
-    public void Action()
-    {
+
+    public boolean MeetPlayer(int x, int y) {
+        return monsterMovement.GetPosX() == x && monsterMovement.GetPosY() == y;
+    }
+
+    public void Action() {
 
     }
-    public void Hit(float amount)
-    {
+
+    public void Hit(float amount) {
 
     }
-    public void Death()
-    {
+
+    public void Fall() {
+        super.Fall();
 
     }
 }

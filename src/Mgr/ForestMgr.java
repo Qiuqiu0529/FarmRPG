@@ -93,8 +93,7 @@ public class ForestMgr implements IPlayerMoveObserver{
     public void ForestChoice() throws InterruptedException {
         System.out.println("在森林" + Player.playername + "决定");
         int i = ChoiceMgr.GetInstance().Choose(choices);
-        if (i != 0) {
-            //触发事件
+        if (i != 0&&!GameMgr.GetInstance().endadayearly) {
             ForestChoice();
         }
     }
@@ -103,10 +102,18 @@ public class ForestMgr implements IPlayerMoveObserver{
     {
         for (Monster monster : allmonsters) {
             monster.MonsterMove();
+            if(monster.MeetPlayer(posx, posy))
+            {
+                battlemonsters.add(monster);
+            }
+        }
+        if(battlemonsters.size()!=0)
+        {
+            StartBattle();
         }
     }
 
-    public void StartBattle()
+    public void StartBattle() throws InterruptedException
     {
         battle.AddMember(PlayerBattle.GetInstance());
         for (Monster monster : battlemonsters) {

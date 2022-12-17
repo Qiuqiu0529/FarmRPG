@@ -118,10 +118,10 @@ public class GameMgr {
 
     public void EndDayEarly() throws InterruptedException
     {
+        Player.getInstance().SetComa();
         System.out.println("这一天提前结束");
         MoneyPresenter.GetInstance().CheckDebt();
         if (IsGameRunning()) {
-            Player.getInstance().SetComa();
             Thread.sleep(500);
             FarmMgr.GetInstance().PlantsGrow();
             ADay();

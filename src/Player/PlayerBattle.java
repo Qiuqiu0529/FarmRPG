@@ -37,13 +37,16 @@ public class PlayerBattle extends BattleMemberBase{
         return result;
     }
 
+    public void OneRoundUp() throws InterruptedException
+    {
+        super.OneRoundUp();
+
+    }
+
 
     public boolean CanEscape()//类极乐迪斯科判定
     {
         return Dice.Determine(Player.lucky, 9);
     }//概率为容易
-
-
-
 
 } 

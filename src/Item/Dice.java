@@ -15,6 +15,11 @@ public class Dice {
         return new Random().nextInt(min,max);
     }
 
+    public static float RollF(float min,float max)
+    {
+        return new Random().nextFloat(min, max);
+    }
+
     public static boolean Determine(float add,float threadhold)//类极乐迪斯科判定
     {
         int i=RollTwoDice();

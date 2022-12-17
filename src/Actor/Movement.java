@@ -19,6 +19,15 @@ public abstract class Movement implements IMovement{
         return maxposY;
     }
 
+    public int GetPosX()
+    {
+        return posX;
+    }
+    public int GetPosY()
+    {
+        return posY;
+    }
+
     public static void SetMinPosX(int min)
     {
         minposX=min;
