@@ -16,7 +16,7 @@ public class UseInventoryItemOnce implements IChoice{
 
     public void ChoiceInfo() {
         System.out.println("使用" + item.itemName);
-        System.out.println(item.itemName+"  "+item.description);
+        System.out.println(item.description);
     }
 
     public void Choose() throws InterruptedException {

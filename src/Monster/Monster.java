@@ -31,7 +31,7 @@ public class Monster extends BattleMemberBase implements IMonster// implements I
     }
     
     public void SetBonusMoney() {
-        this.bonusmoney = 7+(int) (3*attack.GiveAttack());
+        this.bonusmoney = 7+(int) (3*attack.GetAttackBasicAmount());
     }
 
 

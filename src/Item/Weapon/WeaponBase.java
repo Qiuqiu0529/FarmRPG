@@ -8,6 +8,11 @@ public class WeaponBase implements Iweapon{
         return actorAdd;
     }
 
+    public float GetMinAttackAmount()
+    {
+        return weapondata.minAttackAmount;
+    }
+
 
     public int GetEachAttackCount()
     {

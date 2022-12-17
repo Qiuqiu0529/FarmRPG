@@ -38,6 +38,11 @@ public class AttackWithWeapon implements IAttack {// 使用武器装饰攻击
         this.weapon = weapon;
     }
 
+    public float GetAttackBasicAmount()
+    {
+        return decorated.GiveAttack()+weapon.GetMinAttackAmount();
+    }
+
     public float GiveAttack() {
         return weapon.WeaponAttack(decorated.GiveAttack());// 攻击为基础+武器
     }

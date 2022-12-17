@@ -1,6 +1,7 @@
 package Battle;
 
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
 
 import Actor.AttackWithWeapon;
@@ -38,32 +39,32 @@ public class BattleMemberBase implements IBattleMember {
                 if (defencethisRound || (Dice.Determine(0, 9))) {
                     System.out.println(name + "触发防御");
                     amount = defence.DefenceAttack(amount);
-                    System.out.println("防御后伤害值：" + Float.toString(amount));
+                    System.out.print("防御后伤害值：" + Float.toString(amount));
                 }
-                if(amount>0)
-                {
+                else{
+                    System.out.print("伤害值：" + Float.toString(amount));
+                }
+                
+                if (amount > 0) {
                     BeHit();
                 }
+                
                 health.MinusHealth(amount);
+                System.out.println(name + "当前生命值" + health.GetCurrentHealth());
                 if (health.GetCurrentHealth() <= 0) {
                     System.out.println(name + "生命值归零，倒下");
                     Fall();
                 }
                 break;
             case SKILL:
-                int i=Dice.Roll(0, 3);
-                if(i==0)
-                {
+                int i = Dice.Roll(0, 3);
+                if (i == 0) {
                     System.out.println(name + "获得治愈buff");
                     AddHealthBuff(new HealthBuff(Dice.Roll(1, 4), Dice.Roll(5, 10)));
-                }
-                else if(i==1)
-                {
+                } else if (i == 1) {
                     System.out.println(name + "获得攻击buff");
                     AddAttackBuff(new AttackBuff(Dice.Roll(1, 4), Dice.Roll(3, 7)));
-                }
-                else
-                {
+                } else {
                     System.out.println(name + "获得防御buff");
                     AddDefenceBuff(new DefenceBuff(Dice.Roll(1, 4), Dice.Roll(3, 7)));
                 }
@@ -76,6 +77,7 @@ public class BattleMemberBase implements IBattleMember {
     public void Act(BattleAction action) throws InterruptedException {// 主动
         switch (action) {
             case ESCAPE:
+                System.out.println(name + "准备逃跑");
                 if (CanEscape()) {
                     System.out.println(name + "逃跑成功");
                     SoundMgr.GetInstance().PlayEscapeSound();
@@ -85,15 +87,18 @@ public class BattleMemberBase implements IBattleMember {
                 }
                 break;
             case ATTACK:
+                System.out.println(name + "发动攻击");
                 for (int i = 0; i < attack.GetEachAttackCount(); ++i) {
                     float attckcount = attack.GiveAttack();
                     iBattleMediator.Act(this, action, attckcount);
                 }
                 break;
             case DEFENCE:
+                System.out.println(name + "准备防御");
                 defencethisRound = true;// 下一次对方攻击时百分百防御
                 break;
             case SKILL:
+                System.out.println(name + "施加技能");
                 iBattleMediator.Act(this, action, 0);// 施加技能
                 break;
             default:
@@ -135,8 +140,7 @@ public class BattleMemberBase implements IBattleMember {
         iBattleMediator.RemoveMember(this);
     }
 
-    public void BeHit()
-    {
+    public void BeHit() {
 
     }
 

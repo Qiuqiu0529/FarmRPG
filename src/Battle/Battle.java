@@ -98,7 +98,6 @@ public class Battle implements IBattleMediator {
                 break;
             case SKILL:
                 if (!playerturn) {
-                    System.out.println(battleMember.name+"施加技能");
                     int i=Dice.Roll(0, battleMonstersMembers.size());
                     battleMonstersMembers.get(i).BattleAction(action, amount);
                 }
@@ -131,6 +130,7 @@ public class Battle implements IBattleMediator {
 
     public void EachTurn() throws InterruptedException {
         Thread.sleep(1000);
+
         if (playerturn) {
             System.out.println(Player.playername + "方出手");
             for (BattleMemberBase bMemberBase : battlePlayerMembers) {

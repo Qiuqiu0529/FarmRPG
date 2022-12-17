@@ -21,7 +21,7 @@ public class PlayerMoveInForest extends ChoiceConsumeEnergy{
         this.player=player;
         this.x=x;
         this.y=y;
-        needEnergy=2;
+        needEnergy=1;
         this.dir=dir;
         description="向"+dir+"移动";
     }

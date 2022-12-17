@@ -27,7 +27,9 @@ public class BattleBackpack extends ChoiceConsumeEnergy {
         choices.add(new DefaultChoice("返回",
                 ""));
         choices.add(new DefaultChoice("装备",
-                "药水"));
+                ""));
+        choices.add(new DefaultChoice("药水",
+                ""));
 
     }
 
@@ -51,7 +53,8 @@ public class BattleBackpack extends ChoiceConsumeEnergy {
             }
         } else {
 
-            List<IChoice> list = InventoryMgr.GetInstance().FindInventory("MainInventory").ChooseInventorySingle(ItemTypes.Potion);
+            List<IChoice> list = InventoryMgr.GetInstance().FindInventory("MainInventory")
+                    .ChooseInventorySingle(ItemTypes.Potion);
             List<IChoice> potionchoices = new ArrayList<>();
             potionchoices.add(new DefaultChoice("返回",
                     ""));

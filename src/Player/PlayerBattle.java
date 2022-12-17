@@ -16,11 +16,7 @@ import Mgr.SoundMgr;
 
 public class PlayerBattle extends BattleMemberBase implements PlayerMaker {
 
-    // 攻击、道具、装备、逃跑
-    // 战斗流程，选择攻击，oneroundup，攻击
-    // 选择道具，选择道具、oneroundup
-    // 选择装备，选择装备，oneroundup，攻击
-    // 选择逃跑，掷骰子，概率逃跑
+    // 攻击、背包、防御、逃跑
     private static volatile PlayerBattle instance;
     static List<IChoice> choices=new ArrayList<>();
 
