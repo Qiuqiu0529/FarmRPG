@@ -20,7 +20,8 @@ public class Plant extends ChoiceConsumeEnergy{
         System.out.println("开始耕作啦");
         List<IChoice> list = InventoryMgr.GetInstance().FindInventory("MainInventory").ChooseInventoryUse(ItemTypes.Seed);
         List<IChoice> choices = new ArrayList<>();
-        choices.add(new PlayerReturn());
+        choices.add(new DefaultChoice("返回",
+        ""));
         for (int i = 0; i< list.size();i++)
         {
             choices.add(list.get(i));

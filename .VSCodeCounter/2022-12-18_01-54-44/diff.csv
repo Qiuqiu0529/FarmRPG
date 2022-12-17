@@ -1,0 +1,12 @@
+"filename", "language", "Java", "comment", "blank", "total"
+"d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Actor\AttackWithWeapon.java", "Java", 4, 0, 1, 5
+"d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Battle\Battle.java", "Java", 18, 0, -1, 17
+"d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Battle\BattleMemberBase.java", "Java", 5, 0, 2, 7
+"d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Battle\IBattleMediator.java", "Java", 1, 0, 1, 2
+"d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Choice\battle\BattleBackpack.java", "Java", 3, 0, 0, 3
+"d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Item\Weapon\WeaponBase.java", "Java", 4, 0, 1, 5
+"d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Player\Player.java", "Java", 6, 0, 0, 6
+"d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Player\PlayerBattle.java", "Java", 1, -4, 0, -3
+"d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Player\PlayerHealth.java", "Java", -17, 0, -4, -21
+"d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Shop\WeaponShop.java", "Java", 10, 0, 0, 10
+"Total", "-", 35, -4, 0, 31
