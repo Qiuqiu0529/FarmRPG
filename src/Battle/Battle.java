@@ -94,6 +94,10 @@ public class Battle implements IBattleMediator {
             }
         }
     }
+    public boolean BattleISEND()
+    {
+        return endBattle;
+    }
 
     public void Act(BattleMemberBase battleMember, BattleAction action, float amount) throws InterruptedException {
         switch (action) {

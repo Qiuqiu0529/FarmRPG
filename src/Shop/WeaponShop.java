@@ -28,6 +28,7 @@ public class WeaponShop extends ShopBase{
         super.InitGoods();
 
         WeaponAdapter newbieSword=new WeaponAdapter();
+        newbieSword.equippable=true;
         newbieSword.itemID=Global.newbieSword;
         newbieSword.itemName="新手剑";
         newbieSword.description="最基础的剑，攻击力一般";
@@ -39,6 +40,7 @@ public class WeaponShop extends ShopBase{
 
 
         WeaponAdapter newbieGun=new WeaponAdapter();
+        newbieGun.equippable=true;
         newbieGun.itemID=Global.newbieGun;
         newbieGun.itemName="新手枪";
         newbieGun.description="最基础的枪，攻击力一般";
@@ -50,6 +52,7 @@ public class WeaponShop extends ShopBase{
 
 
         WeaponAdapter normalSword=new WeaponAdapter();
+        normalSword.equippable=true;
         normalSword.itemID=Global.normalSword;
         normalSword.itemName="普通剑";
         normalSword.description="稍微好一点的剑，攻击力一般";
@@ -62,6 +65,7 @@ public class WeaponShop extends ShopBase{
 
 
         WeaponAdapter normalGun=new WeaponAdapter();
+        normalGun.equippable=true;
         normalGun.itemID=Global.normalGun;
         normalGun.itemName="普通枪";
         normalGun.description="稍微好一点的枪，攻击力一般,一次回合攻击两次";
@@ -73,6 +77,7 @@ public class WeaponShop extends ShopBase{
         goods.add(buynormalGun);
 
         WeaponAdapter midSword=new WeaponAdapter();
+        midSword.equippable=true;
         midSword.itemID=Global.midSword;
         midSword.itemName="中等剑";
         midSword.description="好一点的剑，攻击力还行";
@@ -85,6 +90,7 @@ public class WeaponShop extends ShopBase{
 
 
         WeaponAdapter midGun=new WeaponAdapter();
+        midGun.equippable=true;
         midGun.itemID=Global.midGun;
         midGun.itemName="中等枪";
         midGun.description="好一点的枪，攻击力还行,一次回合攻击两次";
@@ -96,6 +102,7 @@ public class WeaponShop extends ShopBase{
         goods.add(buymidGun);
 
         WeaponAdapter superSword=new WeaponAdapter();
+        superSword.equippable=true;
         superSword.itemID=Global.superSword;
         superSword.itemName="高级剑";
         superSword.description="高级的剑，攻击力很好";
@@ -108,6 +115,7 @@ public class WeaponShop extends ShopBase{
 
 
         WeaponAdapter superGun=new WeaponAdapter();
+        superGun.equippable=true;
         superGun.itemID=Global.superGun;
         superGun.itemName="高级枪";
         superGun.description="高级的枪，攻击力很好,一次回合攻击三次";
@@ -121,6 +129,7 @@ public class WeaponShop extends ShopBase{
 
 
         WeaponAdapter ultimateSword=new WeaponAdapter();
+        ultimateSword.equippable=true;
         ultimateSword.itemID=Global.ultimateSword;
         ultimateSword.itemName="终极剑";
         ultimateSword.description="最好的剑，攻击力最强";
@@ -133,6 +142,7 @@ public class WeaponShop extends ShopBase{
 
 
         WeaponAdapter ultimateGun=new WeaponAdapter();
+        ultimateGun.equippable=true;
         ultimateGun.itemID=Global.ultimateGun;
         ultimateGun.itemName="终极枪";
         ultimateGun.description="最好的枪，攻击力最强,一次回合攻击三次";

@@ -39,10 +39,10 @@ public class BattleMemberBase implements IBattleMember {
                 if (defencethisRound || (Dice.Determine(0, 9))) {
                     System.out.println(name + "触发防御");
                     amount = defence.DefenceAttack(amount);
-                    System.out.println("防御后伤害值：" + Float.toString(amount));
+                    System.out.println("防御后总伤害值：" + Float.toString(amount));
                 }
                 else{
-                    System.out.println("伤害值：" + Float.toString(amount));
+                    System.out.println("总伤害值：" + Float.toString(amount));
                 }
 
                 if (amount > 0) {
@@ -90,7 +90,7 @@ public class BattleMemberBase implements IBattleMember {
                 break;
             case ATTACK:
                 System.out.println(name + "发动攻击");
-                for (int i = 0; i < attack.GetEachAttackCount(); ++i) {
+                for (int i = 0; i < attack.GetEachAttackCount()&&!iBattleMediator.BattleISEND(); ++i) {
                     float attckcount = attack.GiveAttack();
                     iBattleMediator.Act(this, action, attckcount);
                 }

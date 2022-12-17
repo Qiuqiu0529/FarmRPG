@@ -65,7 +65,7 @@ public class GameMgr {
     {
         choices=new ArrayList<>();
         choices.add(new DefaultChoice("什么都不做（消耗精力0）",
-        "你选择什么都不做，悠闲地渡过了一段时光。"));
+        Player.playername+"选择什么都不做，悠闲地渡过了一段时光。"));
         choices.add(new MoveToFarmLand());
         choices.add(new MoveToForest());
         choices.add(new MoveToTown());
