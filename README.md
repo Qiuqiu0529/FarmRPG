@@ -10,6 +10,7 @@
 - builder
 - currying（builder里）
 - Command（buff）
+
 - Component
 - Delegation（state，委托模式通过将动态工作委托给实现具有相关方法接口的特定对象来实现。
 - dependency-injection
@@ -20,6 +21,7 @@
 - object-pool（子弹池、怪物池
 - Lazy loading
 - Multion
+
 - parameter-object
 - separated-interface
 - subclass-sandbox
