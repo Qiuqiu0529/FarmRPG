@@ -12,8 +12,8 @@ public class Buff implements IBuff{
     {
         continueTime--;
         System.out.println("buff剩余作用回合：" + Float.toString(continueTime));
-
     }
+    
     public void CancleBuff() throws InterruptedException{
 
     }

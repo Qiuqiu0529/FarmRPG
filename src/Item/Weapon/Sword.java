@@ -3,6 +3,7 @@ package Item.Weapon;
 import java.util.Random;
 
 import Item.Dice;
+import Mgr.SoundMgr;
 
 public class Sword extends WeaponBase{
     
@@ -13,6 +14,8 @@ public class Sword extends WeaponBase{
 
     public float WeaponAttack(float actorAdd)//一个回合一次攻击
     {
+        SoundMgr.GetInstance().
+        PlaySwordSound();
         boolean cretical=Dice.Determine(0, weapondata.maxthread);
         float amount=actorAdd;
         if(cretical)

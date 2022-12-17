@@ -1,9 +1,7 @@
 package Battle;
 
-import javax.swing.Action;
-
 public interface IBattleMediator {
     public void AddMember(BattleMemberBase battleMember);
     public void RemoveMember(BattleMemberBase battleMember);
-    public void Act(BattleMemberBase battleMember,Action action,float amount);
+    public void Act(BattleMemberBase battleMember,BattleAction action,float amount) throws InterruptedException;
 }

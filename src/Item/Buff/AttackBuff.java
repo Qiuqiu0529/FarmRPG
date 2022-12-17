@@ -21,14 +21,17 @@ public class AttackBuff extends Buff {//力持续一段时间增加
     }
 
     public void AddBuff() throws InterruptedException {
-        super.AddBuff();
+        if (continueTime <= 0) {
+            CancleBuff();
+            return;
+        }
+        
         if (first) {
+            super.AddBuff();
             attack.ChangeBuffAttack(amount);
             first = false;
         }
-        if (continueTime <= 0) {
-            CancleBuff();
-        }
+        
     }
 
     public void CancleBuff() throws InterruptedException {

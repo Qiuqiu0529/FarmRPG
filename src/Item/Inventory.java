@@ -334,7 +334,6 @@ public class Inventory {// 物品可以加入背包、移出背包、装备（�
 
     public boolean DestroyItem(int i) {
         content.set(i, null);
-
         return true;
     }
 

@@ -1,12 +1,14 @@
 package Item.Potion;
 import Item.InventoryItem;
 import Item.ItemExtention;
+import Mgr.SoundMgr;
 
 public class PotionAdapter  extends InventoryItem {//商店卖的商品
     IPotion potion;
 
     public final boolean Use() throws InterruptedException{
         potion.Drink();
+        SoundMgr.GetInstance().PlayDrinkSound();
         return true;
     }//背包里的药水adapter，实际的药水adaptertee。
 

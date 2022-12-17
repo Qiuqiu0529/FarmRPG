@@ -1,7 +1,5 @@
 package Monster;
 
-import java.util.Random;
-
 import Actor.Movement;
 import Item.Dice;
 import Mgr.ForestMgr;
@@ -34,7 +32,7 @@ public class MonsterMovement extends Movement {
     {
         int x = Dice.Roll(0, maxposX);
         int y = Dice.Roll(0, maxposY);
-        if (ForestMgr.GetInstance().OccupyGrid(posX, posY)) {
+        if (ForestMgr.GetInstance().OccupyGrid(x, y)) {
             posX=x;
             posY=y;
         }

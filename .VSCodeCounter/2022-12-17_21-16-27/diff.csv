@@ -1,0 +1,16 @@
+"filename", "language", "Java", "comment", "blank", "total"
+"d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Actor\AttackWithWeapon.java", "Java", 0, 0, 1, 1
+"d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Actor\Health.java", "Java", -12, 0, -2, -14
+"d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Battle\Battle.java", "Java", 12, 0, 3, 15
+"d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Battle\BattleAction.java", "Java", -2, 0, 0, -2
+"d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Battle\BattleMemberBase.java", "Java", 35, 0, -5, 30
+"d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Battle\EquipItem.java", "Java", 1, -8, 1, -6
+"d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Battle\IBattleMediator.java", "Java", -1, 0, -1, -2
+"d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Choice\BuyInventoryItem.java", "Java", 0, 0, -1, -1
+"d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Item\Weapon\Iweapon.java", "Java", 1, 0, 0, 1
+"d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Item\Weapon\NullWeapon.java", "Java", 5, 0, 2, 7
+"d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Mgr\SoundMgr.java", "Java", 4, 0, 1, 5
+"d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Monster\Monster.java", "Java", 6, 0, 2, 8
+"d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Player\PlayerBattle.java", "Java", 9, 0, 0, 9
+"d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Shop\WeaponShop.java", "Java", 72, 0, 15, 87
+"Total", "-", 130, -8, 16, 138

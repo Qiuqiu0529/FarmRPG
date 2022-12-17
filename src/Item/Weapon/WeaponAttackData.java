@@ -9,7 +9,7 @@ public class WeaponAttackData {
 
 
     WeaponAttackData(int minAttackAmount,int maxAttackAmount,
-    int minthread,int maxthread,int bulletAmountEachTime,
+    int minthread,int maxthread,
     int attackCountEachTurn)
     {
         this.maxAttackAmount=maxAttackAmount;

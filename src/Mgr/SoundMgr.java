@@ -86,26 +86,26 @@ public class SoundMgr {//Singleton
 
     public void PlayVictorySound()
     {
-        System.out.println("播放"+Player.playername+"胜利的声音，啦啦啦" );
+        System.out.println("播放"+Player.playername+"欢呼的声音，啦啦啦" );
     }
 
     public void PlayFailureSound()
+    {
+        System.out.println("播放叹气声，唉");
+    }
+
+    public void PlayPlayerFallSound()
     {
         System.out.println("播放"+Player.playername+"倒下的声音，啊" );
     }
 
     public void PlayEscapeSound()
     {
-        System.out.println("播放"+Player.playername+"逃跑的声音，咻" );
+        System.out.println("播放逃跑的声音，咻" );
     }
 
     //#endregion
 
-
-    public void PlayPlantBGM()
-    {
-        System.out.println("播放轻松的种田背景乐，啦啦啦哒哒哒" );
-    }
 
     public void PlayNormalBGM()
     {

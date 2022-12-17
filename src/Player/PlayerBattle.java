@@ -1,26 +1,44 @@
 package Player;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import Actor.AttackWithWeapon;
 import Actor.Defence;
+import Battle.Battle;
 import Battle.BattleMemberBase;
-import Item.Dice;
-public class PlayerBattle extends BattleMemberBase{
+import Battle.BattleAction;
+import Choice.IChoice;
+import Choice.battle.BattleAttack;
+import Choice.battle.BattleBackpack;
+import Choice.battle.BattleDefence;
+import Choice.battle.BattleEscape;
+import Mgr.ChoiceMgr;
+import Mgr.SoundMgr;
 
-    //攻击、道具、装备、逃跑
-    //战斗流程，选择攻击，oneroundup，攻击  
-    //选择道具，选择道具、oneroundup
-    //选择装备，选择装备，oneroundup，攻击
-    //选择逃跑，掷骰子，概率逃跑
+public class PlayerBattle extends BattleMemberBase implements PlayerMaker {
+
+    // 攻击、道具、装备、逃跑
+    // 战斗流程，选择攻击，oneroundup，攻击
+    // 选择道具，选择道具、oneroundup
+    // 选择装备，选择装备，oneroundup，攻击
+    // 选择逃跑，掷骰子，概率逃跑
     private static volatile PlayerBattle instance;
+    static List<IChoice> choices=new ArrayList<>();
 
     private PlayerBattle() {
         if (instance != null) {
             throw new IllegalStateException("Already initialized.");
         } else {
-            instance=this;
-            health=new PlayerHealth();
-            attack=new AttackWithWeapon(5);
-            defence=new Defence(2);
+            instance = this;
+            name=Player.playername;
+            SetHealth(new PlayerHealth());
+            SetAttack(new AttackWithWeapon(5));
+            SetDefence(new Defence(2));
+            choices.add(new BattleAttack(this));
+            choices.add(new BattleDefence(this));
+            choices.add(new BattleBackpack(this));
+            choices.add(new BattleEscape(this));
         }
     }
 
@@ -37,16 +55,22 @@ public class PlayerBattle extends BattleMemberBase{
         return result;
     }
 
-    public void OneRoundUp() throws InterruptedException
-    {
+    public void OneRoundUp() throws InterruptedException {
         super.OneRoundUp();
-
+        System.out.println(Player.playername + "决定");
+        ChooseAction();
     }
 
-
-    public boolean CanEscape()//类极乐迪斯科判定
+    public void ChooseAction() throws InterruptedException
     {
-        return Dice.Determine(Player.lucky, 9);
-    }//概率为容易
+        ChoiceMgr.GetInstance().Choose(choices);
+    }
 
-} 
+    
+    public void Fall()// 倒下
+    {
+        SoundMgr.GetInstance().PlayPlayerFallSound();
+        iBattleMediator.RemoveMember(this);
+    }
+
+}

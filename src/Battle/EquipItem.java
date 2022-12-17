@@ -1,5 +1,6 @@
-package Choice;
+package Battle;
 
+import Choice.IChoice;
 import Item.InventoryItem;
 
 public class EquipItem implements IChoice{
@@ -19,14 +20,7 @@ public class EquipItem implements IChoice{
 
     public void Choose() throws InterruptedException {
         
-        // for(int i=0;i<amount;++i)
-        // {
-        //     if (item.quantity>=item.consumequantity)
-        //     //实际amount是使用次数，在item里有个consumequantity（一次使用消耗数量，默认为1），如果总量够，这次choice使用物品数为amount*consumequantity
-        //      {
-        //         item.TargetInventory().UseItem(item,item.TargetInventory().GetItemIndex(item));
-        //     } 
-        // }
+        
         item.TargetInventory().DebugInventory();
     }
 }

@@ -26,6 +26,7 @@ public class BuyInventoryItem extends ChoiceConsumeMoney {
 
     public void ChoiceInfo() {
         System.out.println("购买" + item.itemName  + "  每份需要花费: " + Integer.toString(needMoney));
+        System.out.println(item.itemName + item.description);
     }
 
     public void Choose() throws InterruptedException {

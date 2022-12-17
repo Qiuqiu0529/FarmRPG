@@ -16,6 +16,11 @@ public class Defence implements IDefence{
         currentDefence=basede;
     }
 
+    public void ChangeBase(float amount)
+    {
+        baseDefence+=amount;
+    }
+
     public float GetCurrentDefence()
     {
         return currentDefence;

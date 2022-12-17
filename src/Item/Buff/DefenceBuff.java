@@ -20,16 +20,17 @@ public class DefenceBuff extends Buff{//防御力持续一段时间增加
 
     public void AddBuff() throws InterruptedException
     {
-        super.AddBuff();
-        if(first)
-        {
-            defence.ChangeBuffDefence(amount);
-            first=false;
-        }
         if(continueTime<=0)
         {
             CancleBuff();
         }
+        if(first)
+        {
+            super.AddBuff();
+            defence.ChangeBuffDefence(amount);
+            first=false;
+        }
+       
     }
 
     public void CancleBuff() throws InterruptedException{

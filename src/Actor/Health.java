@@ -16,6 +16,11 @@ public class Health implements IHealth{//战斗用数值，每天刷新一次
         maxHealth=max;
         currentHealth=maxHealth;
     }
+    public void ChangeBase(float amount)
+    {
+        maxHealth+=amount;
+        currentHealth=maxHealth;
+    }
    
     public float GetCurrentHealth() {
         return currentHealth;
@@ -25,8 +30,6 @@ public class Health implements IHealth{//战斗用数值，每天刷新一次
         float temp = currentHealth;
         currentHealth += addAmount;
         currentHealth = Mathf.Clamp(currentHealth, minHealth, currentHealth);
-        UpdateHealth();
-
         return currentHealth-temp;
     }
 
@@ -34,24 +37,12 @@ public class Health implements IHealth{//战斗用数值，每天刷新一次
         float temp = currentHealth;
         currentHealth -= minusAmount;
         currentHealth = Mathf.Clamp(currentHealth, minHealth, currentHealth);
-        UpdateHealth();
-        if(currentHealth<=0)
-        {
-            Die();
-        }
         return temp-currentHealth;
     }
 
-
     public void Restore() {
         currentHealth=maxHealth;
-        UpdateHealth();
     }
 
-    public void UpdateHealth() {
-    }
 
-    public void Die()
-    {
-    }
 }

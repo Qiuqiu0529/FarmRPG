@@ -25,6 +25,7 @@ public class ShopBase implements IShop{
             DisplayGoods();
         }
     }
+    
     public void InitGoods()
     {
         goods.add(new DefaultChoice("什么都不买",

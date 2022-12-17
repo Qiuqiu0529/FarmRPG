@@ -10,6 +10,16 @@ public class Attack implements IAttack{
         buffAttack+=change;
         currentAttack=baseAttack+buffAttack;
     }
+
+    public void ChangeBase(float change)
+    {
+        baseAttack+=change;
+    }
+
+    public int GetEachAttackCount()
+    {
+        return 1;
+    }
     
     public Attack(float baseatt)
     {

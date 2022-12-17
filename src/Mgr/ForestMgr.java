@@ -8,15 +8,18 @@ import Choice.IChoice;
 import Choice.PlayerMoveInForest;
 import Choice.PlayerRestInForest;
 import Choice.PlayerReturn;
+import Item.Dice;
 import Monster.Monster;
+import Monster.MonsterPool;
 import Player.Player;
 import Player.PlayerBattle;
 
 public class ForestMgr implements IPlayerMoveObserver{
-    public static List<Monster> allmonsters;// 当前森林里所有的怪物
-    public static List<Monster> battlemonsters;// 一次战斗的所有怪物
+    MonsterPool monsterPool;
+    public static List<Monster> allmonsters= new ArrayList<>();// 当前森林里所有的怪物
+    public static List<Monster> battlemonsters= new ArrayList<>();// 一次战斗的所有怪物
     private static volatile ForestMgr instance;
-    static List<IChoice> choices;
+    static List<IChoice> choices= new ArrayList<>();
     static List<Integer> occupyGrid = new ArrayList<>(100);// 森林为100格子
     public static int monsterCountRestrict = 1;// 一次战斗最多几个敌人
     Battle battle=new Battle();
@@ -44,18 +47,14 @@ public class ForestMgr implements IPlayerMoveObserver{
     }
 
     public void Init() throws InterruptedException {
-        allmonsters = new ArrayList<>();
-        battlemonsters = new ArrayList<>();
-        choices = new ArrayList<>();
         choices.add(new PlayerReturn());
         choices.add(new PlayerRestInForest(Player.getInstance()));
         choices.add(new PlayerMoveInForest(Player.getInstance(), "上", 0, 1));
         choices.add(new PlayerMoveInForest(Player.getInstance(), "下", 0, -1));
         choices.add(new PlayerMoveInForest(Player.getInstance(), "左", -1, 0));
         choices.add(new PlayerMoveInForest(Player.getInstance(), "右", 1, 0));
-
+        monsterPool=new MonsterPool(15);//15只
         Player.getInstance().SetMoveObservers(this);
-
     }
 
     public int GetBattleMonsterCount() {
@@ -64,15 +63,28 @@ public class ForestMgr implements IPlayerMoveObserver{
 
     public void StartAdventure() throws InterruptedException {
         SoundMgr.GetInstance().PlayForestBGM();
-        for (Integer tempInteger : occupyGrid) {
-            tempInteger = 0;
-        } // 格子只能被monsterCountRestrict个怪物占据，玩家可以进入有怪物的格子开始战斗
+        for (Monster monster : allmonsters) {
+            monsterPool.ReturnInPool(monster);
+        }
+        allmonsters.clear();
+        battlemonsters.clear();
 
-         // 生成怪物
-
-         //更新位置
+        for(int i=0;i<100;++i)
+        {
+            occupyGrid.set(i, 0);
+        } 
+        // 格子只能被monsterCountRestrict个怪物占据，玩家可以进入有怪物的格子开始战斗
+        // 随机放置怪物
+        int count=Dice.Roll(10, 16);///10-15只
+        for(int i=0;i<count;++i)
+        {
+            allmonsters.add(monsterPool.GetPoolObj());
+        }
+        for (Monster monster : allmonsters) {
+            monster.InitPos();
+        }
+        //初始化玩家位置
         Player.getInstance().InitPlayerPosInForest();
-       
         ForestChoice();
     }
 
@@ -115,15 +127,17 @@ public class ForestMgr implements IPlayerMoveObserver{
 
     public void StartBattle() throws InterruptedException
     {
-        battle.AddMember(PlayerBattle.GetInstance());
+        PlayerBattle.GetInstance().JoinBattle(battle);
         for (Monster monster : battlemonsters) {
-            battle.AddMember(monster);
+            monster.JoinBattle(battle);
+            battle.Addbonus(monster.GetBonuseMoney());
         }
         battlemonsters.clear();
         battle.StartBattle();
     }
 
-    public void KillMoster(Monster monster) {//一只怪物倒下，除了从战斗member中删除外，还要在森林里删除
+    public void KillMoster(Monster monster) {//一只怪物倒下，除了从战斗member中删除外，还要在森林里删除,返回池子里
+        monsterPool.ReturnInPool(monster);
         allmonsters.remove(monster);
     }
 

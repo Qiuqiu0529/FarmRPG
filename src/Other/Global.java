@@ -29,6 +29,17 @@ public class Global {
     public static String continueEnergy="216";
     public static String continueDefence="217";
 
+    public static String newbieSword="310";
+    public static String newbieGun="311";
+    public static String normalSword="312";
+    public static String normalGun="313";
+    public static String midSword="314";
+    public static String midGun="315";
+    public static String superSword="316";
+    public static String superGun="317";
+    public static String ultimateSword="318";
+    public static String ultimateGun="319";
+
     public static HashMap<HairStyleType,String> hairmap=new HashMap<>();
     public static HashMap<ColorType,String> cMap=new HashMap<>();
     public static HashMap<GameMgr.TimePeriod,String> tMap=new HashMap<>();
