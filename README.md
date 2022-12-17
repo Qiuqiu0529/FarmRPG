@@ -30,6 +30,7 @@
 - Decorator（攻击有时可以有武器，武器是装饰
 - observer
 - mediator
+- marker
 
 ## hyl
 
