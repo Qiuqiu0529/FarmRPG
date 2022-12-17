@@ -45,7 +45,7 @@ public class WeaponShop extends ShopBase{
         newbieGun.value=30;
         newbieGun.itemType=ItemTypes.Weapon;
         newbieGun.SetWeapon(WeaponFactory.GetInstance().GetWeapon(WeaponType.GUN, 1));//level 1-5
-        BuyInventoryItem buynewbieGun=new BuyInventoryItem(newbieSword);
+        BuyInventoryItem buynewbieGun=new BuyInventoryItem(newbieGun);
         goods.add(buynewbieGun);
 
 
@@ -68,7 +68,7 @@ public class WeaponShop extends ShopBase{
         normalGun.value=100;
         normalGun.itemType=ItemTypes.Weapon;
         normalGun.SetWeapon(WeaponFactory.GetInstance().GetWeapon(WeaponType.GUN, 2));//level 1-5
-        BuyInventoryItem buynormalGun=new BuyInventoryItem(normalSword);
+        BuyInventoryItem buynormalGun=new BuyInventoryItem(normalGun);
         buynormalGun.SetThread(3);
         goods.add(buynormalGun);
 
@@ -91,7 +91,7 @@ public class WeaponShop extends ShopBase{
         midGun.value=170;
         midGun.itemType=ItemTypes.Weapon;
         midGun.SetWeapon(WeaponFactory.GetInstance().GetWeapon(WeaponType.GUN, 3));//level 1-5
-        BuyInventoryItem buymidGun=new BuyInventoryItem(midSword);
+        BuyInventoryItem buymidGun=new BuyInventoryItem(midGun);
         buymidGun.SetThread(7);
         goods.add(buymidGun);
 
@@ -114,7 +114,7 @@ public class WeaponShop extends ShopBase{
         superGun.value=300;
         superGun.itemType=ItemTypes.Weapon;
         superGun.SetWeapon(WeaponFactory.GetInstance().GetWeapon(WeaponType.GUN, 4));//level 1-5
-        BuyInventoryItem buysuperGun=new BuyInventoryItem(superSword);
+        BuyInventoryItem buysuperGun=new BuyInventoryItem(superGun);
         buysuperGun.SetThread(10);
         goods.add(buysuperGun);
 
@@ -139,7 +139,7 @@ public class WeaponShop extends ShopBase{
         ultimateGun.value=600;
         ultimateGun.itemType=ItemTypes.Weapon;
         ultimateGun.SetWeapon(WeaponFactory.GetInstance().GetWeapon(WeaponType.GUN, 5));//level 1-5
-        BuyInventoryItem buyultimateGun=new BuyInventoryItem(ultimateSword);
+        BuyInventoryItem buyultimateGun=new BuyInventoryItem(ultimateGun);
         buyultimateGun.SetThread(13);
         goods.add(buyultimateGun);
     }
