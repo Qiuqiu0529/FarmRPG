@@ -54,10 +54,6 @@ public class SoundMgr {//Singleton
     {
         System.out.println("播放怪物倒下的声音，沉重的砰" );
     }
-    public void PlaMonsterAttackSound()
-    {
-        System.out.println("播放怪物进攻的声音，嗷嗷" );
-    }
 
     public void PlayPlayerDamageSound()
     {

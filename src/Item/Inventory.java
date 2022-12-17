@@ -3,9 +3,11 @@ package Item;
 import java.util.ArrayList;
 import java.util.List;
 
+import Choice.DefaultChoice;
 import Choice.IChoice;
 import Choice.LookInventoryItem;
 import Choice.UseInventoryItem;
+import Choice.UseInventoryItemOnce;
 
 public class Inventory {// 物品可以加入背包、移出背包、装备（或解除装备如果物体可装备）、被丢弃
     public String inventoryName = "MainInventory";
@@ -138,11 +140,38 @@ public class Inventory {// 物品可以加入背包、移出背包、装备（�
     public List<IChoice> ChooseInventoryUse(ItemTypes itemType)// 查找一类物品
     {
         List<IChoice> uselist = new ArrayList<>();
-
         for (int i = 0; i < content.size(); i++) {
             if (!InventoryItem.IsNull(content.get(i))) {
                 if (content.get(i).itemType == itemType) {
                     UseInventoryItem useInventoryItem = new UseInventoryItem(content.get(i));
+                    uselist.add(useInventoryItem);
+                }
+            }
+        }
+        return uselist;
+    }
+
+    public List<IChoice> ChooseInventoryEquip()// 查找装备
+    {
+        List<IChoice> uselist = new ArrayList<>();
+        for (int i = 0; i < content.size(); i++) {
+            if (!InventoryItem.IsNull(content.get(i))) {
+                if (content.get(i).itemType == ItemTypes.Weapon) {
+                    Choice.battle.EquipItem wItem=new Choice.battle.EquipItem(content.get(i));
+                    uselist.add(wItem);
+                }
+            }
+        }
+        return uselist;
+    }
+
+    public List<IChoice> ChooseInventorySingle(ItemTypes itemType)// 查找只能用一次的
+    {
+        List<IChoice> uselist = new ArrayList<>();
+        for (int i = 0; i < content.size(); i++) {
+            if (!InventoryItem.IsNull(content.get(i))) {
+                if (content.get(i).itemType == itemType) {
+                    UseInventoryItemOnce useInventoryItem = new UseInventoryItemOnce(content.get(i));
                     uselist.add(useInventoryItem);
                 }
             }
@@ -280,7 +309,7 @@ public class Inventory {// 物品可以加入背包、移出背包、装备（�
             if (!item.Equip()) {
                 return;
             }
-            // 如果只能装备一个，替换
+            // 只能装备一个，替换
             if (item.TargetEquipmentInventory().content.size() == 1) {
                 if (!InventoryItem.IsNull(item.TargetEquipmentInventory().content.get(0))) {
                     oldItem = item.TargetEquipmentInventory().content.get(0).clone();
@@ -292,7 +321,7 @@ public class Inventory {// 物品可以加入背包、移出背包、装备（�
             RemoveItem(index, item.quantity);// 从当前背包装备、背包里的物品数量减去
 
             if (oldItem != null) {
-                // oldItem.UnEquip();
+                oldItem.UnEquip();
                 AddItem(oldItem, oldItem.quantity);
             }
         }
@@ -359,16 +388,6 @@ public class Inventory {// 物品可以加入背包、移出背包、装备（�
                 DestroyItem(index);
             }
         }
-    }
-
-    public List<IChoice> LookItem()// 忘记要干啥了，待写
-    {
-        List<IChoice> choices = new ArrayList<>();
-        for (InventoryItem inventoryItem : content) {
-            LookInventoryItem look = new LookInventoryItem(inventoryItem);
-            choices.add(look);
-        }
-        return choices;
     }
 
 }

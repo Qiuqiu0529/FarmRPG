@@ -5,9 +5,7 @@ import java.util.List;
 
 import Actor.AttackWithWeapon;
 import Actor.Defence;
-import Battle.Battle;
 import Battle.BattleMemberBase;
-import Battle.BattleAction;
 import Choice.IChoice;
 import Choice.battle.BattleAttack;
 import Choice.battle.BattleBackpack;

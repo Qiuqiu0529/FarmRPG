@@ -3,8 +3,6 @@ package Battle;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.lang.model.element.Element;
-
 import Actor.AttackWithWeapon;
 import Actor.Defence;
 import Actor.Health;
@@ -41,6 +39,10 @@ public class BattleMemberBase implements IBattleMember {
                     System.out.println(name + "触发防御");
                     amount = defence.DefenceAttack(amount);
                     System.out.println("防御后伤害值：" + Float.toString(amount));
+                }
+                if(amount>0)
+                {
+                    BeHit();
                 }
                 health.MinusHealth(amount);
                 if (health.GetCurrentHealth() <= 0) {
@@ -131,6 +133,11 @@ public class BattleMemberBase implements IBattleMember {
     public void Fall() throws InterruptedException// 倒下
     {
         iBattleMediator.RemoveMember(this);
+    }
+
+    public void BeHit()
+    {
+
     }
 
     public void SetHealth(Health health) {

@@ -16,6 +16,7 @@ public class UseInventoryItem implements IChoice{
 
     public void ChoiceInfo() {
         System.out.println("使用" + item.itemName+"(总数:"+Integer.toString(item.quantity)+")");
+        System.out.println(item.itemName+"  "+item.description);
     }
 
     public void Choose() throws InterruptedException {

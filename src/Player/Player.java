@@ -108,6 +108,11 @@ public class Player {//state/component/
         return state.getClass();
     }
 
+    public void BeHit()
+    {
+        SoundMgr.GetInstance().PlayPlayerDamageSound();
+    }
+
 
     public void GoodSleep()
     {

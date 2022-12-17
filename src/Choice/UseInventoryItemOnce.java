@@ -1,12 +1,12 @@
-package Battle;
+package Choice;
 
-import Choice.IChoice;
 import Item.InventoryItem;
+import Mgr.InputMgr;
 
-public class UsePotion implements IChoice{
+public class UseInventoryItemOnce implements IChoice{
     InventoryItem item;
 
-    public UsePotion(InventoryItem inventoryItem) {
+    public UseInventoryItemOnce(InventoryItem inventoryItem) {
         item = inventoryItem;
     }
 
@@ -20,8 +20,8 @@ public class UsePotion implements IChoice{
     }
 
     public void Choose() throws InterruptedException {
+       
         item.TargetInventory().UseItem(item,item.TargetInventory().GetItemIndex(item));
         item.TargetInventory().DebugInventory();
     }
 }
-
