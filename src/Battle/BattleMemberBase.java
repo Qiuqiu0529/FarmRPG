@@ -39,12 +39,12 @@ public class BattleMemberBase implements IBattleMember {
                 if (defencethisRound || (Dice.Determine(0, 9))) {
                     System.out.println(name + "触发防御");
                     amount = defence.DefenceAttack(amount);
-                    System.out.print("防御后伤害值：" + Float.toString(amount));
+                    System.out.println("防御后伤害值：" + Float.toString(amount));
                 }
                 else{
-                    System.out.print("伤害值：" + Float.toString(amount));
+                    System.out.println("伤害值：" + Float.toString(amount));
                 }
-                
+
                 if (amount > 0) {
                     BeHit();
                 }
@@ -72,12 +72,14 @@ public class BattleMemberBase implements IBattleMember {
             default:
                 break;
         }
+        Thread.sleep(200);
     }
 
     public void Act(BattleAction action) throws InterruptedException {// 主动
         switch (action) {
             case ESCAPE:
                 System.out.println(name + "准备逃跑");
+                Thread.sleep(500);
                 if (CanEscape()) {
                     System.out.println(name + "逃跑成功");
                     SoundMgr.GetInstance().PlayEscapeSound();
@@ -104,6 +106,7 @@ public class BattleMemberBase implements IBattleMember {
             default:
                 break;
         }
+        Thread.sleep(200);
     }
 
     public boolean CanEscape()// 类极乐迪斯科判定

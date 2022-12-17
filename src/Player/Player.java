@@ -20,6 +20,7 @@ public class Player {//state/component/
     PlayerSleepState playerSleepState;
     PlayerIdleState playerIdleState;
     PlayerInitState playerInitState;
+    PlayerBattleState playerBattleState;
 
     public Player() throws InterruptedException{
         if (instance != null) {
@@ -60,6 +61,7 @@ public class Player {//state/component/
         playerMoveState=new PlayerMoveState(this);
         playerSleepState=new PlayerSleepState(this);
         playerIdleState=new PlayerIdleState(this);
+        playerBattleState=new PlayerBattleState(this);
         playerInitState=new PlayerInitState();
 
         
@@ -94,6 +96,10 @@ public class Player {//state/component/
     public void SetSleep()
     {
         SetPlayerState(playerSleepState);
+    }
+    public void SetBattle()
+    {
+        SetPlayerState(playerBattleState);
     }
 
     public void SetMove()
@@ -150,8 +156,8 @@ public class Player {//state/component/
         Thread.sleep(300);
         playerMovement.SetDir(dir);
         playerMovement.MoveUpdate(x, y);
-        playerMovement.UpdatePos();
         SetPlayerState(playerIdleState);
+        playerMovement.UpdatePos();
     }
     
     public void RestInForest()

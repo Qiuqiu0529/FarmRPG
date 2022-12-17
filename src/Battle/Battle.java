@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Item.Dice;
+import Mgr.GameMgr;
 import Mgr.SoundMgr;
 import Player.MoneyPresenter;
 import Player.Player;
@@ -23,41 +24,53 @@ public class Battle implements IBattleMediator {
         System.out.println("战斗结束");
     }
 
-    public void Victory() {
+    public void Victory() throws InterruptedException {
+        Thread.sleep(100);
         System.out.println(Player.playername + "胜利");
         SoundMgr.GetInstance().PlayVictorySound();
-        System.out.println("战斗奖励");
-        MoneyPresenter.GetInstance().EarnMoney(moneybonus);
         if (Dice.Determine(Player.lucky, 10)) {
+            Thread.sleep(100);
             if (Dice.Determine(0, 12)) {
                 Player.lucky += 1;
                 System.out.println(Player.playername+"幸运值+1");
             }
+            Thread.sleep(100);
             for (BattleMemberBase bMemberBase : battlePlayerMembers) {
                 System.out.println(bMemberBase.name+"变强了");
                 bMemberBase.LevelUp();
             }
         }
+        Thread.sleep(200);
+        System.out.println("战斗奖励");
+        MoneyPresenter.GetInstance().EarnMoney(moneybonus);
+        Thread.sleep(200);
         EndBattle();
+        Thread.sleep(200);
     }
 
-    public void Fail() {
+    public void Fail() throws InterruptedException {
+        Thread.sleep(100);
         System.out.println(Player.playername + "输了");
         SoundMgr.GetInstance().PlayFailureSound();
         if (Dice.Determine(0, 10)) {
-            
+            Thread.sleep(100);
             if (Dice.Determine(0, 12)) {
                 Player.lucky -= 1;
                 System.out.println(Player.playername+"幸运值-1");
             }
+            Thread.sleep(100);
             for (BattleMemberBase bMemberBase : battleMonstersMembers) {
                 System.out.println(bMemberBase.name+"变强了");
                 bMemberBase.LevelUp();
             }
         }
+        Thread.sleep(200);
         System.out.println("损失金钱");
         MoneyPresenter.GetInstance().LoseMoney(Dice.RollF(0.1f, 0.5f));
+        Thread.sleep(200);
         EndBattle();
+        Thread.sleep(200);
+        GameMgr.GetInstance().EndDayEarly();//提前结束一天
     }
 
     public void AddMember(BattleMemberBase battleMember) {
@@ -68,7 +81,7 @@ public class Battle implements IBattleMediator {
         }
     }
 
-    public void RemoveMember(BattleMemberBase battleMember) {
+    public void RemoveMember(BattleMemberBase battleMember) throws InterruptedException {
         if (battleMember instanceof PlayerMaker) {
             battlePlayerMembers.remove(battleMember);
             if (battlePlayerMembers.size() == 0) {
@@ -113,6 +126,7 @@ public class Battle implements IBattleMediator {
 
     public void StartBattle() throws InterruptedException {
         System.out.println("触发战斗");
+        Player.getInstance().SetBattle();
         SoundMgr.GetInstance().PlayBattleBGM();
         System.out.println("当前怪物数量：" + Integer.toString(battleMonstersMembers.size()));
         for (BattleMemberBase bMemberBase : battleMonstersMembers) {
@@ -130,16 +144,15 @@ public class Battle implements IBattleMediator {
 
     public void EachTurn() throws InterruptedException {
         Thread.sleep(1000);
-
         if (playerturn) {
             System.out.println(Player.playername + "方出手");
-            for (BattleMemberBase bMemberBase : battlePlayerMembers) {
-                bMemberBase.OneRoundUp();
+            for (int i = 0; i < battlePlayerMembers.size(); i++) {
+                battlePlayerMembers.get(i).OneRoundUp();
             }
         } else {
             System.out.println("怪物方出手");
-            for (BattleMemberBase bMemberBase : battleMonstersMembers) {
-                bMemberBase.OneRoundUp();
+            for (int i = 0; i < battleMonstersMembers.size(); i++) {
+                battleMonstersMembers.get(i).OneRoundUp();
             }
         }
 

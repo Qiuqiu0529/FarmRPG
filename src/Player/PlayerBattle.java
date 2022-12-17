@@ -5,6 +5,7 @@ import java.util.List;
 
 import Actor.AttackWithWeapon;
 import Actor.Defence;
+import Actor.Health;
 import Battle.BattleMemberBase;
 import Choice.IChoice;
 import Choice.battle.BattleAttack;
@@ -26,7 +27,7 @@ public class PlayerBattle extends BattleMemberBase implements PlayerMaker {
         } else {
             instance = this;
             name=Player.playername;
-            SetHealth(new PlayerHealth());
+            SetHealth(new Health(100));
             SetAttack(new AttackWithWeapon(5));
             SetDefence(new Defence(2));
             choices.add(new BattleAttack(this));
@@ -61,7 +62,7 @@ public class PlayerBattle extends BattleMemberBase implements PlayerMaker {
     }
 
     
-    public void Fall()// 倒下
+    public void Fall() throws InterruptedException // 倒下
     {
         SoundMgr.GetInstance().PlayPlayerFallSound();
         iBattleMediator.RemoveMember(this);

@@ -79,7 +79,7 @@ public class ForestMgr implements IPlayerMoveObserver{
         } 
         // 格子只能被monsterCountRestrict个怪物占据，玩家可以进入有怪物的格子开始战斗
         // 随机放置怪物
-        int count=Dice.Roll(10, 16);///10-15只
+        int count=Dice.Roll(12, 20);///12-19只
         for(int i=0;i<count;++i)
         {
             allmonsters.add(monsterPool.GetPoolObj());
