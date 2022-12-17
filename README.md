@@ -26,11 +26,12 @@
 - separated-interface
 - subclass-sandbox
 - template-method
-- typeobject
-- Decorator（攻击有时可以有武器，武器是装饰
-- observer
-- mediator
-- marker
+- typeobject（调参得不同武器、药水
+- Decorator（攻击有时可以有武器，武器是装饰 attackwithweapon
+- observer（playermovement forestmgr）
+- mediator（monster-battle-player）
+- marker（PlayerMaker
+- dirty-flag(battle endbattle变量
 
 ## hyl
 
@@ -46,7 +47,6 @@
 
 **还可能增加（意思是我写不动了，你们可以看看哪个好加，还可以看看开头链接里别的设计模式哪些能套：**
 
-- Dirty flag(按道理来讲存读档可以用，我不太会写存储
 - Bytecode
 - interpreter（翻译txt生成对话？之前用C# 写过一个弱智的txt翻译，大概意思是这样，规定指令对应的String，读取txt时翻译成对应的操作，效果如下
 - Converter（物体合成？
