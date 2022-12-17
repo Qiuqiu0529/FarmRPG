@@ -11,7 +11,6 @@ public class Player {//state/component/
     public static String playername = "玩家";
     public static int lucky=2;
 
-
     PlayerVisual playerVisual;
     PlayerMovement playerMovement;
     PlayerBattle playerBattle;//跟战斗有关的
@@ -144,6 +143,7 @@ public class Player {//state/component/
         Thread.sleep(300);
         playerMovement.SetDir(dir);
         playerMovement.MoveUpdate(x, y);
+        playerMovement.UpdatePos();
         SetPlayerState(playerIdleState);
     }
 
@@ -152,7 +152,7 @@ public class Player {//state/component/
         SoundMgr.GetInstance().PlayRestSound();
     }
 
-    public void InitPlayerPosInForest()
+    public void InitPlayerPosInForest() throws InterruptedException
     {
         playerMovement.InitPos();
     }

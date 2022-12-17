@@ -1,5 +1,5 @@
 package Item.Weapon;
 
 public interface Iweapon {
-    public void WeaponAttack(float actorAdd);
+    public float WeaponAttack(float actorAdd);
 }

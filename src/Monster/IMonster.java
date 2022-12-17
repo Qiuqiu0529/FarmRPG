@@ -1,8 +1,7 @@
 package Monster;
 
-import Battle.IBattleMediator;
 import Battle.IBattleMember;
 
 public interface IMonster extends IBattleMember{
-    public void MonsterMove();//怪物可以移动
+    public void MonsterMove() throws InterruptedException;//怪物可以移动
 }

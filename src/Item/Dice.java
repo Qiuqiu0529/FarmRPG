@@ -10,6 +10,11 @@ public class Dice {
         return dice+diceone;
     }
 
+    public static int Roll(int min,int max)
+    {
+        return new Random().nextInt(min,max);
+    }
+
     public static boolean Determine(float add,float threadhold)//类极乐迪斯科判定
     {
         int i=RollTwoDice();

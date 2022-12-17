@@ -1,8 +1,8 @@
 package Item.Weapon;
 
 public final class NullWeapon extends WeaponBase{
-    public void WeaponAttack(float actorAdd)
+    public float WeaponAttack(float actorAdd)
     {
-        //代写
+        return actorAdd;
     }
 }

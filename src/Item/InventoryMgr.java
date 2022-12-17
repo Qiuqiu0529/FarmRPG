@@ -3,6 +3,8 @@ package Item;
 import java.util.ArrayList;
 import java.util.List;
 
+import Item.Inventory.InventoryTypes;
+
 public class InventoryMgr {
     public static List<Inventory> registeredInventories;
 
@@ -51,7 +53,9 @@ public class InventoryMgr {
     public void AddInventory()
     {
         Inventory main=new Inventory();
+        main.inventoryType=InventoryTypes.Main;
         Inventory equipment=new Inventory("EquipmentInventory");
+        equipment.inventoryType=InventoryTypes.Equipment;
        // System.out.println(registeredInventories.size());
     }
 

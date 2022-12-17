@@ -10,11 +10,11 @@ public class BulletPool extends ObjectPool<Bullet> {
 
     public BulletPool(WeaponAttackData data) {
         this.gunBulletData = data;
-        InitPool(5);
+        InitPool(gunBulletData.attackCountEachTurn);
     }
 
     protected Bullet Create() {
         return new Bullet(new Random().nextInt(gunBulletData.minAttackAmount, gunBulletData.maxAttackAmount),
-                new Random().nextInt(gunBulletData.minthread, gunBulletData.maxthread));
+                new Random().nextInt(gunBulletData.minthread, gunBulletData.maxthread),this);
     }
 }

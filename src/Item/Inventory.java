@@ -6,14 +6,15 @@ import java.util.List;
 import Choice.IChoice;
 import Choice.LookInventoryItem;
 import Choice.UseInventoryItem;
-public class Inventory {//物品可以加入背包、移出背包、装备（或解除装备如果物体可装备）、被丢弃
-    public String inventoryName="MainInventory";
+
+public class Inventory {// 物品可以加入背包、移出背包、装备（或解除装备如果物体可装备）、被丢弃
+    public String inventoryName = "MainInventory";
 
     public static enum InventoryTypes {
         Main, Equipment
     }// 装备和消耗品
 
-    public List<InventoryItem> content=new ArrayList<>();
+    public List<InventoryItem> content = new ArrayList<>();
 
     public InventoryTypes inventoryType = InventoryTypes.Main;
 
@@ -25,9 +26,8 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         Regesiter();
     }
 
-    public Inventory(String name)
-    {
-        inventoryName=name;
+    public Inventory(String name) {
+        inventoryName = name;
         Regesiter();
     }
 
@@ -54,7 +54,6 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
             }
         } // 已在里面，加数量
 
-
         while (quantity > 0) {
             if (quantity > itemToAdd.maxStack) {
                 AddItem(itemToAdd, itemToAdd.maxStack);
@@ -72,7 +71,7 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         int i = 0;
         while (i < content.size()) {
             if (InventoryItem.IsNull(content.get(i))) {
-                content.set(i, itemToAdd.clone());//加入背包的是clone
+                content.set(i, itemToAdd.clone());// 加入背包的是clone
                 content.get(i).quantity = quantity;
                 return true;
             }
@@ -97,14 +96,13 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         return true;
     }
 
-    public void DebugInventory()
-    {
+    public void DebugInventory() {
         System.out.println("DebugInventory");
         System.out.println("背包物品种类");
         System.out.println(content.size());
         for (int i = 0; i < content.size(); i++) {
             if (!InventoryItem.IsNull(content.get(i))) {
-                System.out.println(content.get(i).itemName+Integer.toString(content.get(i).quantity));
+                System.out.println(content.get(i).itemName + Integer.toString(content.get(i).quantity));
             }
         }
     }
@@ -137,7 +135,6 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         return list;
     }
 
-
     public List<IChoice> ChooseInventoryUse(ItemTypes itemType)// 查找一类物品
     {
         List<IChoice> uselist = new ArrayList<>();
@@ -145,18 +142,15 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         for (int i = 0; i < content.size(); i++) {
             if (!InventoryItem.IsNull(content.get(i))) {
                 if (content.get(i).itemType == itemType) {
-                    UseInventoryItem useInventoryItem=new UseInventoryItem(content.get(i));
-                    uselist.add( useInventoryItem);
+                    UseInventoryItem useInventoryItem = new UseInventoryItem(content.get(i));
+                    uselist.add(useInventoryItem);
                 }
             }
         }
         return uselist;
     }
 
-
-
-    public InventoryItem GetItem(int i)
-    {
+    public InventoryItem GetItem(int i) {
         if (i < 0 || i >= content.size()) {
             System.out.println("超过背包范围");
             return null;
@@ -168,7 +162,7 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         return content.get(i);
     }
 
-    public Iterator<InventoryItem> iterator(ItemTypes itemType)//迭代法查找一类物品
+    public Iterator<InventoryItem> iterator(ItemTypes itemType)// 迭代法查找一类物品
     {
         return new InventoryIterator(this, itemType);
     }
@@ -182,9 +176,8 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         return total;
     }
 
-    public Integer GetItemIndex(InventoryItem item)
-    {
-        int i=content.indexOf(item);
+    public Integer GetItemIndex(InventoryItem item) {
+        int i = content.indexOf(item);
         return i;
     }
 
@@ -195,7 +188,6 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         }
         return false;
     }
-
 
     public boolean RemoveItem(int i, int quantity) {
         if (i < 0 || i >= content.size()) {
@@ -242,7 +234,7 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         return true;
     }
 
-    public boolean UseItem(InventoryItem item, int index) throws InterruptedException{
+    public boolean UseItem(InventoryItem item, int index) throws InterruptedException {
         if (InventoryItem.IsNull(item)) {
             return false;
         }
@@ -257,7 +249,7 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         return true;
     }
 
-    public boolean UseItem(String itemName) throws InterruptedException{
+    public boolean UseItem(String itemName) throws InterruptedException {
         List<Integer> list = InventoryContains(itemName);
         if (list.size() > 0) {
             UseItem(content.get(list.get(list.size() - 1)), list.get(list.size() - 1));
@@ -271,7 +263,7 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         content = new ArrayList<>(content.size());
     }
 
-    public void EquipItem(InventoryItem item, int index) throws InterruptedException{
+    public void EquipItem(InventoryItem item, int index) throws InterruptedException {
         if (inventoryType == Inventory.InventoryTypes.Main) {
             InventoryItem oldItem = null;
             if (InventoryItem.IsNull(item)) {
@@ -306,7 +298,7 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         }
     }
 
-    public void DropItem(InventoryItem item, int index) throws InterruptedException{
+    public void DropItem(InventoryItem item, int index) throws InterruptedException {
         if (InventoryItem.IsNull(item)) {
             return;
         }
@@ -321,27 +313,24 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
 
     }
 
-    public void GiveItem(InventoryItem item, int index) throws InterruptedException{
+    public void GiveItem(InventoryItem item, int index) throws InterruptedException {
         if (InventoryItem.IsNull(item)) {
             return;
         }
 
         if (this.inventoryName == item.targetEquipmentInventoryName) {
             if (item.UnEquip()) {
-                if(item.Give())
-                {
+                if (item.Give()) {
                     DestroyItem(index);
                 }
-               
+
             }
         } else {
-            if(item.Give())
-            {
+            if (item.Give()) {
                 DestroyItem(index);
             }
         }
     }
-
 
     public boolean DestroyItem(int i) {
         content.set(i, null);
@@ -356,7 +345,7 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         DestroyItem(index);
     }
 
-    public void UnEquipItem(InventoryItem item, int index) throws InterruptedException{
+    public void UnEquipItem(InventoryItem item, int index) throws InterruptedException {
         if (InventoryItem.IsNull(item)) {
             return;
         }
@@ -373,15 +362,14 @@ public class Inventory {//物品可以加入背包、移出背包、装备（或
         }
     }
 
-
-    public void LookItem()//忘记要干啥了，待写
+    public List<IChoice> LookItem()// 忘记要干啥了，待写
     {
-        // List<IChoice> choices=new ArrayList<>();
-        // for (InventoryItem inventoryItem : content) {
-        //     LookInventoryItem look=new LookInventoryItem(inventoryItem);
-        // }
+        List<IChoice> choices = new ArrayList<>();
+        for (InventoryItem inventoryItem : content) {
+            LookInventoryItem look = new LookInventoryItem(inventoryItem);
+            choices.add(look);
+        }
+        return choices;
     }
-
-   
 
 }

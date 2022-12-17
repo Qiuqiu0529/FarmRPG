@@ -21,10 +21,6 @@ public class AttackWithWeapon implements IAttack {// 使用武器装饰攻击
         return decorated;
     }
 
-    public float GetCurrentAttack() {
-        return decorated.GetCurrentAttack();
-    }
-
     public AttackWithWeapon(Attack decor, WeaponBase weapon) {
         decorated = decor;
         this.weapon = weapon;
@@ -35,8 +31,8 @@ public class AttackWithWeapon implements IAttack {// 使用武器装饰攻击
         this.weapon=weapon;
     }
 
-    public void GiveAttack() {
-        weapon.WeaponAttack(decorated.GetCurrentAttack());// 攻击为基础+武器
+    public float GiveAttack() {
+       return weapon.WeaponAttack(decorated.GiveAttack());// 攻击为基础+武器
     }
 
 }

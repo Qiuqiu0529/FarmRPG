@@ -19,30 +19,30 @@ public class PlayerMovement extends Movement{
         observers.remove(observer);
     }
 
-    public void MoveUpdate(int x,int y)
+    public void MoveUpdate(int x,int y) 
     {
        super.MoveUpdate(x, y);
        System.out.println(Player.playername+"向" + dir+"移动了一格");
-       UpdatePos();
+       
     }
     public void SetDir(String dir)
     {
         this.dir=dir;
     }
 
-    public void UpdatePos()
+    public void UpdatePos() throws InterruptedException
     {
         System.out.println(Player.playername+"当前位置 " + Integer.toString(posX)+"，"+Integer.toString(posY));
         NotifyObservers();
     }
 
-    public void InitPos()
+    public void InitPos() throws InterruptedException
     {
         System.out.println("可移动地区大小为" + Integer.toString(Movement.GetMaxPosX())+" X "+Integer.toString(Movement.GetMaxPosY()));
         UpdatePos();
     }
 
-    public void NotifyObservers()
+    public void NotifyObservers() throws InterruptedException
     {
         for (var obs : observers) {
             obs.UpdatePos(posX, posY);

@@ -4,11 +4,11 @@ public abstract class Movement implements IMovement{
     protected int posX=0;
     protected int posY=0;
 
-    static int maxposX=10;
-    static int minposX=0;
+    protected static int maxposX=10;
+    protected  static int minposX=0;
 
-    static int maxposY=10;
-    static int minposY=0;
+    protected static int maxposY=10;
+    protected static int minposY=0;
 
     public static int GetMaxPosX()
     {
@@ -57,5 +57,5 @@ public abstract class Movement implements IMovement{
         posY+=changey;
     }
 
-    protected abstract void InitPos();
+    protected abstract void InitPos() throws InterruptedException;
 }

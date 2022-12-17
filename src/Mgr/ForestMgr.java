@@ -3,20 +3,23 @@ package Mgr;
 import java.util.ArrayList;
 import java.util.List;
 
+import Battle.Battle;
 import Choice.IChoice;
 import Choice.PlayerMoveInForest;
 import Choice.PlayerRestInForest;
 import Choice.PlayerReturn;
-import Monster.IMonster;
+import Monster.Monster;
 import Player.Player;
+import Player.PlayerBattle;
 
 public class ForestMgr implements IPlayerMoveObserver{
-    public static List<IMonster> allmonsters;// 当前森林里所有的怪物
-    public static List<IMonster> battlemonsters;// 一次战斗的所有怪物
+    public static List<Monster> allmonsters;// 当前森林里所有的怪物
+    public static List<Monster> battlemonsters;// 一次战斗的所有怪物
     private static volatile ForestMgr instance;
     static List<IChoice> choices;
     static List<Integer> occupyGrid = new ArrayList<>(100);// 森林为100格子
     public static int monsterCountRestrict = 1;// 一次战斗最多几个敌人
+    Battle battle=new Battle();
 
     private ForestMgr() throws InterruptedException {
         if (instance != null) {
@@ -61,8 +64,8 @@ public class ForestMgr implements IPlayerMoveObserver{
 
     public void StartAdventure() throws InterruptedException {
         SoundMgr.GetInstance().PlayForestBGM();
-        for (Integer occupy : occupyGrid) {
-            occupy = 0;
+        for (Integer tempInteger : occupyGrid) {
+            tempInteger = 0;
         } // 格子只能被monsterCountRestrict个怪物占据，玩家可以进入有怪物的格子开始战斗
 
          // 生成怪物
@@ -73,11 +76,10 @@ public class ForestMgr implements IPlayerMoveObserver{
         ForestChoice();
     }
 
-    public boolean OccupyGrid(int x, int y, int changex, int changey) {
-        int temp = occupyGrid.get((x + changex) * 10 + y + changey);
+    public boolean OccupyGrid(int x, int y) {
+        int temp = occupyGrid.get(x * 10 + y);
         if (temp < monsterCountRestrict) {
-            occupyGrid.set((x + changex) * 10 + y + changey, temp + 1);
-            UnOccupy(x, y);
+            occupyGrid.set(x * 10 + y , temp + 1);
             return true;
         }
         return false;
@@ -97,26 +99,25 @@ public class ForestMgr implements IPlayerMoveObserver{
         }
     }
 
-     public void UpdatePos(int posx,int posy)
+     public void UpdatePos(int posx,int posy) throws InterruptedException
     {
-        for (IMonster monster : allmonsters) {
+        for (Monster monster : allmonsters) {
             monster.MonsterMove();
         }
     }
 
-    public void KillMoster(IMonster monster) {
-        allmonsters.remove(monster);
-        battlemonsters.remove(monster);
-        if (battlemonsters.size() == 0) {
-            Victory();
+    public void StartBattle()
+    {
+        battle.AddMember(PlayerBattle.GetInstance());
+        for (Monster monster : battlemonsters) {
+            battle.AddMember(monster);
         }
-    }
-
-    public void Victory() {
-        SoundMgr.GetInstance().PlayVictorySound();
-    }
-
-    public void Escape() {
         battlemonsters.clear();
+        battle.StartBattle();
     }
+
+    public void KillMoster(Monster monster) {//一只怪物倒下，除了从战斗member中删除外，还要在森林里删除
+        allmonsters.remove(monster);
+    }
+
 }

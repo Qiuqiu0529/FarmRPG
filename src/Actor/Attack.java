@@ -16,14 +16,9 @@ public class Attack implements IAttack{
         baseAttack=baseatt;
         currentAttack=baseatt;
     }
-
-    public float GetCurrentAttack()
+    
+    public float GiveAttack()
     {
         return currentAttack;
-    }
-    
-    public void GiveAttack()
-    {
-        
     }
 }

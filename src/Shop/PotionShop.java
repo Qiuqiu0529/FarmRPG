@@ -1,14 +1,12 @@
 package Shop;
 
 import Choice.BuyInventoryItem;
-import Choice.DefaultChoice;
 import Item.ItemTypes;
 import Item.Potion.PotionAdapter;
 import Item.Potion.PotionFactory;
 import Item.Potion.PotionType;
 import Mgr.SoundMgr;
 import Other.Global;
-import Player.Player;
 
 public class PotionShop extends ShopBase{
     public PotionShop()

@@ -3,12 +3,10 @@ package Battle;
 import java.util.ArrayList;
 import java.util.List;
 
+import Actor.Attack;
 import Actor.AttackWithWeapon;
 import Actor.Defence;
 import Actor.Health;
-import Actor.IAttack;
-import Actor.IDefence;
-import Actor.IHealth;
 import Item.Buff.AttackBuff;
 import Item.Buff.Buff;
 import Item.Buff.DefenceBuff;
@@ -27,6 +25,7 @@ public class BattleMemberBase implements IBattleMember{
     public void JoinBattle(IBattleMediator battleMediator)
     {
         this.iBattleMediator=battleMediator;
+        battleMediator.AddMember(this);
     }
 
     public void BattleAction(BattleAction action,float amount)
@@ -47,6 +46,20 @@ public class BattleMemberBase implements IBattleMember{
         buffs.removeIf(s -> s.continueTime==0);//用完就丢
     }
 
+    public void SetHealth(Health health)
+    {
+        this.health=health;
+    }
+
+    public void SetAttack(AttackWithWeapon attack)
+    {
+        this.attack=attack;
+    }
+
+    public void SetDefence(Defence defence)
+    {
+        this.defence=defence;
+    }
 
     public void AddHealthBuff(HealthBuff healthBuff)
     {

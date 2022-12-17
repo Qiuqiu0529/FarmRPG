@@ -6,10 +6,11 @@ public class Bullet {
     float attackAmount=1;
     float hitthread=5;//两个骰子点数大于等于hitthread，5为容易打中
     BulletPool bulletPool;
-    public Bullet(float aAmount,float thread)
+    public Bullet(float aAmount,float thread,BulletPool bulletPool)
     {
         attackAmount=aAmount;
         hitthread=thread;
+        this.bulletPool=bulletPool;
     }
 
     public float BulletAttackAmount()

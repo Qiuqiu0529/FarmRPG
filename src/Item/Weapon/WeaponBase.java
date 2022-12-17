@@ -2,8 +2,13 @@ package Item.Weapon;
 
 public class WeaponBase implements Iweapon{
     WeaponAttackData weapondata;
-    public void WeaponAttack(float actorAdd)
+    public float WeaponAttack(float actorAdd)
     {
+        return actorAdd;
+    }
 
+    public int AttackEachTurn()
+    {
+        return weapondata.attackCountEachTurn;
     }
 }

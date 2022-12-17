@@ -1,5 +1,5 @@
 package Mgr;
 
 public interface IPlayerMoveObserver {
-    public void UpdatePos(int posx,int posy);
+    public void UpdatePos(int posx,int posy) throws InterruptedException;
 }
