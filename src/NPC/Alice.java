@@ -36,7 +36,7 @@ public class Alice extends Resident {
         name = "Alice";
         choices = new ArrayList<>();
         choices.add(new ChoiceFavor(this, 0, "今天天气真好啊！",name+"：是啊，天气真好"));
-        choices.add(new ChoiceFavor(this, 5, "请教有关花的知识",name+"亲切地解答了你的困惑，并与你闲聊了一会儿。"));
+        choices.add(new ChoiceFavor(this, 10, "请教有关花的知识",name+"亲切地解答了你的困惑，并与你闲聊了一会儿。"));
         choices.add(new ChoiceFavor(this, 3, "购买花束",name+"为你包装了花束，说希望您再来。"));
         choices.add(new ChoiceFavor(this, 5, "帮她修剪玫瑰",name+"：今天好忙，没有你我都不知道该怎么办了！")); //friendly
         choices.add(new DateInCafe(this, 10, "邀请她喝一杯咖啡",name+"：明天下午吗？我很期待噢。\n(记得第二天下午前往咖啡店)")); //hospitality
