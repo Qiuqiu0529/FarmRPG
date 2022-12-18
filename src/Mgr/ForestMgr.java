@@ -138,7 +138,7 @@ public class ForestMgr implements IPlayerMoveObserver{
     }
 
     public void RandomEvent()  throws InterruptedException
-    {//读txt
+    {//随机事件增强游戏体验，大概率和设计模式无关，有空再写
 
     }
 
