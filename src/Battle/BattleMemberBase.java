@@ -21,9 +21,11 @@ public class BattleMemberBase implements IBattleMember {
     protected IBattleMediator iBattleMediator;
 
     protected List<Buff> buffs = new ArrayList<>();
+    
     protected Health health;
     protected AttackWithWeapon attack;
     protected Defence defence;
+
     public String name = "";
     protected boolean defencethisRound = false;
 

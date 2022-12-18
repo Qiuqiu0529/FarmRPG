@@ -1,0 +1,42 @@
+Date : 2022-12-18 15:39:43
+Directory : d:\CourseCode\Pattern\FarmRPG\FarmRPG\src
+Total : 12 files,  102 codes, 2 comments, 31 blanks, all 135 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Java     |         12 |        102 |          2 |         31 |        135 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                        | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                           |         12 |        102 |          2 |         31 |        135 |
+| Battle                                                                      |          1 |         -1 |          0 |          0 |         -1 |
+| Choice                                                                      |          3 |         -2 |          0 |         -1 |         -3 |
+| Choice\battle                                                               |          1 |         -2 |          0 |         -1 |         -3 |
+| Item                                                                        |          2 |         -5 |          2 |         -1 |         -4 |
+| Item\Weapon                                                                 |          1 |         -1 |          0 |         -1 |         -2 |
+| TXT                                                                         |          6 |        110 |          0 |         33 |        143 |
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                    | language | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Battle\BattleMemberBase.java      | Java     |         -1 |          0 |          0 |         -1 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Choice\Plant.java                 | Java     |          1 |          0 |          0 |          1 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Choice\UseInventoryItemOnce.java  | Java     |         -1 |          0 |          0 |         -1 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Choice\battle\BattleBackpack.java | Java     |         -2 |          0 |         -1 |         -3 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Item\Inventory.java               | Java     |         -4 |          2 |          0 |         -2 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\Item\Weapon\NullWeapon.java       | Java     |         -1 |          0 |         -1 |         -2 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\TXT\Expression.java               | Java     |          6 |          0 |          1 |          7 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\TXT\Interpreter.java              | Java     |         35 |          0 |          7 |         42 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\TXT\MinusExpression.java          | Java     |         17 |          0 |          6 |         23 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\TXT\MultiplyExpression.java       | Java     |         17 |          0 |          7 |         24 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\TXT\NumberExpression.java         | Java     |         18 |          0 |          7 |         25 |
+| d:\CourseCode\Pattern\FarmRPG\FarmRPG\src\TXT\PlusExpression.java           | Java     |         17 |          0 |          5 |         22 |
+| Total                                                                       |          |        102 |          2 |         31 |        135 |
++-----------------------------------------------------------------------------+----------+------------+------------+------------+------------+

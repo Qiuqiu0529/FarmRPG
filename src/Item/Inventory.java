@@ -98,8 +98,8 @@ public class Inventory {// 物品可以加入背包、移出背包、装备（�
 
     public void DebugInventory() {
         System.out.println("DebugInventory");
-        System.out.println("背包格子数（用完后设null，格子仍然存在，新物体进来优先填null格子");
-        System.out.println(content.size());
+        // System.out.println("背包格子数（用完后设null，格子仍然存在，新物体进来优先填null格子");
+        // System.out.println(content.size());
         for (int i = 0; i < content.size(); i++) {
             if (!InventoryItem.IsNull(content.get(i))) {
                 System.out.println(content.get(i).itemName + Integer.toString(content.get(i).quantity));

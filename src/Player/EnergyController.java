@@ -2,12 +2,12 @@ package Player;
 
 import Other.Callback;
 
-public class EnergyPresenter {
+public class EnergyController {
     Energy energy;
-    private static volatile EnergyPresenter instance;
+    private static volatile EnergyController instance;
     EnergyView energyView;
 
-    private EnergyPresenter() {
+    private EnergyController() {
         if (instance != null) {
             throw new IllegalStateException("Already initialized.");
         } else {
@@ -18,13 +18,13 @@ public class EnergyPresenter {
         }
     }
 
-    public static EnergyPresenter GetInstance() {
+    public static EnergyController GetInstance() {
         var result = instance;
         if (result == null) {
-            synchronized (EnergyPresenter.class) {
+            synchronized (EnergyController.class) {
                 result = instance;
                 if (result == null) {
-                    instance = result = new EnergyPresenter();
+                    instance = result = new EnergyController();
                 }
             }
         }

@@ -3,14 +3,14 @@ import Other.Callback;
 import Mgr.GameMgr;
 
 
-public class MoneyPresenter {//singleton、MVP、callback
+public class MoneyController {//singleton、MVP、callback
     Money money;
     
     MoneyView moneyView;
 
-    private static volatile MoneyPresenter instance;
+    private static volatile MoneyController instance;
 
-    private MoneyPresenter() {
+    private MoneyController() {
         if (instance != null) {
             throw new IllegalStateException("Already initialized.");
         }
@@ -23,13 +23,13 @@ public class MoneyPresenter {//singleton、MVP、callback
         }
     }
 
-    public static MoneyPresenter GetInstance() {
+    public static MoneyController GetInstance() {
         var result = instance;
         if (result == null) {
-            synchronized (MoneyPresenter.class) {
+            synchronized (MoneyController.class) {
                 result = instance;
                 if (result == null) {
-                    instance = result = new MoneyPresenter();
+                    instance = result = new MoneyController();
                 }
             }
         }

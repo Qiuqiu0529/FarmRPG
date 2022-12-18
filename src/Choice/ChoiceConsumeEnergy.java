@@ -1,6 +1,6 @@
 package Choice;
 
-import Player.EnergyPresenter;
+import Player.EnergyController;
 
 public class ChoiceConsumeEnergy implements IChoice{
 
@@ -8,7 +8,7 @@ public class ChoiceConsumeEnergy implements IChoice{
     protected String description="";//选项描述
     public boolean CanChoose()
     {
-       return EnergyPresenter.GetInstance().HasEnoughEnergy(needEnergy);
+       return EnergyController.GetInstance().HasEnoughEnergy(needEnergy);
     }
 
     public void ChoiceInfo()
@@ -18,7 +18,7 @@ public class ChoiceConsumeEnergy implements IChoice{
  
     public void Choose() throws InterruptedException
     {
-        EnergyPresenter.GetInstance().SpendEnergy(needEnergy);
+        EnergyController.GetInstance().SpendEnergy(needEnergy);
     }
     
 }
