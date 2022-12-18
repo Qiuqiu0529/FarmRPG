@@ -13,15 +13,6 @@ public class FlowerSeed extends Seed{
         Flower flower = new Flower(new FlowerSeed());
         FarmMgr.GetInstance().flowers.add(flower);
     }
-    public boolean Use() throws InterruptedException
-    {
-        isPlanted=true;
-        usable = false;
-        System.out.println("鲜花种子被种下...");
-        Flower flower = new Flower(new FlowerSeed());
-        FarmMgr.GetInstance().flowers.add(flower);
-        return true;
-    }
 
     public FlowerSeed(){
         // TODO 缺少itemID
