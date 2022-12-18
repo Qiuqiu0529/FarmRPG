@@ -138,7 +138,7 @@ public class ForestMgr implements IPlayerMoveObserver{
     }
 
     public void RandomEvent()  throws InterruptedException
-    {
+    {//读txt
 
     }
 

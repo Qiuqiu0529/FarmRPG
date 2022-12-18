@@ -3,9 +3,6 @@ package Choice.battle;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.lang.model.element.Element;
-import javax.lang.model.util.ElementScanner14;
-
 import Battle.BattleAction;
 import Choice.ChoiceConsumeEnergy;
 import Choice.DefaultChoice;

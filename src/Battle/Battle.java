@@ -14,7 +14,7 @@ public class Battle implements IBattleMediator {
     public List<BattleMemberBase> battlePlayerMembers = new ArrayList<>();
     public List<BattleMemberBase> battleMonstersMembers = new ArrayList<>();
     public boolean playerturn = true;
-    public boolean endBattle = false;
+    public boolean endBattle = false;//dirty flag
     float moneybonus = 0;
 
     public void EndBattle() {

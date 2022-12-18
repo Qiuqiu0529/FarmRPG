@@ -1,7 +1,6 @@
 package Choice;
 
 import Item.InventoryItem;
-import Mgr.InputMgr;
 
 public class UseInventoryItemOnce implements IChoice{
     InventoryItem item;
