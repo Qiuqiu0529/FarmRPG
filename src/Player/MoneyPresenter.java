@@ -45,7 +45,7 @@ public class MoneyPresenter {//singleton、MVP、callback
 
     public boolean HasEnoughMoney(int amount)
     {
-        if(money.Getmoney()>amount)
+        if(money.Getmoney()>=amount)
         {
             return true;
         }
