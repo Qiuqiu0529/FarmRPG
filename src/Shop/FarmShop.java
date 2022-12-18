@@ -2,9 +2,7 @@ package Shop;
 
 import Choice.BuyInventoryItem;
 import Choice.FertilizeChoice;
-import Farm.SeedAdapter;
-import Farm.SeedFactory;
-import Farm.SeedShop;
+import Farm.*;
 import Item.ItemTypes;
 import Other.Global;
 
@@ -22,7 +20,7 @@ public class FarmShop extends ShopBase{
         f.itemName = "鲜花种子";
         f.description = "可以用来种花";
         f.value = 3;
-        f.setSeed(new SeedShop().createFlowerSeed());
+        f.setSeed(new fSeedShop().create()); //使用鲜花种子对应的工厂创造种子
         BuyInventoryItem buyF = new BuyInventoryItem(f);
         goods.add(buyF);
 
@@ -32,7 +30,7 @@ public class FarmShop extends ShopBase{
         v.itemName = "蔬菜种子";
         v.description = "可以用来种蔬菜";
         v.value = 5;
-        v.setSeed(new SeedShop().createVegetableSeed());
+        v.setSeed(new vSeedShop().create());
         BuyInventoryItem buyV = new BuyInventoryItem(v);
         goods.add(buyV);
 
