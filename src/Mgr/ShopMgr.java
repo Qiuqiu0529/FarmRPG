@@ -35,7 +35,7 @@ public class ShopMgr {
         return result;
     }
 
-    public ShopBase GetInstance(ShopType type)// 店的instance
+    public ShopBase GetInstance(ShopType type) throws InterruptedException// 店的instance
     {
         var shop = shops.get(type);
         if (shop == null) {
@@ -44,7 +44,7 @@ public class ShopMgr {
         return shop;
     }
 
-    ShopBase CreateShop(ShopType type) {// 待改
+    ShopBase CreateShop(ShopType type) throws InterruptedException{// 待改
         var shop = shops.get(type);
         if (shop == null) {
             switch (type) {

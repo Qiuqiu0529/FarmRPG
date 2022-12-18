@@ -3,6 +3,7 @@ package Choice;
 import Farm.Flower;
 import Farm.Vegetable;
 import Mgr.FarmMgr;
+import Mgr.SoundMgr;
 import Player.MoneyPresenter;
 
 import java.util.ArrayList;
@@ -22,12 +23,15 @@ public class GainCrops extends ChoiceConsumeEnergy{
         int vegetableNum=0;
         List<Flower> flowerList = new ArrayList<>();
         List<Vegetable> vegetableList = new ArrayList<>();
+        int flowerMoney = 0;
+        int vegetableMoney = 0;
         //计算可以收获卖钱的花朵，然后把它们换钱并且从farmMgr里删了
         for(int i =0;i<f.flowers.size();i++)
         {
             Flower flower = f.flowers.get(i);
             if(flower.isMature())
             {
+                flowerMoney =flowerMoney+flower.getPrice();
                 flowerNum++;
                 flowerList.add(flower);
             }
@@ -38,7 +42,7 @@ public class GainCrops extends ChoiceConsumeEnergy{
             {
                 f.flowers.remove(flowerList.get(i));
             }
-            MoneyPresenter.GetInstance().EarnMoney(flowerNum*5);
+            MoneyPresenter.GetInstance().EarnMoney(flowerMoney);
         }
         //计算可以收获卖钱的蔬菜，然后把他们从FarmMgr里删了
         for(int i =0;i<f.vegetables.size();i++)
@@ -46,6 +50,7 @@ public class GainCrops extends ChoiceConsumeEnergy{
             Vegetable vegetable = f.vegetables.get(i);
             if(vegetable.isMature())
             {
+                vegetableMoney = vegetableMoney+vegetable.getPrice();
                 vegetableNum++;
                 vegetableList.add(vegetable);
             }
@@ -56,7 +61,8 @@ public class GainCrops extends ChoiceConsumeEnergy{
             {
                 f.vegetables.remove(vegetableList.get(i));
             }
-            MoneyPresenter.GetInstance().EarnMoney(vegetableNum*10);
+            MoneyPresenter.GetInstance().EarnMoney(vegetableMoney);
+            SoundMgr.GetInstance().PlayCoinSound();
         }
     }
 }

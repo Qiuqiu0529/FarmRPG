@@ -5,6 +5,7 @@ import Item.InventoryItem;
 public abstract class Plant  {
 
     protected String type;
+    protected int price;
     protected int mature;
     protected int age=0;
     public abstract void grow();
@@ -15,6 +16,8 @@ public abstract class Plant  {
         else
             return false;
     }
+
+    public int getPrice(){return price;}
 
     public abstract void GetAgeToMature();
 }

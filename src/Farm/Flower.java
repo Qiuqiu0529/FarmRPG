@@ -12,6 +12,14 @@ public class Flower extends Plant{
     public Flower(FlowerSeed flowerSeed){
         type="Flower";
         mature= flowerSeed.mature;
+        price = 5;
+    }
+
+    public Flower(Flower flower)
+    {
+        age = flower.age;
+        type = flower.type;
+        mature = flower.mature;
     }
 
     public void GetAgeToMature()

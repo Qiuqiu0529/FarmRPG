@@ -1,6 +1,7 @@
 package Shop;
 
 import Choice.BuyInventoryItem;
+import Choice.FertilizeChoice;
 import Farm.SeedAdapter;
 import Farm.SeedShop;
 import Item.ItemTypes;
@@ -31,9 +32,14 @@ public class FarmShop extends ShopBase{
         v.setSeed(new SeedShop().createVegetableSeed());
         BuyInventoryItem buyV = new BuyInventoryItem(v);
         goods.add(buyV);
+
     }
 
-    public FarmShop(){InitGoods();}
+    public FarmShop() throws InterruptedException
+    {
+        InitGoods();
+        goods.add(new FertilizeChoice());
+    }
 
     public void VisitShop() throws InterruptedException
     {
