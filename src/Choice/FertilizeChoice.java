@@ -2,7 +2,7 @@ package Choice;
 
 import Mgr.FarmMgr;
 import Mgr.SoundMgr;
-import Player.MoneyPresenter;
+import Player.MoneyController;
 
 public class FertilizeChoice extends ChoiceConsumeMoney{
     public FertilizeChoice() throws InterruptedException
@@ -13,8 +13,8 @@ public class FertilizeChoice extends ChoiceConsumeMoney{
 
     public void Choose() throws InterruptedException
     {
-        if (MoneyPresenter.GetInstance().HasEnoughMoney(needMoney)) {
-            MoneyPresenter.GetInstance().SpendMoney(needMoney);
+        if (MoneyController.GetInstance().HasEnoughMoney(needMoney)) {
+            MoneyController.GetInstance().SpendMoney(needMoney);
             FarmMgr.GetInstance().FertilizePlants();
             SoundMgr.GetInstance().PlayCoinSound();
         } else {

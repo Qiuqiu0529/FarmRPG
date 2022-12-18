@@ -4,7 +4,7 @@ import Farm.Flower;
 import Farm.Vegetable;
 import Mgr.FarmMgr;
 import Mgr.SoundMgr;
-import Player.MoneyPresenter;
+import Player.MoneyController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +42,7 @@ public class GainCrops extends ChoiceConsumeEnergy{
             {
                 f.flowers.remove(flowerList.get(i));
             }
-            MoneyPresenter.GetInstance().EarnMoney(flowerMoney);
+            MoneyController.GetInstance().EarnMoney(flowerMoney);
         }
         //计算可以收获卖钱的蔬菜，然后把他们从FarmMgr里删了
         for(int i =0;i<f.vegetables.size();i++)
@@ -61,7 +61,7 @@ public class GainCrops extends ChoiceConsumeEnergy{
             {
                 f.vegetables.remove(vegetableList.get(i));
             }
-            MoneyPresenter.GetInstance().EarnMoney(vegetableMoney);
+            MoneyController.GetInstance().EarnMoney(vegetableMoney);
             SoundMgr.GetInstance().PlayCoinSound();
         }
     }
