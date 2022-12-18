@@ -4,6 +4,8 @@ import java.util.List;
 
 //import Choice.EnterFarmShop;
 import Choice.*;
+import Farm.FertilizedFlower;
+import Farm.FertilizedVegetable;
 import Farm.Flower;
 import Farm.Vegetable;
 import Player.Player;
@@ -95,4 +97,32 @@ public class FarmMgr {
             vegetables.get(i).grow();
         }
     }
+
+    public int CountPlants()
+    {
+        return flowers.size()+vegetables.size();
+    }
+
+    public void FertilizePlants()
+    {
+        List<FertilizedFlower> Flist = new ArrayList<>();
+        List<FertilizedVegetable> Vlist = new ArrayList<>();
+        for(int i=0;i<flowers.size();i++)
+        {
+            FertilizedFlower f = new FertilizedFlower(flowers.get(i));
+            Flist.add(f);
+        }
+        flowers.clear();//替换成施过肥的
+        flowers.addAll(Flist);
+        for(int i =0;i<vegetables.size();i++)
+        {
+            FertilizedVegetable v = new FertilizedVegetable(vegetables.get(i));
+            Vlist.add(v);
+        }
+        vegetables.clear();
+        vegetables.addAll(Vlist);
+
+        System.out.println("已经给所有植物施过肥啦");
+    }
+
 }

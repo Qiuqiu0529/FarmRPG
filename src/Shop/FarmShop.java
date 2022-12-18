@@ -1,12 +1,16 @@
 package Shop;
 
 import Choice.BuyInventoryItem;
+import Choice.FertilizeChoice;
 import Farm.SeedAdapter;
+import Farm.SeedFactory;
 import Farm.SeedShop;
 import Item.ItemTypes;
 import Other.Global;
 
 public class FarmShop extends ShopBase{
+
+    private SeedFactory seedFactory;
     public void InitGoods()
     {
         shopname = "农场商店";
@@ -31,9 +35,14 @@ public class FarmShop extends ShopBase{
         v.setSeed(new SeedShop().createVegetableSeed());
         BuyInventoryItem buyV = new BuyInventoryItem(v);
         goods.add(buyV);
+
     }
 
-    public FarmShop(){InitGoods();}
+    public FarmShop() throws InterruptedException
+    {
+        InitGoods();
+        goods.add(new FertilizeChoice());
+    }
 
     public void VisitShop() throws InterruptedException
     {

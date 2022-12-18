@@ -15,10 +15,12 @@ public class GetCropInfo extends ChoiceConsumeEnergy{
         for(int i =0;i<farmMgr.flowers.size();i++)
         {
             farmMgr.flowers.get(i).GetAgeToMature();
+            System.out.println("这朵花的价格是"+farmMgr.flowers.get(i).getPrice());
         }
         for(int i =0;i<farmMgr.vegetables.size();i++)
         {
             farmMgr.vegetables.get(i).GetAgeToMature();
+            System.out.println("这颗蔬菜的价格是"+farmMgr.vegetables.get(i).getPrice());
         }
     }
 }

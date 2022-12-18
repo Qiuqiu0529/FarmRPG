@@ -10,6 +10,14 @@ public class Vegetable extends Plant {
     public Vegetable(VegetableSeed vegetableSeed){
         type="Vegetable";
         mature= vegetableSeed.mature;
+        price = 10;
+    }
+
+    public Vegetable(Vegetable vegetable)
+    {
+        age = vegetable.age;
+        type = vegetable.type;
+        mature = vegetable.mature;
     }
 
     public void GetAgeToMature()
