@@ -3,11 +3,14 @@ package Shop;
 import Choice.BuyInventoryItem;
 import Choice.FertilizeChoice;
 import Farm.SeedAdapter;
+import Farm.SeedFactory;
 import Farm.SeedShop;
 import Item.ItemTypes;
 import Other.Global;
 
 public class FarmShop extends ShopBase{
+
+    private SeedFactory seedFactory;
     public void InitGoods()
     {
         shopname = "农场商店";
