@@ -1,6 +1,6 @@
 package Choice;
 
-import Player.MoneyPresenter;
+import Player.MoneyController;
 
 public class ChoiceConsumeMoney implements IChoice{
 
@@ -8,7 +8,7 @@ public class ChoiceConsumeMoney implements IChoice{
     protected String description="";//选项描述
     public boolean CanChoose()
     {
-       return MoneyPresenter.GetInstance().HasEnoughMoney(needMoney);
+       return MoneyController.GetInstance().HasEnoughMoney(needMoney);
     }
 
     public void ChoiceInfo()
@@ -18,7 +18,7 @@ public class ChoiceConsumeMoney implements IChoice{
  
     public void Choose() throws InterruptedException
     {
-        MoneyPresenter.GetInstance().SpendMoney(needMoney);
+        MoneyController.GetInstance().SpendMoney(needMoney);
     }
     
 }

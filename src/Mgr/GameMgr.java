@@ -1,6 +1,6 @@
 package Mgr;
 
-import Player.MoneyPresenter;
+import Player.MoneyController;
 import Player.Player;
 import java.util.ArrayList;
 import java.util.List;
@@ -106,7 +106,7 @@ public class GameMgr {
     }
 
     public void EndADay() throws InterruptedException {
-        MoneyPresenter.GetInstance().CheckDebt();
+        MoneyController.GetInstance().CheckDebt();
         if(IsGameRunning())
         {
             Player.getInstance().SetSleep();
@@ -120,7 +120,7 @@ public class GameMgr {
     {
         Player.getInstance().SetComa();
         System.out.println("这一天提前结束");
-        MoneyPresenter.GetInstance().CheckDebt();
+        MoneyController.GetInstance().CheckDebt();
         if (IsGameRunning()) {
             Thread.sleep(500);
             FarmMgr.GetInstance().PlantsGrow();

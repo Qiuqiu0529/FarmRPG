@@ -6,7 +6,7 @@ import java.util.List;
 import Item.Dice;
 import Mgr.GameMgr;
 import Mgr.SoundMgr;
-import Player.MoneyPresenter;
+import Player.MoneyController;
 import Player.Player;
 import Player.PlayerMaker;
 
@@ -42,7 +42,7 @@ public class Battle implements IBattleMediator {
         }
         Thread.sleep(200);
         System.out.println("战斗奖励");
-        MoneyPresenter.GetInstance().EarnMoney(moneybonus);
+        MoneyController.GetInstance().EarnMoney(moneybonus);
         Thread.sleep(200);
         EndBattle();
         Thread.sleep(200);
@@ -66,7 +66,7 @@ public class Battle implements IBattleMediator {
         }
         Thread.sleep(200);
         System.out.println("损失金钱");
-        MoneyPresenter.GetInstance().LoseMoney(Dice.RollF(0.1f, 0.5f));
+        MoneyController.GetInstance().LoseMoney(Dice.RollF(0.1f, 0.5f));
         Thread.sleep(200);
         EndBattle();
         Thread.sleep(200);

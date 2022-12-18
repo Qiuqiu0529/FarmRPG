@@ -4,7 +4,7 @@ import Item.Dice;
 import Item.InventoryItem;
 import Mgr.InputMgr;
 import Mgr.SoundMgr;
-import Player.MoneyPresenter;
+import Player.MoneyController;
 import Player.Player;
 
 public class BuyInventoryItem extends ChoiceConsumeMoney {
@@ -32,8 +32,8 @@ public class BuyInventoryItem extends ChoiceConsumeMoney {
     public void Choose() throws InterruptedException {
         System.out.println("你要购买的数量为(1-100)：");
         int amount = InputMgr.GetInstance().GetInputInt(1, 101);
-        if (MoneyPresenter.GetInstance().HasEnoughMoney(amount * needMoney)) {
-            MoneyPresenter.GetInstance().SpendMoney(amount * needMoney);
+        if (MoneyController.GetInstance().HasEnoughMoney(amount * needMoney)) {
+            MoneyController.GetInstance().SpendMoney(amount * needMoney);
             item.TargetInventory().AddItem(item, amount);
             SoundMgr.GetInstance().PlayCoinSound();
         } else {

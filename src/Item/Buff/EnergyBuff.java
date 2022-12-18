@@ -1,6 +1,6 @@
 package Item.Buff;
 
-import Player.EnergyPresenter;
+import Player.EnergyController;
 
 public class EnergyBuff extends Buff{
     public EnergyBuff(int contitime) {
@@ -15,7 +15,7 @@ public class EnergyBuff extends Buff{
     public void AddBuff() throws InterruptedException
     {
         super.AddBuff();
-        EnergyPresenter.GetInstance().EarnEnergy(amount);
+        EnergyController.GetInstance().EarnEnergy(amount);
     }
     
 }

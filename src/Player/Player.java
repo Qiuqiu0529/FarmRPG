@@ -14,6 +14,8 @@ public class Player {//state/component/
     PlayerVisual playerVisual;
     PlayerMovement playerMovement;
     PlayerBattle playerBattle;//跟战斗有关的
+
+    
     PlayerState state;
     PlayerComaState playerComaState;
     PlayerMoveState playerMoveState;
@@ -71,7 +73,7 @@ public class Player {//state/component/
     public static Player getInstance() throws InterruptedException {
         var result = instance;
         if (result == null) {
-            synchronized (MoneyPresenter.class) {
+            synchronized (MoneyController.class) {
                 result = instance;
                 if (result == null) {
                     instance = result = new Player();
@@ -124,12 +126,12 @@ public class Player {//state/component/
 
     public void GoodSleep()
     {
-        EnergyPresenter.GetInstance().Reset();
+        EnergyController.GetInstance().Reset();
     }
 
     public void BadSleep()
     {
-        EnergyPresenter.GetInstance().BadReset();
+        EnergyController.GetInstance().BadReset();
     }
 
     public void Idle()
