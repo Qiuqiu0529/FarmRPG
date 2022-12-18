@@ -2,6 +2,5 @@ package Farm;
 
 // 抽象工厂接口
 public interface SeedFactory {
-    FlowerSeed createFlowerSeed();
-    VegetableSeed createVegetableSeed();
+    Seed create();
 }
