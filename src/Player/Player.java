@@ -2,6 +2,7 @@ package Player;
 
 import java.lang.reflect.Type;
 
+import Mgr.ChoiceMgr;
 import Mgr.IPlayerMoveObserver;
 import Mgr.SoundMgr;
 import Mgr.ChoiceMgr;
@@ -44,7 +45,8 @@ public class Player {//state/component/
 
     public void Init() throws InterruptedException{
         instance=this;
-        HairStyleType hairStyleType=ChoiceMgr.GetInstance().ChooseHair();
+        HairStyleType hairStyleType= ChoiceMgr.GetInstance().ChooseHair();
+
         ColorType hType=ChoiceMgr.GetInstance().ChooseColor("头发");
         ColorType eType=ChoiceMgr.GetInstance().ChooseColor("眼睛");
         ConstellationType constellationType=ChoiceMgr.GetInstance().ChooseConstellation();

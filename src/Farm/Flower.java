@@ -3,16 +3,13 @@ package Farm;
 import Mgr.FarmMgr;
 
 public class Flower extends Plant{
-    @Override
-    public void grow(){
-        age++;
-        System.out.println("一朵鲜花已经生长了"+Integer.toString(age)+"天");
-    }
+
 
     public Flower(FlowerSeed flowerSeed){
         type="Flower";
         mature= flowerSeed.mature;
         price = 5;
+        api = new flowerGrow();
     }
 
     public Flower(Flower flower)

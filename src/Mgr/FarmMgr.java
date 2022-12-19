@@ -88,13 +88,13 @@ public class FarmMgr {
             System.out.println("鲜花正在生长");
         for(int i = 0;i<flowers.size();i++)
         {
-            flowers.get(i).grow();
+            flowers.get(i).api.grow(flowers.get(i));
         }
         if(vegetables.size() >0)
             System.out.println("蔬菜正在生长");
         for(int i =0;i<vegetables.size();i++)
         {
-            vegetables.get(i).grow();
+            vegetables.get(i).api.grow(vegetables.get(i));
         }
     }
 

@@ -3,12 +3,12 @@ package Farm;
 import Item.InventoryItem;
 
 public abstract class Plant  {
+    public PlantApi api;
 
     protected String type;
     protected int price;
     protected int mature;
     protected int age=0;
-    public abstract void grow();
     public boolean isMature()
     {
         if(age >= mature)

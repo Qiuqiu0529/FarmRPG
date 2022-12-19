@@ -1,16 +1,12 @@
 package Farm;
 
 public class Vegetable extends Plant {
-    @Override
-    public void grow(){
-        age++;
-        System.out.println("一颗蔬菜已经生长了"+Integer.toString(age)+"天");
-    }
 
     public Vegetable(VegetableSeed vegetableSeed){
         type="Vegetable";
         mature= vegetableSeed.mature;
         price = 10;
+        api = new vegetableGrow();
     }
 
     public Vegetable(Vegetable vegetable)
