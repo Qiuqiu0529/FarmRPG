@@ -56,7 +56,7 @@ public class Player {//state/component/
 
        // System.out.println("为方便测试，build playervisual的代码暂注释，详见Player.Init()" );//正式运行注释这行
 
-        playerVisual=new PlayerVisual();//正式运行注释这行
+       // playerVisual=new PlayerVisual();//正式运行注释这行
 
         playerMovement=new PlayerMovement();
         playerIdleState=new PlayerIdleState(this);
