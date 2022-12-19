@@ -6,5 +6,6 @@ public class FertilizedVegetable extends Vegetable{
     {
         super(vegetable);
         price = 15;
+        api = new vegetableGrow();
     }
 }

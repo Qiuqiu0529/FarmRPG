@@ -6,5 +6,6 @@ public class FertilizedFlower extends Flower{
     {
         super(flower);
         price = 10;
+        api = new flowerGrow();
     }
 }
