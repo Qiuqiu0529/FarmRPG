@@ -54,7 +54,7 @@ public class Player {//state/component/
         .withEyesColor(eType).withConstellation(constellationType)
         .build();//正式运行解除这一段注释
 
-        System.out.println("为方便测试，build playervisual的代码暂注释，详见Player.Init()" );//正式运行注释这行
+       // System.out.println("为方便测试，build playervisual的代码暂注释，详见Player.Init()" );//正式运行注释这行
 
         playerVisual=new PlayerVisual();//正式运行注释这行
 
