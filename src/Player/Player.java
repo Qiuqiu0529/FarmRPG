@@ -4,6 +4,7 @@ import java.lang.reflect.Type;
 
 import Mgr.IPlayerMoveObserver;
 import Mgr.SoundMgr;
+import Mgr.ChoiceMgr;
 
 public class Player {//state/component/
     private static volatile Player instance;
@@ -43,15 +44,15 @@ public class Player {//state/component/
 
     public void Init() throws InterruptedException{
         instance=this;
-        // HairStyleType hairStyleType=ChoiceMgr.GetInstance().ChooseHair();
-        // ColorType hType=ChoiceMgr.GetInstance().ChooseColor("头发");
-        // ColorType eType=ChoiceMgr.GetInstance().ChooseColor("眼睛");
-        // ConstellationType constellationType=ChoiceMgr.GetInstance().ChooseConstellation();
+        HairStyleType hairStyleType=ChoiceMgr.GetInstance().ChooseHair();
+        ColorType hType=ChoiceMgr.GetInstance().ChooseColor("头发");
+        ColorType eType=ChoiceMgr.GetInstance().ChooseColor("眼睛");
+        ConstellationType constellationType=ChoiceMgr.GetInstance().ChooseConstellation();
 
-        // playerVisual = new PlayerVisual.PlayerVisualBuilder()
-        // .withHairType(hairStyleType).withHairColor(hType)
-        // .withEyesColor(eType).withConstellation(constellationType)
-        // .build();//正式运行解除这一段注释
+        playerVisual = new PlayerVisual.PlayerVisualBuilder()
+        .withHairType(hairStyleType).withHairColor(hType)
+        .withEyesColor(eType).withConstellation(constellationType)
+        .build();//正式运行解除这一段注释
 
         System.out.println("为方便测试，build playervisual的代码暂注释，详见Player.Init()" );//正式运行注释这行
 
