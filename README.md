@@ -1,4 +1,4 @@
-#### Using Java to Implement More than 30 Software Design Patterns (Text RPG)
+## Using Java to Implement More than 30 Software Design Patterns (Text RPG)
 ## hsr
 
 - State
